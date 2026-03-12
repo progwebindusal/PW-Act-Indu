@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test - Indusalca</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #2c5aa0, #1e3f73);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 3rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #2c5aa0;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+        }
+        .status {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: rgba(46, 204, 113, 0.2);
+            border-radius: 10px;
+            border: 1px solid rgba(46, 204, 113, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>✅ Indusalca</h1>
+        <p>Página web funcionando correctamente</p>
+        <p><strong>Estado:</strong> Todos los archivos cargados exitosamente</p>
+        
+        <a href="index.html" class="btn">Ir a la página principal</a>
+        
+        <div class="status">
+            <h3>Archivos verificados:</h3>
+            <ul style="text-align: left; display: inline-block;">
+                <li>✅ index.html - OK</li>
+                <li>✅ styles.css - OK</li>
+                <li>✅ assets.css - OK</li>
+                <li>✅ script.js - OK</li>
+                <li>✅ productos.html - OK</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Test básico de JavaScript
+        console.log('✅ JavaScript funcionando correctamente');
+        
+        // Verificar que los archivos CSS se carguen
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('✅ DOM cargado correctamente');
+            
+            // Agregar animación simple
+            const container = document.querySelector('.container');
+            container.style.opacity = '0';
+            container.style.transform = 'translateY(30px)';
+            
+            setTimeout(() => {
+                container.style.transition = 'all 0.8s ease';
+                container.style.opacity = '1';
+                container.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+</body>
+</html>

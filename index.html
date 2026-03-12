@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indusalca</title>
+    <link rel="icon" type="image/svg+xml" href="catalogo/icono.svg">
+    <link rel="alternate icon" href="catalogo/icono.svg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assets.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="catalogo/logo1.png" alt="Indusalca" class="logo">
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Inicio</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#about" class="nav-link">
+                        Nosotros
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#about" onclick="openAccordionFromNav('historia')">Nuestra Historia</a></li>
+                        <li><a href="#about" onclick="openAccordionFromNav('mision')">Nuestra Misión</a></li>
+                        <li><a href="#about" onclick="openAccordionFromNav('vision')">Nuestra Visión</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#values" class="nav-link">
+                        Valores
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#value-calidad">Calidad</a></li>
+                        <li><a href="#value-confianza">Confianza</a></li>
+                        <li><a href="#value-innovacion">Innovación</a></li>
+                        <li><a href="#value-sostenibilidad">Sostenibilidad</a></li>
+                        <li><a href="#value-compromiso">Compromiso Social</a></li>
+                        <li><a href="#value-seguridad">Seguridad</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#marcas" class="nav-link">
+                        Marcas
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#marcas">Todas las Marcas</a></li>
+                        <li><a href="#marcas" onclick="scrollToBrand('monte-blanco')">Monte Blanco</a></li>
+                        <li><a href="#marcas" onclick="scrollToBrand('cruz-de-oro')">Cruz de Oro</a></li>
+                        <li><a href="#marcas" onclick="scrollToBrand('condor')">Cóndor</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a href="#industries" class="nav-link">
+                        Sectores
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#industries" onclick="openSectorFromNav('industria')">Industria</a></li>
+                        <li><a href="#industries" onclick="openSectorFromNav('petrolera')">Industria Petrolera</a></li>
+                        <li><a href="#industries" onclick="openSectorFromNav('agroindustria')">Agroindustria</a></li>
+                        <li><a href="#industries" onclick="openSectorFromNav('quesera')">Industria Quesera</a></li>
+                        <li><a href="#industries" onclick="openSectorFromNav('textil')">Industria Textil</a></li>
+                        <li><a href="#industries" onclick="openSectorFromNav('farmaceutica')">Sal Farmacéutica</a></li>
+                        <li><a href="#industries" onclick="openSectorFromNav('agraria')">Industria Agraria</a></li>
+                        <li><a href="#industries" onclick="openSectorFromNav('hogar')">Hogar - Consumo Masivo</a></li>
+                        <li><a href="#industries" onclick="openSectorFromNav('aguas')">Tratamiento de Aguas</a></li>
+                        <li><a href="#industries" onclick="openSectorFromNav('piscinas')">Tratamiento de Piscinas</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contacto</a>
+                </li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#order" class="btn btn-order">Hacer Pedido</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+            <div class="floating-elements">
+                <div class="floating-element element-1"></div>
+                <div class="floating-element element-2"></div>
+                <div class="floating-element element-3"></div>
+                <div class="floating-element element-4"></div>
+            </div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-text">73 años de excelencia</span>
+            </div>
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="animate-text">Garantizamos</span>
+                    <span class="animate-text delay-1 highlight">la mejor calidad</span>
+                    <span class="animate-text delay-2">de productos</span>
+                </h1>
+                <p class="hero-subtitle">
+                    <span class="company-name">Industrias Salineras C.A.</span>
+                    <span class="tagline">La salud en su Hogar</span>
+                </p>
+                <div class="hero-buttons">
+                    <a href="#industries" class="btn btn-primary">
+                        <span>Nuestros Productos</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span>Contactar</span>
+                        <i class="fas fa-phone"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="stat-label">Normas ISO 9001, HACCP y BPF</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="stat-label">Calidad Premium</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <div class="stat-label">73 Años de Experiencia</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="stat-label">Líderes en Venezuela</div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Nuestra Empresa</div>
+                <h2 class="section-title">Sobre Nosotros</h2>
+                <p class="section-subtitle">Industrias Salineras C.A.</p>
+            </div>
+            <div class="about-content">
+                <div class="about-timeline-wrapper">
+                    <div class="about-timeline">
+                        <div class="timeline-item accordion-item" data-year="1952" id="accordion-historia">
+                            <div class="timeline-content" onclick="toggleAccordion(this)">
+                                <div class="timeline-header">
+                                    <div class="timeline-icon">
+                                        <i class="fas fa-rocket"></i>
+                                    </div>
+                                    <h3>Nuestra Historia</h3>
+                                    <i class="fas fa-chevron-down accordion-arrow"></i>
+                                </div>
+                                <div class="accordion-body">
+                                    <p>Industrias Salineras C.A. (INDUSALCA) es una de las primeras empresas del país comprometida al sector químico industrial. Con más de 72 años de experiencia, nos hemos consolidado como líderes en tecnología avanzada. Con una capacidad de 45 Toneladas diarias, es la mayor planta de sal de Venezuela, ofreciendo al país. Con 73 años de experiencia, INDUSALCA se ha posicionado como una de las empresas más sólidas del país, expandiéndose en mercados nacionales e internacionales. La empresa se enorgullece de su atención al cliente y reputación, gracias a un equipo humano calificado que garantiza la calidad de sus productos. Además, está comprometida con la certificación bajo normas ISO 9001, HACCP y BPF, mejorando continuamente sus servicios en diversos sectores, incluyendo la industria alimentaria y petrolera.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item accordion-item" data-year="MISIÓN" id="accordion-mision">
+                            <div class="timeline-content" onclick="toggleAccordion(this)">
+                                <div class="timeline-header">
+                                    <div class="timeline-icon">
+                                        <i class="fas fa-bullseye"></i>
+                                    </div>
+                                    <h3>Nuestra Misión</h3>
+                                    <i class="fas fa-chevron-down accordion-arrow"></i>
+                                </div>
+                                <div class="accordion-body">
+                                    <p>Somos una familia sólida, dedicada, capacitada y comprometida con el desarrollo del país. Ofrecemos productos de primera calidad que contribuyen al bienestar individual. Ofrecemos servicios técnicos y profesionales a nuestros clientes para garantizar la calidad que merecen, así como el desarrollo y crecimiento de nuestros empleados.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-item accordion-item" data-year="VISIÓN" id="accordion-vision">
+                            <div class="timeline-content" onclick="toggleAccordion(this)">
+                                <div class="timeline-header">
+                                    <div class="timeline-icon">
+                                        <i class="fas fa-eye"></i>
+                                    </div>
+                                    <h3>Nuestra Visión</h3>
+                                    <i class="fas fa-chevron-down accordion-arrow"></i>
+                                </div>
+                                <div class="accordion-body">
+                                    <p>Ser referencia de Latinoamérica en la fabricación, comercialización y distribución de los productos de sal y sus derivados, manteniendo los más altos estándares de calidad y servicio, manteniendo el liderazgo empresarial tanto en el mercado venezolano como en el internacional.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="company-metrics">
+                        <div class="metric-card">
+                            <div class="metric-icon">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                            <div class="metric-info">
+                                <div class="metric-value">45</div>
+                                <div class="metric-label">Toneladas Diarias</div>
+                            </div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="metric-info">
+                                <div class="metric-value">ÚNICA</div>
+                                <div class="metric-label">Planta de Sal Recristalizadora en Venezuela</div>
+                            </div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div class="metric-info">
+                                <div class="metric-value">100%</div>
+                                <div class="metric-label">Calidad Garantizada</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-video-section">
+                        <div class="video-container">
+                            <video 
+                                id="indusalca-video" 
+                                controls 
+                                poster="catalogo/masivo completo 16-9-03.png"
+                                preload="metadata">
+                                <source src="video/indusalca.mp4" type="video/mp4">
+                                Tu navegador no soporta el elemento de video.
+                            </video>
+                            <div class="video-overlay">
+                                <div class="play-button-large" onclick="playVideo()">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <h3>Conoce Nuestras Instalaciones</h3>
+                            <p>Descubre cómo producimos nuestros productos con la más alta calidad</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section id="values" class="values">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Valores</div>
+                <h2 class="section-title">Nuestros Valores</h2>
+                <p class="section-subtitle">Los pilares fundamentales que guían nuestro trabajo diario</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card" id="value-calidad">
+                    <div class="value-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Calidad</h3>
+                    <p>Comprometidos con la excelencia en cada producto que fabricamos, manteniendo los más altos estándares de calidad.</p>
+                </div>
+                <div class="value-card" id="value-confianza">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Confianza</h3>
+                    <p>Construimos relaciones duraderas basadas en la transparencia, honestidad y cumplimiento de nuestros compromisos.</p>
+                </div>
+                <div class="value-card" id="value-innovacion">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovación</h3>
+                    <p>Constantemente mejoramos nuestros procesos y productos para ofrecer soluciones innovadoras a nuestros clientes.</p>
+                </div>
+                <div class="value-card" id="value-sostenibilidad">
+                    <div class="value-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Sostenibilidad</h3>
+                    <p>Cuidamos el medio ambiente implementando prácticas responsables en todos nuestros procesos productivos.</p>
+                </div>
+                <div class="value-card" id="value-compromiso">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Compromiso Social</h3>
+                    <p>Contribuimos al desarrollo de nuestras comunidades y al bienestar de nuestros colaboradores.</p>
+                </div>
+                <div class="value-card" id="value-seguridad">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Seguridad</h3>
+                    <p>Priorizamos la seguridad en todos nuestros procesos, protegiendo a nuestros trabajadores y productos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section id="marcas" class="brands">
+        <div class="brands-background">
+            <div class="brands-overlay"></div>
+            <div class="brands-pattern"></div>
+        </div>
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Nuestras Marcas</div>
+                <h2 class="section-title">Marcas de Confianza</h2>
+                <p class="section-subtitle">Tres marcas icónicas que representan calidad y tradición venezolana</p>
+            </div>
+            <div class="brands-grid">
+                <div class="brand-card" id="monte-blanco" data-brand="monte-blanco">
+                    <div class="brand-card-inner">
+                        <div class="brand-logo-section">
+                            <div class="brand-logo-wrapper">
+                                <div class="logo-glow"></div>
+                                <img src="catalogo/mb.png" alt="Monte Blanco" class="brand-logo">
+                            </div>
+                            <div class="brand-badge">
+                                <i class="fas fa-star"></i>
+                                <span>Tradición</span>
+                            </div>
+                        </div>
+                        <div class="brand-content">
+                            <h3>Monte Blanco</h3>
+                            <p class="brand-tagline">Sal purificada de máxima calidad</p>
+                            <p class="brand-description">Sal purificada recristalizada al vacío, eliminando impurezas para garantizar un producto de alta calidad para el consumo humano.</p>
+                            <div class="brand-features">
+                                <div class="brand-feature">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <span>Recristalizada al vacío</span>
+                                </div>
+                                <div class="brand-feature">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <span>Sin impurezas</span>
+                                </div>
+                                <div class="brand-feature">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-home"></i>
+                                    </div>
+                                    <span>Consumo humano certificado</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="brand-decoration"></div>
+                </div>
+
+                <div class="brand-card" id="cruz-de-oro" data-brand="cruz-de-oro">
+                    <div class="brand-card-inner">
+                        <div class="brand-logo-section">
+                            <div class="brand-logo-wrapper">
+                                <div class="logo-glow"></div>
+                                <img src="catalogo/co.png" alt="Cruz de Oro" class="brand-logo">
+                            </div>
+                            <div class="brand-badge">
+                                <i class="fas fa-crown"></i>
+                                <span>Premium</span>
+                            </div>
+                        </div>
+                        <div class="brand-content">
+                            <h3>Cruz de Oro</h3>
+                            <p class="brand-tagline">Sal Mundial de excelencia</p>
+                            <p class="brand-description">Sal Mundial, en cuya elaboración se eliminan las impurezas, haciéndola un producto de alta calidad para el consumo humano.</p>
+                            <div class="brand-features">
+                                <div class="brand-feature">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-globe-americas"></i>
+                                    </div>
+                                    <span>Sal Mundial</span>
+                                </div>
+                                <div class="brand-feature">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-gem"></i>
+                                    </div>
+                                    <span>Alta calidad garantizada</span>
+                                </div>
+                                <div class="brand-feature">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-certificate"></i>
+                                    </div>
+                                    <span>Libre de impurezas</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="brand-decoration"></div>
+                </div>
+
+                <div class="brand-card" id="condor" data-brand="condor">
+                    <div class="brand-card-inner">
+                        <div class="brand-logo-section">
+                            <div class="brand-logo-wrapper">
+                                <div class="logo-glow"></div>
+                                <img src="catalogo/condor.png" alt="Cóndor" class="brand-logo">
+                            </div>
+                            <div class="brand-badge">
+                                <i class="fas fa-fish"></i>
+                                <span>Gourmet</span>
+                            </div>
+                        </div>
+                        <div class="brand-content">
+                            <h3>Cóndor</h3>
+                            <p class="brand-tagline">Sal Marina especial para carnes y pescados</p>
+                            <p class="brand-description">Sal Marina con un grano irregular ideal y especial para todo tipo de Carnes y Pescados, ofreciendo ese toque de sabor.</p>
+                            <div class="brand-features">
+                                <div class="brand-feature">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-water"></i>
+                                    </div>
+                                    <span>Sal Marina auténtica</span>
+                                </div>
+                                <div class="brand-feature">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-drumstick-bite"></i>
+                                    </div>
+                                    <span>Ideal para carnes y pescados</span>
+                                </div>
+                                <div class="brand-feature">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <span>Grano irregular especial</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="brand-decoration"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section id="industries" class="industries">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Sectores</div>
+                <h2 class="section-title">Industrias que Servimos</h2>
+                <p class="section-subtitle">Brindamos soluciones especializadas para diversos sectores industriales</p>
+            </div>
+            <div class="industries-grid">
+                <div class="industry-card">
+                    <div class="industry-image">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <div class="industry-content">
+                        <h3>Industria</h3>
+                        <p>Soluciones especializadas para procesos industriales con productos de alta calidad y pureza.</p>
+                        <ul>
+                            <li>Manufactura industrial</li>
+                            <li>Procesos químicos</li>
+                            <li>Control de calidad</li>
+                        </ul>
+                        <button class="btn-ver-productos" onclick="openProductModal('industria')">
+                            <i class="fas fa-box-open"></i>
+                            Ver Productos
+                        </button>
+                    </div>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-image">
+                        <i class="fas fa-burn"></i>
+                    </div>
+                    <div class="industry-content">
+                        <h3>Industria Petrolera</h3>
+                        <p>Productos especializados para la industria petrolera y procesos de refinación.</p>
+                        <ul>
+                            <li>Perforación y extracción</li>
+                            <li>Refinación de petróleo</li>
+                            <li>Procesos petroquímicos</li>
+                        </ul>
+                        <button class="btn-ver-productos" onclick="openProductModal('petrolera')">
+                            <i class="fas fa-box-open"></i>
+                            Ver Productos
+                        </button>
+                    </div>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-image">
+                        <i class="fas fa-tractor"></i>
+                    </div>
+                    <div class="industry-content">
+                        <h3>Agroindustria</h3>
+                        <p>Soluciones para el sector agrícola con productos que mejoran la productividad.</p>
+                        <ul>
+                            <li>Cultivos y cosechas</li>
+                            <li>Fertilizantes agrícolas</li>
+                            <li>Procesamiento de alimentos</li>
+                        </ul>
+                        <button class="btn-ver-productos" onclick="openProductModal('agroindustria')">
+                            <i class="fas fa-box-open"></i>
+                            Ver Productos
+                        </button>
+                    </div>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-image">
+                        <i class="fas fa-cheese"></i>
+                    </div>
+                    <div class="industry-content">
+                        <h3>Industria Quesera</h3>
+                        <p>Sal de alta pureza para la elaboración y conservación de productos lácteos.</p>
+                        <ul>
+                            <li>Producción de quesos</li>
+                            <li>Conservación láctea</li>
+                            <li>Procesamiento de derivados</li>
+                        </ul>
+                        <button class="btn-ver-productos" onclick="openProductModal('quesera')">
+                            <i class="fas fa-box-open"></i>
+                            Ver Productos
+                        </button>
+                    </div>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-image">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <div class="industry-content">
+                        <h3>Industria Textil</h3>
+                        <p>Productos químicos para procesos de teñido, acabado y tratamiento de textiles.</p>
+                        <ul>
+                            <li>Teñido de telas</li>
+                            <li>Acabados textiles</li>
+                            <li>Tratamiento de fibras</li>
+                        </ul>
+                        <button class="btn-ver-productos" onclick="openProductModal('textil')">
+                            <i class="fas fa-box-open"></i>
+                            Ver Productos
+                        </button>
+                    </div>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-image">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <div class="industry-content">
+                        <h3>Sal Farmacéutica</h3>
+                        <p>Sal de grado farmacéutico con los más altos estándares de pureza y calidad.</p>
+                        <ul>
+                            <li>Producción farmacéutica</li>
+                            <li>Soluciones médicas</li>
+                            <li>Sueros y medicamentos</li>
+                        </ul>
+                        <button class="btn-ver-productos" onclick="openProductModal('farmaceutica')">
+                            <i class="fas fa-box-open"></i>
+                            Ver Productos
+                        </button>
+                    </div>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-image">
+                        <i class="fas fa-horse-head"></i>
+                    </div>
+                    <div class="industry-content">
+                        <h3>Industria Agraria</h3>
+                        <p>Suplementos minerales y productos especializados para ganadería y agricultura.</p>
+                        <ul>
+                            <li>Suplementos ganaderos</li>
+                            <li>Nutrición animal</li>
+                            <li>Mejora de pastizales</li>
+                        </ul>
+                        <button class="btn-ver-productos" onclick="openProductModal('agraria')">
+                            <i class="fas fa-box-open"></i>
+                            Ver Productos
+                        </button>
+                    </div>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-image">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="industry-content">
+                        <h3>Hogar - Consumo Masivo</h3>
+                        <p>Productos de consumo diario para el hogar con la calidad que tu familia merece.</p>
+                        <ul>
+                            <li>Sal de mesa refinada</li>
+                            <li>Productos de limpieza</li>
+                            <li>Uso doméstico diario</li>
+                        </ul>
+                        <button class="btn-ver-productos" onclick="openProductModal('hogar')">
+                            <i class="fas fa-box-open"></i>
+                            Ver Productos
+                        </button>
+                    </div>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-image">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <div class="industry-content">
+                        <h3>Tratamiento de Aguas</h3>
+                        <p>Soluciones para purificación y tratamiento de aguas industriales y municipales.</p>
+                        <ul>
+                            <li>Plantas de tratamiento</li>
+                            <li>Sistemas de filtración</li>
+                            <li>Purificación industrial</li>
+                        </ul>
+                        <button class="btn-ver-productos" onclick="openProductModal('aguas')">
+                            <i class="fas fa-box-open"></i>
+                            Ver Productos
+                        </button>
+                    </div>
+                </div>
+                <div class="industry-card">
+                    <div class="industry-image">
+                        <i class="fas fa-swimming-pool"></i>
+                    </div>
+                    <div class="industry-content">
+                        <h3>Tratamiento de Piscinas</h3>
+                        <p>Sal industrial especializada para el mantenimiento y tratamiento de piscinas.</p>
+                        <ul>
+                            <li>Cloración salina</li>
+                            <li>Mantenimiento de piscinas</li>
+                        </ul>
+                        <button class="btn-ver-productos" onclick="openProductModal('piscinas')">
+                            <i class="fas fa-box-open"></i>
+                            Ver Productos
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Testimonios</div>
+                <h2 class="section-title">La Sal preferida por los Expertos</h2>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <img src="catalogo/expertos/salome.jpg" alt="Salomé Mata">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Salomé Mata</h4>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-date">Chef Ejecutivo</p>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"Trabajo con Indusalca desde hace años. La calidad de sus productos es consistente y confiable."</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <img src="catalogo/expertos/carmen.jpeg" alt="Carmén Montelongo">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Carmén Montelongo</h4>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-date">Chef Ejecutivo</p>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"La sal Monte Blanco es excepcional. Su pureza y sabor realzan cada platillo que preparo."</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <img src="catalogo/expertos/angel.jpeg" alt="Ángel Cadenas">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Ángel Cadenas</h4>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-date">Chef Ejecutivo</p>
+                        </div>
+                    </div>
+                    <p class="testimonial-text">"La sal Cruz de Oro es perfecta para todo tipo de comida. Calidad garantizada en cada presentación."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Order CTA Section - Updated -->
+    <section id="order" class="order-cta">
+        <div class="order-background">
+            <div class="order-overlay"></div>
+            <div class="order-floating-elements">
+                <div class="order-floating-element order-element-1"></div>
+                <div class="order-floating-element order-element-2"></div>
+                <div class="order-floating-element order-element-3"></div>
+                <div class="order-floating-element order-element-4"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="order-content">
+                <div class="order-text">
+                    <h2>¿Listo para hacer tu pedido?</h2>
+                    <p>Contáctanos ahora y obtén los mejores productos con la calidad que nos caracteriza</p>
+                    <div class="order-benefits">
+                        <div class="benefit-item">
+                            <i class="fas fa-shipping-fast"></i>
+                            <span>Entrega rápida</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-certificate"></i>
+                            <span>Calidad garantizada</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-headset"></i>
+                            <span>Soporte 24/7</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-actions">
+                    <a href="#contact" class="btn btn-primary btn-large">
+                        <i class="fas fa-shopping-cart"></i>
+                        Hacer Pedido Ahora
+                    </a>
+                    <!-- <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+58 (0414) 006-0054</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-whatsapp"></i>
+                            <span>WhatsApp disponible</span>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+               <!-- <div class="section-badge">Categorías</div>-->
+                <h2 class="section-title">La salud a su Hogar</h2>
+                <p class="section-subtitle">Productos de máxima calidad con más de 73 años de experiencia</p>
+            </div>
+            <!--<div class="products-showcase-grid">
+                <div class="product-card featured">
+                    <div class="product-image-container">
+                        <img src="catalogo/masivo completo 16-9-03-editado.png" alt="Sal Doméstica" class="product-image">
+                        <div class="product-glow"></div>
+                    </div>
+                    <div class="product-content">
+                        <h3>Sal Doméstica</h3>
+                        <p class="product-description">Sal refinada de la más alta pureza, ideal para el consumo doméstico y la preparación de alimentos.</p>
+                        <div class="product-features">
+                            <span class="feature-tag">Premium</span>
+                            <span class="feature-tag">Pureza Máxima</span>
+                            <span class="feature-tag">Uso Doméstico</span>
+                        </div>
+                        <a href="productos.html" class="product-cta">
+                            <span>Conocer más</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="product-card industrial">
+                    <div class="product-image-container">
+                        <img src="catalogo/MB INDUSTRIAL-06-editar.jpg" alt="Sal Industrial" class="product-image">
+                        <div class="product-glow"></div>
+                    </div>
+                    <div class="product-content">
+                        <h3>Sal Industrial</h3>
+                        <p class="product-description">Sal especializada para procesos industriales con los más altos estándares de calidad.</p>
+                        <div class="product-features">
+                            <span class="feature-tag">Uso Industrial</span>
+                            <span class="feature-tag">Alta Pureza</span>
+                        </div>
+                        <a href="productos.html" class="product-cta">
+                            <span>Conocer más</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>-->
+            
+            <div class="products-cta-section">
+                <div class="cta-content">
+                    <h3>¿Necesitas más información sobre nuestros productos?</h3>
+                    <p>Nuestro equipo de expertos está listo para asesorarte</p>
+                    <a href="pdf/Catalogo-Indusalca.pdf" download="Catalogo-Indusalca.pdf" class="btn btn-primary">
+                        <i class="fas fa-file-pdf"></i>
+                        Ver Catálogo Completo PDF
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section 
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nuestras Categorías</h2>
+                <p class="section-subtitle">Productos organizados por categorías industriales</p>
+            </div>
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="sal-industrial">Sal Industrial</button>
+                <button class="filter-btn" data-filter="sal-domestica">Sal Doméstica</button>
+                <button class="filter-btn" data-filter="galletas">Galletas</button>
+                <button class="filter-btn" data-filter="cafe">Café</button>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card" data-category="sal-industrial">
+                    <div class="project-image">
+                        <img src="catalogo/MB INDUSTRIAL-06.jpg" alt="Sal Industrial">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3>Sal Industrial</h3>
+                                <p>Para procesos industriales especializados</p>
+                                <a href="productos.html" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="sal-domestica">
+                    <div class="project-image">
+                        <img src="catalogo/SAL CRUZ DE ORO BLUE-08.png" alt="Sal Doméstica">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3>Sal Doméstica</h3>
+                                <p>Sal refinada para uso doméstico</p>
+                                <a href="productos.html" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="galletas">
+                    <div class="project-image">
+                        <img src="catalogo/masivo completo 16-9-15.png" alt="Galletas">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3>Galletas Premium</h3>
+                                <p>Deliciosas galletas de alta calidad</p>
+                                <a href="productos.html" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="cafe">
+                    <div class="project-image">
+                        <img src="catalogo/masivo completo 16-9-20.png" alt="Café">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3>Café Venezolano</h3>
+                                <p>Café de origen con aroma excepcional</p>
+                                <a href="productos.html" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="sal-industrial">
+                    <div class="project-image">
+                        <img src="catalogo/SAL EVAPORADA.jpg" alt="Sal Refinada">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3>Sal Refinada</h3>
+                                <p>Sal de alta pureza para industria</p>
+                                <a href="productos.html" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-category="galletas">
+                    <div class="project-image">
+                        <img src="catalogo/masivo completo 16-9-16.png" alt="Galletas Variadas">
+                        <div class="project-overlay">
+                            <div class="project-info">
+                                <h3>Variedad de Galletas</h3>
+                                <p>Amplia gama de sabores y texturas</p>
+                                <a href="productos.html" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>-->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contáctanos</h2>
+                <p class="section-subtitle">Estamos aquí para ayudarte con tu próximo proyecto</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Distribuidoras</h3>
+                        <p>Edo. Zulia • Edo. Falcón • Distrito Capital</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Teléfono</h3>
+                        <p>+58 (0414) 006-0054</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email</h3>
+                        <p>ventas.masivo@indusalca.com.ve</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Nombre completo" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Correo electrónico" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Teléfono">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Mensaje" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de Productos -->
+    <div id="productModal" class="product-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Catálogo de Productos</h2>
+                <button class="modal-close" onclick="closeProductModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- El contenido se cargará dinámicamente -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="catalogo/logo1.png" alt="Indusalca">
+                    </div>
+                    <p>Industrias Salineras C.A. - Líderes en productos químicos industriales con más de 73 años de experiencia. La salud en su Hogar.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/indusalcave/"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/indusalcave/?hl=es"><i class="fab fa-instagram"></i></a>
+                        <a href="https://ve.linkedin.com/company/industrias-salineras-ca-indusalca"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Sectores</h3>
+                    <ul>
+                        <li><a href="#industries">Industria</a></li>
+                        <li><a href="#industries">Industria Petrolera</a></li>
+                        <li><a href="#industries">Agroindustria</a></li>
+                        <li><a href="#industries">Industria Quesera</a></li>
+                        <li><a href="#industries">Industria Textil</a></li>
+                        <li><a href="#industries">Sal Farmacéutica</a></li>
+                        <li><a href="#industries">Industria Agraria</a></li>
+                        <li><a href="#industries">Hogar - Consumo Masivo</a></li>
+                        <li><a href="#industries">Tratamiento de Aguas</a></li>
+                        <li><a href="#industries">Tratamiento de Piscinas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Empresa</h3>
+                    <ul>
+                        <li><a href="#about">Nosotros</a></li>
+                        <li><a href="#values">Valores</a></li>
+                        <li><a href="#marcas">Marcas</a></li>
+                        <li><a href="#contact">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> Edo. Zulia, Venezuela</p>
+                        <p><i class="fas fa-phone"></i> +58 (0414) 006-0054</p>
+                        <p><i class="fas fa-envelope"></i> ventas.masivo@indusalca.com.ve</p>
+                    </div>
+                    <div class="footer-badge">
+                        <img src="catalogo/logo hecho en venezuela.png" alt="Hecho en Venezuela" class="venezuela-badge">
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Indusalca. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button with Salin -->
+    <div class="whatsapp-float" id="whatsapp-float">
+        <div class="whatsapp-message" id="whatsapp-message">
+            <div class="message-bubble">
+                <p>¡Hola! ¿En qué puedo ayudarte?</p>
+                <span class="message-close" onclick="closeWhatsAppMessage()">&times;</span>
+            </div>
+        </div>
+        <a href="https://wa.me/584140060054?text=Hola,%20me%20gustaría%20obtener%20información%20sobre%20sus%20productos" 
+           target="_blank" 
+           class="whatsapp-button"
+           title="Chatea con nosotros">
+            <img src="catalogo/salin2.png" alt="Salin - Mascota Indusalca" class="salin-icon">
+            <div class="whatsapp-pulse"></div>
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

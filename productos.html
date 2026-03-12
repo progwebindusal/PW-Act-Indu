@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Indusalca</title>
+    <link rel="icon" type="image/svg+xml" href="catalogo/icono.svg">
+    <link rel="alternate icon" href="catalogo/icono.svg">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="catalogo/logo1.png" alt="Indusalca" class="logo">
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#about" class="nav-link">Nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a href="productos.html" class="nav-link active">Productos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#industries" class="nav-link">Sectores</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#contact" class="nav-link">Contacto</a>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Products Hero -->
+    <section class="products-hero">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="products-hero-content">
+                <h1>Nuestros Productos</h1>
+                <p>La salud a su Hogar - Productos de máxima calidad con más de 73 años de experiencia</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section id="sal-domestica" class="featured-products">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Sal Doméstica</h2>
+                <p class="section-subtitle">Nuestra línea principal de productos para el hogar</p>
+            </div>
+            
+            <div class="products-showcase">
+                <!-- Sal Monte Blanco -->
+                <div class="product-showcase">
+                    <div class="product-image">
+                        <div class="product-carousel" data-carousel="monte-blanco">
+                            <div class="carousel-track">
+                                <img src="catalogo/masivo completo 16-9-03.png" alt="Sal Monte Blanco - Vista 1">
+                                <img src="catalogo/masivo completo 16-9-04.png" alt="Sal Monte Blanco - Vista 2">
+                                <img src="catalogo/masivo completo 16-9-07.png" alt="Sal Monte Blanco - Vista 3">
+                            </div>
+                            <button class="carousel-btn prev" onclick="moveCarousel('monte-blanco', -1)">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-btn next" onclick="moveCarousel('monte-blanco', 1)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="carousel-dots"></div>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <h3>Sal Monte Blanco</h3>
+                        <p class="product-subtitle">Sal refinada de máxima pureza</p>
+                        <p>Sal de muy alta pureza (98.8%), resultante de un proceso de recristalización al vacío a partir de una salmuera tratada con cristales de tamaño regular con un color blanco intenso, lo que refleja su pureza, además de cumplir con u programa mundial de activación de sal en beneficio de la salud del consumidor.</p>
+                        
+                        <div class="product-features">
+                            <h4>Características:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Sal refinada premium</li>
+                                <li><i class="fas fa-check"></i> Máxima pureza garantizada</li>
+                                <li><i class="fas fa-check"></i> Ideal para uso doméstico</li>
+                                <li><i class="fas fa-check"></i> Procesamiento con tecnología avanzada</li>
+                                <li><i class="fas fa-check"></i> Cumple estándares internacionales</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="product-applications">
+                            <h4>Aplicaciones:</h4>
+                            <div class="applications-grid">
+                                <div class="application-item">
+                                    <i class="fas fa-utensils"></i>
+                                    <span>Cocina doméstica</span>
+                                </div>
+                                <div class="application-item">
+                                    <i class="fas fa-bread-slice"></i>
+                                    <span>Panadería</span>
+                                </div>
+                                <div class="application-item">
+                                    <i class="fas fa-fish"></i>
+                                    <span>Conservación</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sal Cruz de Oro -->
+                <div class="product-showcase reverse">
+                    <div class="product-image">   
+                        <img src="catalogo/masivo completo 16-9-06.png" alt="Sal Cruz de Oro - Vista 1">
+                    </div></i>
+                    <div class="product-details">
+                        <h3>Sal Cruz de Oro</h3>
+                        <p class="product-subtitle">Sal de mesa de excelente calidad</p>
+                        <p>Sal molida en húmedo cuyo proceso de elaboración, quedan eliminadas las impurezas y los materiales insolubles; obteniendo de esta manera un producto de altísima calidad.</p>
+                        
+                        <div class="product-features">
+                            <h4>Características:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Sal de mesa premium</li>
+                                <li><i class="fas fa-check"></i> Procesamiento con tecnología avanzada</li>
+                                <li><i class="fas fa-check"></i> Libre de impurezas</li>
+                                <li><i class="fas fa-check"></i> Sabor excepcional</li>
+                                <li><i class="fas fa-check"></i> Calidad garantizada</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="product-applications">
+                            <h4>Aplicaciones:</h4>
+                            <div class="applications-grid">
+                                <div class="application-item">
+                                    <i class="fas fa-home"></i>
+                                    <span>Uso doméstico</span>
+                                </div>
+                                <div class="application-item">
+                                    <i class="fas fa-store"></i>
+                                    <span>Restaurantes</span>
+                                </div>
+                                <div class="application-item">
+                                    <i class="fas fa-birthday-cake"></i>
+                                    <span>Repostería</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Salero Cándor -->
+                <div class="product-showcase">
+                    <div class="product-image">
+                        <img src="catalogo/masivo completo 16-9-05.png" alt="Salero Cándor">
+                    </div>
+                    <div class="product-details">
+                        <h3>Salero Cándor</h3>
+                        <p class="product-subtitle">Lleva tus parrillas al siguiente nivel</p>
+                        <p>Sal para parrilla, por excelencia para condimentar todo tipo de parrillas, pescados y mariscos para dar ese toque especial que solo puede ofrecer un producto hecho con calidad. Su grano irregular es ideal y de fácil manejo.</p>
+                        
+                        <div class="product-features">
+                            <h4>Características:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Grano irregular ideal para parrilla</li>
+                                <li><i class="fas fa-check"></i> Fácil manejo y aplicación</li>
+                                <li><i class="fas fa-check"></i> Sabor intenso y natural</li>
+                                <li><i class="fas fa-check"></i> Textura perfecta para carnes</li>
+                                <li><i class="fas fa-check"></i> Calidad premium garantizada</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="product-applications">
+                            <h4>Aplicaciones:</h4>
+                            <div class="applications-grid">
+                                <div class="application-item">
+                                    <i class="fas fa-fire"></i>
+                                    <span>Parrillas y asados</span>
+                                </div>
+                                <div class="application-item">
+                                    <i class="fas fa-fish"></i>
+                                    <span>Pescados y mariscos</span>
+                                </div>
+                                <div class="application-item">
+                                    <i class="fas fa-drumstick-bite"></i>
+                                    <span>Carnes a la brasa</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sal Industrial -->
+    <section id="sal-industrial" class="featured-products"></section>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Sal Industrial</h2>
+                <p class="section-subtitle">Soluciones especializadas para procesos industriales</p>
+            </div>
+            
+            <div class="products-showcase">
+                <!-- Sal Monte Blanco Industrial -->
+                <div class="product-showcase">
+                    <div class="product-image">
+                        <div class="product-carousel" data-carousel="monte-blanco-industrial">
+                            <div class="carousel-track">
+                                <img src="catalogo/masivo completo 16-9-24-10.png" alt="Sal Monte Blanco Industrial - Vista 1">
+                                <img src="catalogo/mb industrial-06.jpg" alt="Sal Monte Blanco Industrial - Vista 2">
+                            </div>
+                            <button class="carousel-btn prev" onclick="moveCarousel('monte-blanco-industrial', -1)">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-btn next" onclick="moveCarousel('monte-blanco-industrial', 1)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="carousel-dots"></div>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <h3>Sal Monte Blanco Industrial</h3>
+                        <p class="product-subtitle">Sal refinada de grado industrial</p>
+                        <p>Sal refinada de alta pureza especialmente procesada para aplicaciones industriales. Con especificaciones técnicas rigurosas, garantiza un rendimiento óptimo en procesos químicos, tratamiento de aguas y otras aplicaciones industriales que requieren máxima calidad y consistencia.</p>
+                        
+                        <div class="product-features">
+                            <h4>Características:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Pureza industrial certificada</li>
+                                <li><i class="fas fa-check"></i> Granulometría controlada</li>
+                                <li><i class="fas fa-check"></i> Libre de contaminantes</li>
+                                <li><i class="fas fa-check"></i> Especificaciones técnicas garantizadas</li>
+                                <li><i class="fas fa-check"></i> Cumple normativas internacionales</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="product-applications">
+                            <h4>Aplicaciones:</h4>
+                            <div class="applications-grid">
+                                <div class="application-item">
+                                    <i class="fas fa-industry"></i>
+                                    <span>Procesos químicos</span>
+                                </div>
+                                <div class="application-item">
+                                    <i class="fas fa-water"></i>
+                                    <span>Tratamiento de aguas</span>
+                                </div>
+                                <div class="application-item">
+                                    <i class="fas fa-flask"></i>
+                                    <span>Laboratorios</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sal Cruz de Oro Industrial -->
+                <div class="product-showcase reverse">
+                    <div class="product-image">
+                        <div class="product-carousel" data-carousel="cruz-oro-industrial">
+                            <div class="carousel-track">
+                                <img src="catalogo/sal cruz de oro blue-08.png" alt="Sal Cruz de Oro Industrial - Vista 1">
+                                <img src="catalogo/sal evaporada.jpg" alt="Sal Cruz de Oro Industrial - Vista 2">
+                            </div>
+                            <button class="carousel-btn prev" onclick="moveCarousel('cruz-oro-industrial', -1)">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-btn next" onclick="moveCarousel('cruz-oro-industrial', 1)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="carousel-dots"></div>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <h3>Sal Cruz de Oro Industrial</h3>
+                        <p class="product-subtitle">Sal industrial de alto rendimiento</p>
+                        <p>Sal industrial de excelente calidad, procesada con tecnología avanzada para garantizar pureza y consistencia en aplicaciones industriales exigentes. Ideal para procesos que requieren especificaciones técnicas precisas y rendimiento confiable.</p>
+                        
+                        <div class="product-features">
+                            <h4>Características:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Alto grado de pureza</li>
+                                <li><i class="fas fa-check"></i> Procesamiento industrial avanzado</li>
+                                <li><i class="fas fa-check"></i> Control de calidad riguroso</li>
+                                <li><i class="fas fa-check"></i> Rendimiento consistente</li>
+                                <li><i class="fas fa-check"></i> Certificaciones industriales</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="product-applications">
+                            <h4>Aplicaciones:</h4>
+                            <div class="applications-grid">
+                                <div class="application-item">
+                                    <i class="fas fa-oil-can"></i>
+                                    <span>Petroquímica</span>
+                                </div>
+                                <div class="application-item">
+                                    <i class="fas fa-cogs"></i>
+                                    <span>Manufactura</span>
+                                </div>
+                                <div class="application-item">
+                                    <i class="fas fa-industry"></i>
+                                    <span>Procesos industriales</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Productos por Sector -->
+    <section id="productos-sector" class="products-by-sector">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Productos por Sector</h2>
+                <p class="section-subtitle">Soluciones especializadas para cada industria</p>
+            </div>
+
+            <!-- Industria -->
+            <div class="sector-products">
+                <h3 class="sector-title"><i class="fas fa-industry"></i> Industria</h3>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <img src="catalogo/Monte Blanco 25 kg Recristalizada.png" alt="SAL RECRISTALIZADA MONTE BLANCO 25KG">
+                        <h4>SAL RECRISTALIZADA MONTE BLANCO</h4>
+                        <p>SACOS 25KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/Monte Blanco 5 kg Recristalizada.png" alt="SAL RECRISTALIZADA MONTE BLANCO 5KG">
+                        <h4>SAL RECRISTALIZADA MONTE BLANCO</h4>
+                        <p>SACOS 5KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/MONTEBLANCO INDUSTRIAL 20 KG.png" alt="SAL INDUSTRIAL TIPO I MONTE BLANCO 20KG">
+                        <h4>SAL INDUSTRIAL TIPO I MONTE BLANCO</h4>
+                        <p>20KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png" alt="SAL REFINADA CRUZ DE ORO 25KG">
+                        <h4>SAL REFINADA CRUZ DE ORO</h4>
+                        <p>SACOS 25KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/Cruz de Oro 5 kg.png" alt="SAL REFINADA CRUZ DE ORO 5KG">
+                        <h4>SAL REFINADA CRUZ DE ORO</h4>
+                        <p>SACOS 5KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/CRUZ DE ORO AZUL.png" alt="SAL REFINADA CRUZ DE ORO SELLO AZUL 20KG">
+                        <h4>SAL REFINADA CRUZ DE ORO SELLO AZUL</h4>
+                        <p>SACOS 20 KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/IMG_4791X  Cruz de Oro 20 gold.png" alt="SAL REFINADA CRUZ DE ORO GOLD 20KG">
+                        <h4>SAL REFINADA CRUZ DE ORO GOLD</h4>
+                        <p>SACOS 20 KG</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Industria Petrolera -->
+            <div class="sector-products">
+                <h3 class="sector-title"><i class="fas fa-oil-can"></i> Industria Petrolera</h3>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <img src="catalogo/Monte Blanco 25 kg Recristalizada.png" alt="SAL RECRISTALIZADA MONTE BLANCO 25KG">
+                        <h4>SAL RECRISTALIZADA MONTE BLANCO</h4>
+                        <p>SACOS 25KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/Monte Blanco 5 kg Recristalizada.png" alt="SAL RECRISTALIZADA MONTE BLANCO 5KG">
+                        <h4>SAL RECRISTALIZADA MONTE BLANCO</h4>
+                        <p>SACOS 5KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png" alt="SAL REFINADA CRUZ DE ORO 25KG">
+                        <h4>SAL REFINADA CRUZ DE ORO</h4>
+                        <p>SACOS 25KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/Cruz de Oro 5 kg.png" alt="SAL REFINADA CRUZ DE ORO 5KG">
+                        <h4>SAL REFINADA CRUZ DE ORO</h4>
+                        <p>SACOS 5KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/CRUZ DE ORO AZUL.png" alt="SAL REFINADA CRUZ DE ORO SELLO AZUL 20KG">
+                        <h4>SAL REFINADA CRUZ DE ORO SELLO AZUL</h4>
+                        <p>SACOS 20 KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/IMG_4791X  Cruz de Oro 20 gold.png" alt="SAL REFINADA CRUZ DE ORO GOLD 20KG">
+                        <h4>SAL REFINADA CRUZ DE ORO GOLD</h4>
+                        <p>SACOS 20 KG</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agroindustria -->
+            <div class="sector-products">
+                <h3 class="sector-title"><i class="fas fa-tractor"></i> Agroindustria</h3>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <img src="catalogo/Monte Blanco 25 kg Recristalizada.png" alt="SAL RECRISTALIZADA MONTE BLANCO 25KG">
+                        <h4>SAL RECRISTALIZADA MONTE BLANCO</h4>
+                        <p>SACOS 25KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/Monte Blanco 5 kg Recristalizada.png" alt="SAL RECRISTALIZADA MONTE BLANCO 5KG">
+                        <h4>SAL RECRISTALIZADA MONTE BLANCO</h4>
+                        <p>SACOS 5KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png" alt="SAL REFINADA CRUZ DE ORO 25KG">
+                        <h4>SAL REFINADA CRUZ DE ORO</h4>
+                        <p>SACOS 25KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/Cruz de Oro 5 kg.png" alt="SAL REFINADA CRUZ DE ORO 5KG">
+                        <h4>SAL REFINADA CRUZ DE ORO</h4>
+                        <p>SACOS 5KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/CRUZ DE ORO AZUL.png" alt="SAL REFINADA CRUZ DE ORO SELLO AZUL 20KG">
+                        <h4>SAL REFINADA CRUZ DE ORO SELLO AZUL</h4>
+                        <p>SACOS 20 KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/IMG_4791X  Cruz de Oro 20 gold.png" alt="SAL REFINADA CRUZ DE ORO GOLD 20KG">
+                        <h4>SAL REFINADA CRUZ DE ORO GOLD</h4>
+                        <p>SACOS 20 KG</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Industria Quesera -->
+            <div class="sector-products">
+                <h3 class="sector-title"><i class="fas fa-cheese"></i> Industria Quesera</h3>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <img src="catalogo/Monte Blanco 25 kg Recristalizada.png" alt="SAL RECRISTALIZADA MONTE BLANCO 25KG">
+                        <h4>SAL RECRISTALIZADA MONTE BLANCO</h4>
+                        <p>SACOS 25KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/Monte Blanco 5 kg Recristalizada.png" alt="SAL RECRISTALIZADA MONTE BLANCO 5KG">
+                        <h4>SAL RECRISTALIZADA MONTE BLANCO</h4>
+                        <p>SACOS 5KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png" alt="SAL REFINADA CRUZ DE ORO 25KG">
+                        <h4>SAL REFINADA CRUZ DE ORO</h4>
+                        <p>SACOS 25KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/Cruz de Oro 5 kg.png" alt="SAL REFINADA CRUZ DE ORO 5KG">
+                        <h4>SAL REFINADA CRUZ DE ORO</h4>
+                        <p>SACOS 5KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/CRUZ DE ORO AZUL.png" alt="SAL REFINADA CRUZ DE ORO SELLO AZUL 20KG">
+                        <h4>SAL REFINADA CRUZ DE ORO SELLO AZUL</h4>
+                        <p>SACOS 20 KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/IMG_4791X  Cruz de Oro 20 gold.png" alt="SAL REFINADA CRUZ DE ORO GOLD 20KG">
+                        <h4>SAL REFINADA CRUZ DE ORO GOLD</h4>
+                        <p>SACOS 20 KG</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Industria Textil -->
+            <div class="sector-products">
+                <h3 class="sector-title"><i class="fas fa-tshirt"></i> Industria Textil</h3>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <img src="catalogo/Monte Blanco 25 kg Recristalizada.png" alt="SAL RECRISTALIZADA MONTE BLANCO 25KG">
+                        <h4>SAL RECRISTALIZADA MONTE BLANCO</h4>
+                        <p>SACOS 25KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/Monte Blanco 5 kg Recristalizada.png" alt="SAL RECRISTALIZADA MONTE BLANCO 5KG">
+                        <h4>SAL RECRISTALIZADA MONTE BLANCO</h4>
+                        <p>SACOS 5KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png" alt="SAL REFINADA CRUZ DE ORO 25KG">
+                        <h4>SAL REFINADA CRUZ DE ORO</h4>
+                        <p>SACOS 25KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/Cruz de Oro 5 kg.png" alt="SAL REFINADA CRUZ DE ORO 5KG">
+                        <h4>SAL REFINADA CRUZ DE ORO</h4>
+                        <p>SACOS 5KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/CRUZ DE ORO AZUL.png" alt="SAL REFINADA CRUZ DE ORO SELLO AZUL 20KG">
+                        <h4>SAL REFINADA CRUZ DE ORO SELLO AZUL</h4>
+                        <p>SACOS 20 KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/IMG_4791X  Cruz de Oro 20 gold.png" alt="SAL REFINADA CRUZ DE ORO GOLD 20KG">
+                        <h4>SAL REFINADA CRUZ DE ORO GOLD</h4>
+                        <p>SACOS 20 KG</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sal Farmacéutica -->
+            <div class="sector-products">
+                <h3 class="sector-title"><i class="fas fa-pills"></i> Sal Farmacéutica</h3>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <img src="catalogo/Monte Blanco 25 kg Recristalizada.png" alt="SAL RECRISTALIZADA MONTE BLANCO 25KG">
+                        <h4>SAL RECRISTALIZADA MONTE BLANCO</h4>
+                        <p>SACOS 25KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/Monte Blanco 5 kg Recristalizada.png" alt="SAL RECRISTALIZADA MONTE BLANCO 5KG">
+                        <h4>SAL RECRISTALIZADA MONTE BLANCO</h4>
+                        <p>SACOS 5KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png" alt="SAL REFINADA CRUZ DE ORO 25KG">
+                        <h4>SAL REFINADA CRUZ DE ORO</h4>
+                        <p>SACOS 25KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/Cruz de Oro 5 kg.png" alt="SAL REFINADA CRUZ DE ORO 5KG">
+                        <h4>SAL REFINADA CRUZ DE ORO</h4>
+                        <p>SACOS 5KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/IMG_4791X  Cruz de Oro 20 gold.png" alt="SAL REFINADA CRUZ DE ORO GOLD 20KG">
+                        <h4>SAL REFINADA CRUZ DE ORO GOLD</h4>
+                        <p>SACOS 20 KG</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Industria Agraria -->
+            <div class="sector-products">
+                <h3 class="sector-title"><i class="fas fa-seedling"></i> Industria Agraria</h3>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <img src="catalogo/Monte Blanco 25 kg Recristalizada.png" alt="SAL RECRISTALIZADA MONTE BLANCO 25KG">
+                        <h4>SAL RECRISTALIZADA MONTE BLANCO</h4>
+                        <p>SACOS 25KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/Monte Blanco 5 kg Recristalizada.png" alt="SAL RECRISTALIZADA MONTE BLANCO 5KG">
+                        <h4>SAL RECRISTALIZADA MONTE BLANCO</h4>
+                        <p>SACOS 5KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png" alt="SAL REFINADA CRUZ DE ORO 25KG">
+                        <h4>SAL REFINADA CRUZ DE ORO</h4>
+                        <p>SACOS 25KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/Cruz de Oro 5 kg.png" alt="SAL REFINADA CRUZ DE ORO 5KG">
+                        <h4>SAL REFINADA CRUZ DE ORO</h4>
+                        <p>SACOS 5KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/CRUZ DE ORO AZUL.png" alt="SAL REFINADA CRUZ DE ORO SELLO AZUL 20KG">
+                        <h4>SAL REFINADA CRUZ DE ORO SELLO AZUL</h4>
+                        <p>SACOS 20 KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/IMG_4791X  Cruz de Oro 20 gold.png" alt="SAL REFINADA CRUZ DE ORO GOLD 20KG">
+                        <h4>SAL REFINADA CRUZ DE ORO GOLD</h4>
+                        <p>SACOS 20 KG</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hogar - Consumo Masivo -->
+            <div class="sector-products">
+                <h3 class="sector-title"><i class="fas fa-home"></i> Hogar - Consumo Masivo</h3>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <img src="catalogo/IMG_4784X  Monte Blanco 1.000 gr.png" alt="SAL RECRISTALIZADA MONTE BLANCO PACAS 25 X 1KG">
+                        <h4>SAL COMESTRIBLE RECRISTALIZADA FINA MONTE BLANCO</h4>
+                        <p>PACAS 25 X 1KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/IMG_4783X  Monte Blanco 500 gr.png" alt="SAL RESCRISTALIZADA MARCA MONTE BLANCO PACAS 1/2KG">
+                        <h4>SAL COMESTIBLE RESCRISTALIZADA FINA MARCA MONTE BLANCO</h4>
+                        <p>PACAS 1/2KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/IMG_4786X  Cruz de Oro 1.000 gr.png" alt="SAL COMESTIBLE REFINADA FINA CRUZ DE ORO PACAS 25 X 1KG">
+                        <h4>SAL COMESTIBLE REFINADA FINA CRUZ DE ORO</h4>
+                        <p>PACAS 25 X 1KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/cruz-de-oro-500g.png" alt="SAL COMESTIBLE REFINADA FINA CRUZ DE ORO PACAS 1/2KG">
+                        <h4>SAL COMESTIBLE REFINADA FINA CRUZ DE ORO</h4>
+                        <p>PACAS 1/2KG</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/SAL MONTE BLANCO.png" alt="MONTE BLANCO SALERO 500 gr">
+                        <h4>MONTE BLANCO</h4>
+                        <p>1X 12 UNIDADES: SALERO 500 gr</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/SAL CONDOR.png" alt="CONDOR SALERO 500 gr">
+                        <h4>CONDOR</h4>
+                        <p>1X12 UNIDADES: SALERO 500 gr</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="catalogo/IMG_20240405_105838_869.png" alt="ADOBO COMPLETO MONTE BLANCO 12/170gr">
+                        <h4>ADOBO COMPLETO MONTE BLANCO</h4>
+                        <p>12/170gr: POTE 170 gr</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tratamiento de Aguas -->
+            <div class="sector-products">
+                <h3 class="sector-title"><i class="fas fa-water"></i> Tratamiento de Aguas</h3>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <img src="catalogo/MONTEBLANCO INDUSTRIAL 20 KG.png" alt="SAL INDUSTRIAL TIPO I MONTE BLANCO 20KG">
+                        <h4>SAL INDUSTRIAL TIPO I MONTE BLANCO</h4>
+                        <p>20KG</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quality Assurance -->
+    <section class="quality-section">
+        <div class="container">
+            <div class="quality-content">
+                <div class="quality-text">
+                    <h2>Garantía de Calidad</h2>
+                    <p>Con más de 73 años de experiencia, Indusalca se compromete a mantener los más altos estándares de calidad en todos sus productos.</p>
+                    
+                    <div class="quality-points">
+                        <div class="quality-point">
+                            <i class="fas fa-certificate"></i>
+                            <div>
+                                <h4>Certificaciones Internacionales</h4>
+                                <p>Cumplimos con todas las normativas nacionales e internacionales</p>
+                            </div>
+                        </div>
+                        
+                        <div class="quality-point">
+                            <i class="fas fa-microscope"></i>
+                            <div>
+                                <h4>Control de Calidad</h4>
+                                <p>Rigurosos controles en cada etapa del proceso productivo</p>
+                            </div>
+                        </div>
+                        
+                        <div class="quality-point">
+                            <i class="fas fa-award"></i>
+                            <div>
+                                <h4>Reconocimiento</h4>
+                                <p>Líderes reconocidos en el mercado venezolano</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quality-image">
+                    <img src="https://via.placeholder.com/600x400/2c5aa0/ffffff?text=Control+de+Calidad" alt="Control de Calidad">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="catalogo/logo1.png" alt="Indusalca">
+                    </div>
+                    <p>Industrias Salineras C.A. - Líderes en productos químicos industriales con más de 73 años de experiencia. La salud en su Hogar.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/indusalcave/"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/indusalcave/?hl=es"><i class="fab fa-instagram"></i></a>
+                        <a href="https://ve.linkedin.com/company/industrias-salineras-ca-indusalca"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Productos</h3>
+                    <ul>
+                        <li><a href="index.html#industries">Industria</a></li>
+                        <li><a href="index.html#industries">Industria Petrolera</a></li>
+                        <li><a href="index.html#industries">Agroindustria</a></li>
+                        <li><a href="index.html#industries">Industria Quesera</a></li>
+                        <li><a href="index.html#industries">Industria Textil</a></li>
+                        <li><a href="index.html#industries">Sal Farmacéutica</a></li>
+                        <li><a href="index.html#industries">Industria Agraria</a></li>
+                        <li><a href="index.html#industries">Hogar - Consumo Masivo</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Empresa</h3>
+                    <ul>
+                        <li><a href="index.html#about">Nosotros</a></li>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="#">Historia</a></li>
+                        <li><a href="index.html#contact">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> Edo. Zulia, Venezuela</p>
+                        <p><i class="fas fa-phone"></i> +58 (0414) 006-0054</p>
+                        <p><i class="fas fa-envelope"></i> ventas.masivo@indusalca.com.ve</p>
+                    </div>
+                    <div class="footer-badge">
+                        <img src="catalogo/logo hecho en venezuela.png" alt="Hecho en Venezuela" class="venezuela-badge">
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Indusalca. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button with Salin -->
+    <div class="whatsapp-float" id="whatsapp-float">
+        <div class="whatsapp-message" id="whatsapp-message">
+            <div class="message-bubble">
+                <p>¡Hola! ¿En qué puedo ayudarte?</p>
+                <span class="message-close" onclick="closeWhatsAppMessage()">&times;</span>
+            </div>
+        </div>
+        <a href="https://wa.me/584140060054?text=Hola,%20me%20gustaría%20obtener%20información%20sobre%20sus%20productos" 
+           target="_blank" 
+           class="whatsapp-button"
+           title="Chatea con nosotros">
+            <img src="catalogo/salin2.png" alt="Salin - Mascota Indusalca" class="salin-icon">
+            <div class="whatsapp-pulse"></div>
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
