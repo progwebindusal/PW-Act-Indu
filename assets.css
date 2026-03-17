@@ -33,7 +33,7 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: linear-gradient(135deg, #ffbb00, #ffc933);
+    background: linear-gradient(135deg, #dfa403, #dfa403);
     color: #2c5aa0;
     padding: 8px 16px;
     border-radius: 25px;
@@ -142,12 +142,12 @@
 }
 
 .custom-scroll::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, #2c5aa0, #ffbb00);
+    background: linear-gradient(135deg, #2c5aa0, #dfa403);
     border-radius: 4px;
 }
 
 .custom-scroll::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, #1e3f73, #ffc933);
+    background: linear-gradient(135deg, #1e3f73, #dfa403);
 }
 
 /* Glassmorphism effects */
@@ -160,7 +160,7 @@
 
 /* Gradient text effects */
 .gradient-text {
-    background: linear-gradient(135deg, #2c5aa0, #ffbb00);
+    background: linear-gradient(135deg, #2c5aa0, #dfa403);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

@@ -1050,6 +1050,9 @@ const productCatalogs = {
     ],
     piscinas: [
         { name: 'SAL INDUSTRIAL MONTE BLANCO', description: 'SACOS 20KG', image: 'catalogo/MONTEBLANCO INDUSTRIAL 20 KG.png' }
+    ],
+    salmuera: [
+        { name: 'SALMUERA', description: 'CONTENEDORES', image: 'catalogo/salmuera.jpg' }
     ]
 };
 
@@ -1064,7 +1067,8 @@ const sectorTitles = {
     agraria: 'Industria Agraria',
     hogar: 'Hogar - Consumo Masivo',
     aguas: 'Tratamiento de Aguas',
-    piscinas: 'Tratamiento de Piscinas'
+    piscinas: 'Poul Salt',
+    salmuera: 'Salmuera'
 };
 
 // Abrir modal de productos

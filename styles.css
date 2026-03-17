@@ -76,7 +76,7 @@ body {
 }
 
 .btn-order {
-    background: linear-gradient(135deg, #eeaf03, #eeaf03);
+    background: linear-gradient(135deg, #dfa403, #dfa403);
     color: #2c5aa0;
     padding: 10px 20px;
     border-radius: 25px;
@@ -377,7 +377,7 @@ body {
 }
 
 .hero-title .highlight {
-    background: linear-gradient(135deg, #eeaf03, #eeaf03);
+    background: linear-gradient(135deg, #dfa403, #dfa403);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -393,7 +393,7 @@ body {
     left: 0;
     width: 100%;
     height: 3px;
-    background: linear-gradient(135deg, #eeaf03, #eeaf03);
+    background: linear-gradient(135deg, #dfa403, #dfa403);
     border-radius: 2px;
     opacity: 0.7;
 }
@@ -481,14 +481,14 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #eeaf03, #eeaf03);
+    background: linear-gradient(135deg, #dfa403, #dfa403);
     color: #2c5aa0;
     box-shadow: 0 8px 25px rgba(200, 150, 12, 0.3);
     font-weight: 700;
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, #eeaf03, #eeaf03);
+    background: linear-gradient(135deg, #dfa403, #dfa403);
     transform: translateY(-3px) scale(1.05);
     box-shadow: 0 12px 35px rgba(200, 150, 12, 0.4);
 }
@@ -555,7 +555,7 @@ body {
     left: 0;
     width: 100%;
     height: 3px;
-    background: linear-gradient(135deg, #eeaf03, #eeaf03);
+    background: linear-gradient(135deg, #dfa403, #dfa403);
 }
 
 .stat-item:hover {
@@ -566,7 +566,7 @@ body {
 
 .stat-icon {
     font-size: 2.2rem;
-    color: #eeaf03;
+    color: #dfa403;
     margin-bottom: 1rem;
     filter: drop-shadow(0 2px 8px rgba(200, 150, 12, 0.3));
 }
@@ -644,7 +644,7 @@ body {
     transform: translateX(-50%);
     width: 80px;
     height: 4px;
-    background: linear-gradient(135deg, #eeaf03, #eeaf03);
+    background: linear-gradient(135deg, #dfa403, #dfa403);
     border-radius: 2px;
 }
 
@@ -923,7 +923,7 @@ body {
 .image-placeholder i {
     font-size: 4rem;
     margin-bottom: 1rem;
-    color: #eeaf03;
+    color: #dfa403;
 }
 
 .image-placeholder span {
@@ -2824,17 +2824,17 @@ rn Products Section Styles */
     left: 0;
     width: 100%;
     height: 4px;
-    background: linear-gradient(135deg, #2c5aa0, #eeaf03);
+    background: linear-gradient(135deg, #2c5aa0, #dfa403);
 }
 
 .product-card.featured {
     transform: scale(1.05);
-    border: 2px solid #eeaf03;
+    border: 2px solid #dfa403;
     box-shadow: 0 15px 40px rgba(200, 150, 12, 0.2);
 }
 
 .product-card.featured::before {
-    background: linear-gradient(135deg, #eeaf03, #eeaf03);
+    background: linear-gradient(135deg, #dfa403, #dfa403);
     height: 6px;
 }
 
@@ -2851,7 +2851,7 @@ rn Products Section Styles */
     position: absolute;
     top: 20px;
     right: 20px;
-    background: linear-gradient(135deg, #eeaf03, #eeaf03);
+    background: linear-gradient(135deg, #dfa403, #dfa403);
     color: #2c5aa0;
     padding: 5px 15px;
     border-radius: 20px;
@@ -2904,7 +2904,7 @@ rn Products Section Styles */
 }
 
 .product-card.featured .product-icon {
-    background: linear-gradient(135deg, #eeaf03, #eeaf03);
+    background: linear-gradient(135deg, #dfa403, #dfa403);
 }
 
 .product-card.featured .product-icon i {
@@ -2988,7 +2988,7 @@ rn Products Section Styles */
 }
 
 .product-card.featured .product-cta {
-    background: linear-gradient(135deg, #eeaf03, #eeaf03);
+    background: linear-gradient(135deg, #dfa403, #dfa403);
     color: #2c5aa0;
 }
 
@@ -3297,7 +3297,7 @@ rn Products Section Styles */
     left: 0;
     width: 100%;
     height: 4px;
-    background: linear-gradient(135deg, #2c5aa0, #eeaf03);
+    background: linear-gradient(135deg, #2c5aa0, #dfa403);
 }
 
 .value-card:hover {
@@ -3391,7 +3391,7 @@ rn Products Section Styles */
 }
 
 .brands .section-badge {
-    background: linear-gradient(135deg, #eeaf03, #eeaf03);
+    background: linear-gradient(135deg, #dfa403, #dfa403);
     color: #2c5aa0;
 }
 
@@ -3412,12 +3412,12 @@ rn Products Section Styles */
 
 .brand-card {
     position: relative;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(238, 175, 3, 0.08);
     backdrop-filter: blur(20px);
     border-radius: 30px;
     overflow: visible;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(238, 175, 3, 0.45);
     cursor: pointer;
 }
 
@@ -3429,8 +3429,8 @@ rn Products Section Styles */
     width: 100%;
     height: 100%;
     background: linear-gradient(135deg, 
-        rgba(200, 150, 12, 0.1) 0%, 
-        rgba(44, 90, 160, 0.1) 100%);
+        rgba(238, 175, 3, 0.12) 0%, 
+        rgba(44, 90, 160, 0.08) 100%);
     opacity: 0;
     transition: opacity 0.5s ease;
     z-index: 0;
@@ -3441,11 +3441,11 @@ rn Products Section Styles */
 }
 
 .brand-card:hover {
-    border-color: rgba(200, 150, 12, 0.5);
+    border-color: rgba(238, 175, 3, 0.85);
     box-shadow: 
         0 30px 80px rgba(0, 0, 0, 0.4),
-        0 0 60px rgba(200, 150, 12, 0.2),
-        inset 0 0 40px rgba(200, 150, 12, 0.05);
+        0 0 60px rgba(238, 175, 3, 0.3),
+        inset 0 0 40px rgba(238, 175, 3, 0.08);
 }
 
 .brand-card-inner {
@@ -3557,7 +3557,7 @@ rn Products Section Styles */
     background: linear-gradient(135deg, rgba(200, 150, 12, 0.2), rgba(255, 237, 78, 0.2));
     border: 2px solid rgba(200, 150, 12, 0.3);
     border-radius: 50px;
-    color: #eeaf03;
+    color: #dfa403;
     font-weight: 600;
     font-size: 0.9rem;
     backdrop-filter: blur(10px);
@@ -3587,7 +3587,7 @@ rn Products Section Styles */
 }
 
 .brand-tagline {
-    color: #eeaf03;
+    color: #dfa403;
     font-size: 1.1rem;
     font-weight: 500;
     margin-bottom: 1.5rem;
@@ -3630,7 +3630,7 @@ rn Products Section Styles */
 .feature-icon {
     width: 45px;
     height: 45px;
-    background: linear-gradient(135deg, #eeaf03, #eeaf03);
+    background: linear-gradient(135deg, #dfa403, #dfa403);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -3668,11 +3668,11 @@ rn Products Section Styles */
     height: 5px;
     background: linear-gradient(90deg, 
         transparent 0%,
-        #eeaf03 25%,
-        #eeaf03 50%,
-        #eeaf03 75%,
+        #dfa403 25%,
+        #dfa403 50%,
+        #dfa403 75%,
         transparent 100%);
-    opacity: 0;
+    opacity: 0.5;
     transition: opacity 0.5s ease;
     overflow: hidden;
 }
@@ -3703,7 +3703,7 @@ rn Products Section Styles */
 /* Brand card highlight effect */
 .brand-card.highlight {
     animation: brandHighlight 2s ease;
-    border-color: #eeaf03;
+    border-color: #dfa403;
 }
 
 @keyframes brandHighlight {
@@ -3732,10 +3732,13 @@ rn Products Section Styles */
 .industry-card {
     background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
     border-radius: 20px;
-    padding: 2.5rem;
+    padding: 1.5rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: all 0.4s ease;
     border: 1px solid rgba(44, 90, 160, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .industry-card:hover {
@@ -3745,15 +3748,22 @@ rn Products Section Styles */
 }
 
 .industry-image {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, #2c5aa0, #1e3f73);
-    border-radius: 20px;
+    width: 90px;
+    height: 90px;
+    background: none;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.5rem;
     transition: all 0.3s ease;
+    align-self: flex-start;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.industry-image:has(img) {
+    background: none;
 }
 
 .industry-card:hover .industry-image {
@@ -3763,6 +3773,19 @@ rn Products Section Styles */
 .industry-image i {
     font-size: 2rem;
     color: white;
+}
+
+.industry-image svg {
+    color: white;
+    width: 2.2rem;
+    height: 2.2rem;
+}
+
+.industry-image img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    object-position: center;
 }
 
 .industry-content h3 {
@@ -3871,7 +3894,7 @@ rn Products Section Styles */
 }
 
 .testimonial-rating i {
-    color: #eeaf03;
+    color: #dfa403;
     font-size: 0.9rem;
 }
 
@@ -4043,7 +4066,7 @@ rn Products Section Styles */
 
 .benefit-item i {
     font-size: 1.5rem;
-    color: #eeaf03;
+    color: #dfa403;
 }
 
 .benefit-item span {
@@ -4081,7 +4104,7 @@ rn Products Section Styles */
 }
 
 .contact-item i {
-    color: #eeaf03;
+    color: #dfa403;
 }
 
 /* Navigation Actions Responsive */
