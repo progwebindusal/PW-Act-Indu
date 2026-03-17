@@ -33,14 +33,14 @@
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    background: linear-gradient(135deg, #ffbb00, #ffc933);
     color: #2c5aa0;
     padding: 8px 16px;
     border-radius: 25px;
     font-size: 0.9rem;
     font-weight: 600;
     margin: 0.5rem;
-    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(200, 150, 12, 0.3);
 }
 
 .quality-badge::before {
@@ -142,12 +142,12 @@
 }
 
 .custom-scroll::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, #2c5aa0, #ffd700);
+    background: linear-gradient(135deg, #2c5aa0, #ffbb00);
     border-radius: 4px;
 }
 
 .custom-scroll::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, #1e3f73, #ffed4e);
+    background: linear-gradient(135deg, #1e3f73, #ffc933);
 }
 
 /* Glassmorphism effects */
@@ -160,7 +160,7 @@
 
 /* Gradient text effects */
 .gradient-text {
-    background: linear-gradient(135deg, #2c5aa0, #ffd700);
+    background: linear-gradient(135deg, #2c5aa0, #ffbb00);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

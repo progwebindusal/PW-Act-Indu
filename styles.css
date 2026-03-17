@@ -76,7 +76,7 @@ body {
 }
 
 .btn-order {
-    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    background: linear-gradient(135deg, #eeaf03, #eeaf03);
     color: #2c5aa0;
     padding: 10px 20px;
     border-radius: 25px;
@@ -84,12 +84,12 @@ body {
     font-weight: 600;
     font-size: 0.9rem;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(200, 150, 12, 0.3);
 }
 
 .btn-order:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+    box-shadow: 0 6px 20px rgba(200, 150, 12, 0.4);
 }
 
 .btn-meeting {
@@ -248,7 +248,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #2c5aa0 0%, #1e3f73 50%, #0f2a4a 100%);
+    background: url('catalogo/laboratorio.jpeg') no-repeat center center / cover;
     z-index: -2;
 }
 
@@ -272,7 +272,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(44, 90, 160, 0.8) 0%, rgba(15, 42, 74, 0.9) 100%);
+    background: linear-gradient(135deg, rgba(44, 90, 160, 0.5) 0%, rgba(15, 42, 74, 0.6) 100%);
     z-index: -1;
 }
 
@@ -373,14 +373,17 @@ body {
     margin-bottom: 1.5rem;
     line-height: 1.15;
     letter-spacing: -0.5px;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
 }
 
 .hero-title .highlight {
-    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    background: linear-gradient(135deg, #eeaf03, #eeaf03);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     position: relative;
+    text-shadow: none;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
 }
 
 .hero-title .highlight::after {
@@ -390,7 +393,7 @@ body {
     left: 0;
     width: 100%;
     height: 3px;
-    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    background: linear-gradient(135deg, #eeaf03, #eeaf03);
     border-radius: 2px;
     opacity: 0.7;
 }
@@ -418,6 +421,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .company-name {
@@ -425,12 +429,14 @@ body {
     font-size: 1.25rem;
     color: rgba(255, 255, 255, 0.95);
     letter-spacing: 0.3px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .tagline {
     font-style: italic;
     color: rgba(255, 255, 255, 0.85);
     font-size: 1.05rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .hero-buttons {
@@ -475,16 +481,16 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    background: linear-gradient(135deg, #eeaf03, #eeaf03);
     color: #2c5aa0;
-    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+    box-shadow: 0 8px 25px rgba(200, 150, 12, 0.3);
     font-weight: 700;
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, #ffed4e, #ffd700);
+    background: linear-gradient(135deg, #eeaf03, #eeaf03);
     transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 12px 35px rgba(255, 215, 0, 0.4);
+    box-shadow: 0 12px 35px rgba(200, 150, 12, 0.4);
 }
 
 .btn-secondary {
@@ -513,9 +519,10 @@ body {
 
 .stat-item {
     text-align: center;
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
     padding: 1.5rem 1rem;
     transition: all 0.3s ease;
@@ -528,6 +535,19 @@ body {
     min-height: 130px;
 }
 
+.stat-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+        linear-gradient(135deg, rgba(44, 90, 160, 0.5) 0%, rgba(15, 42, 74, 0.6) 100%),
+        url('catalogo/laboratorio.jpeg') no-repeat center center / cover;
+    filter: blur(12px);
+    transform: scale(1.1);
+    z-index: -1;
+    opacity: 0.9;
+}
+
 .stat-item::before {
     content: '';
     position: absolute;
@@ -535,7 +555,7 @@ body {
     left: 0;
     width: 100%;
     height: 3px;
-    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    background: linear-gradient(135deg, #eeaf03, #eeaf03);
 }
 
 .stat-item:hover {
@@ -546,9 +566,9 @@ body {
 
 .stat-icon {
     font-size: 2.2rem;
-    color: #ffd700;
+    color: #eeaf03;
     margin-bottom: 1rem;
-    filter: drop-shadow(0 2px 8px rgba(255, 215, 0, 0.3));
+    filter: drop-shadow(0 2px 8px rgba(200, 150, 12, 0.3));
 }
 
 .stat-label {
@@ -624,7 +644,7 @@ body {
     transform: translateX(-50%);
     width: 80px;
     height: 4px;
-    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    background: linear-gradient(135deg, #eeaf03, #eeaf03);
     border-radius: 2px;
 }
 
@@ -903,7 +923,7 @@ body {
 .image-placeholder i {
     font-size: 4rem;
     margin-bottom: 1rem;
-    color: #ffd700;
+    color: #eeaf03;
 }
 
 .image-placeholder span {
@@ -1366,15 +1386,16 @@ rvices Section */
 }
 
 .venezuela-badge {
-    width: 150px;
-    height: 150px;
-    filter: drop-shadow(0 4px 10px rgba(255, 255, 255, 0.1));
-    transition: all 0.3s ease;
+    width: auto;
+    height: auto;
+    max-width: 150px;
+    filter: none;
+    transition: none;
 }
 
 .venezuela-badge:hover {
-    transform: scale(1.05);
-    filter: drop-shadow(0 6px 15px rgba(255, 255, 255, 0.3));
+    transform: none;
+    filter: none;
 }
 
 .footer-bottom {
@@ -1683,7 +1704,7 @@ rvices Section */
     }
     
     .btn-order {
-        box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+        box-shadow: 0 4px 15px rgba(200, 150, 12, 0.4);
     }
     
     .btn-meeting {
@@ -2803,17 +2824,17 @@ rn Products Section Styles */
     left: 0;
     width: 100%;
     height: 4px;
-    background: linear-gradient(135deg, #2c5aa0, #ffd700);
+    background: linear-gradient(135deg, #2c5aa0, #eeaf03);
 }
 
 .product-card.featured {
     transform: scale(1.05);
-    border: 2px solid #ffd700;
-    box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2);
+    border: 2px solid #eeaf03;
+    box-shadow: 0 15px 40px rgba(200, 150, 12, 0.2);
 }
 
 .product-card.featured::before {
-    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    background: linear-gradient(135deg, #eeaf03, #eeaf03);
     height: 6px;
 }
 
@@ -2830,7 +2851,7 @@ rn Products Section Styles */
     position: absolute;
     top: 20px;
     right: 20px;
-    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    background: linear-gradient(135deg, #eeaf03, #eeaf03);
     color: #2c5aa0;
     padding: 5px 15px;
     border-radius: 20px;
@@ -2883,7 +2904,7 @@ rn Products Section Styles */
 }
 
 .product-card.featured .product-icon {
-    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    background: linear-gradient(135deg, #eeaf03, #eeaf03);
 }
 
 .product-card.featured .product-icon i {
@@ -2946,9 +2967,9 @@ rn Products Section Styles */
 }
 
 .product-card.featured .feature-tag {
-    background: rgba(255, 215, 0, 0.2);
+    background: rgba(200, 150, 12, 0.2);
     color: #b8860b;
-    border-color: rgba(255, 215, 0, 0.3);
+    border-color: rgba(200, 150, 12, 0.3);
 }
 
 .product-cta {
@@ -2967,7 +2988,7 @@ rn Products Section Styles */
 }
 
 .product-card.featured .product-cta {
-    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    background: linear-gradient(135deg, #eeaf03, #eeaf03);
     color: #2c5aa0;
 }
 
@@ -3035,6 +3056,13 @@ rn Products Section Styles */
     font-size: 1.1rem;
     margin-bottom: 2rem;
     opacity: 0.9;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 /* Override existing services styles */
@@ -3241,13 +3269,13 @@ rn Products Section Styles */
 
 /* Values Section */
 .values {
-    padding: 120px 0;
+    padding: 0 0 60px;
     background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
 }
 
 .values-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
 }
 
@@ -3269,7 +3297,7 @@ rn Products Section Styles */
     left: 0;
     width: 100%;
     height: 4px;
-    background: linear-gradient(135deg, #2c5aa0, #ffd700);
+    background: linear-gradient(135deg, #2c5aa0, #eeaf03);
 }
 
 .value-card:hover {
@@ -3346,7 +3374,7 @@ rn Products Section Styles */
     width: 100%;
     height: 100%;
     background-image: 
-        radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 20% 30%, rgba(200, 150, 12, 0.08) 0%, transparent 50%),
         radial-gradient(circle at 80% 70%, rgba(44, 90, 160, 0.1) 0%, transparent 50%),
         radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
     animation: patternMove 20s ease-in-out infinite;
@@ -3363,7 +3391,7 @@ rn Products Section Styles */
 }
 
 .brands .section-badge {
-    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    background: linear-gradient(135deg, #eeaf03, #eeaf03);
     color: #2c5aa0;
 }
 
@@ -3401,7 +3429,7 @@ rn Products Section Styles */
     width: 100%;
     height: 100%;
     background: linear-gradient(135deg, 
-        rgba(255, 215, 0, 0.1) 0%, 
+        rgba(200, 150, 12, 0.1) 0%, 
         rgba(44, 90, 160, 0.1) 100%);
     opacity: 0;
     transition: opacity 0.5s ease;
@@ -3413,11 +3441,11 @@ rn Products Section Styles */
 }
 
 .brand-card:hover {
-    border-color: rgba(255, 215, 0, 0.5);
+    border-color: rgba(200, 150, 12, 0.5);
     box-shadow: 
         0 30px 80px rgba(0, 0, 0, 0.4),
-        0 0 60px rgba(255, 215, 0, 0.2),
-        inset 0 0 40px rgba(255, 215, 0, 0.05);
+        0 0 60px rgba(200, 150, 12, 0.2),
+        inset 0 0 40px rgba(200, 150, 12, 0.05);
 }
 
 .brand-card-inner {
@@ -3454,7 +3482,7 @@ rn Products Section Styles */
     transform: translate(-50%, -50%);
     width: 280px;
     height: 280px;
-    background: radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(200, 150, 12, 0.2) 0%, transparent 70%);
     border-radius: 50%;
     animation: logoGlow 3s ease-in-out infinite;
     pointer-events: none;
@@ -3518,7 +3546,7 @@ rn Products Section Styles */
 }
 
 .brand-card:hover .brand-logo {
-    filter: drop-shadow(0 15px 40px rgba(255, 215, 0, 0.4));
+    filter: drop-shadow(0 15px 40px rgba(200, 150, 12, 0.4));
 }
 
 .brand-badge {
@@ -3526,10 +3554,10 @@ rn Products Section Styles */
     align-items: center;
     gap: 0.5rem;
     padding: 0.6rem 1.5rem;
-    background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 237, 78, 0.2));
-    border: 2px solid rgba(255, 215, 0, 0.3);
+    background: linear-gradient(135deg, rgba(200, 150, 12, 0.2), rgba(255, 237, 78, 0.2));
+    border: 2px solid rgba(200, 150, 12, 0.3);
     border-radius: 50px;
-    color: #ffd700;
+    color: #eeaf03;
     font-weight: 600;
     font-size: 0.9rem;
     backdrop-filter: blur(10px);
@@ -3537,8 +3565,8 @@ rn Products Section Styles */
 }
 
 .brand-card:hover .brand-badge {
-    background: linear-gradient(135deg, rgba(255, 215, 0, 0.4), rgba(255, 237, 78, 0.4));
-    border-color: rgba(255, 215, 0, 0.6);
+    background: linear-gradient(135deg, rgba(200, 150, 12, 0.4), rgba(255, 237, 78, 0.4));
+    border-color: rgba(200, 150, 12, 0.6);
 }
 
 .brand-badge i {
@@ -3559,12 +3587,12 @@ rn Products Section Styles */
 }
 
 .brand-tagline {
-    color: #ffd700;
+    color: #eeaf03;
     font-size: 1.1rem;
     font-weight: 500;
     margin-bottom: 1.5rem;
     font-style: italic;
-    text-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
+    text-shadow: 0 2px 8px rgba(200, 150, 12, 0.3);
 }
 
 .brand-description {
@@ -3594,15 +3622,15 @@ rn Products Section Styles */
 }
 
 .brand-feature:hover {
-    background: rgba(255, 215, 0, 0.15);
-    border-color: rgba(255, 215, 0, 0.3);
+    background: rgba(200, 150, 12, 0.15);
+    border-color: rgba(200, 150, 12, 0.3);
     transform: translateX(10px);
 }
 
 .feature-icon {
     width: 45px;
     height: 45px;
-    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    background: linear-gradient(135deg, #eeaf03, #eeaf03);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -3613,7 +3641,7 @@ rn Products Section Styles */
 
 .brand-feature:hover .feature-icon {
     transform: rotate(10deg) scale(1.1);
-    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+    box-shadow: 0 5px 20px rgba(200, 150, 12, 0.4);
 }
 
 .feature-icon i {
@@ -3640,9 +3668,9 @@ rn Products Section Styles */
     height: 5px;
     background: linear-gradient(90deg, 
         transparent 0%,
-        #ffd700 25%,
-        #ffed4e 50%,
-        #ffd700 75%,
+        #eeaf03 25%,
+        #eeaf03 50%,
+        #eeaf03 75%,
         transparent 100%);
     opacity: 0;
     transition: opacity 0.5s ease;
@@ -3675,7 +3703,7 @@ rn Products Section Styles */
 /* Brand card highlight effect */
 .brand-card.highlight {
     animation: brandHighlight 2s ease;
-    border-color: #ffd700;
+    border-color: #eeaf03;
 }
 
 @keyframes brandHighlight {
@@ -3684,8 +3712,8 @@ rn Products Section Styles */
     }
     50% {
         box-shadow: 
-            0 30px 80px rgba(255, 215, 0, 0.5),
-            0 0 60px rgba(255, 215, 0, 0.3);
+            0 30px 80px rgba(200, 150, 12, 0.5),
+            0 0 60px rgba(200, 150, 12, 0.3);
     }
 }
 
@@ -3843,7 +3871,7 @@ rn Products Section Styles */
 }
 
 .testimonial-rating i {
-    color: #ffd700;
+    color: #eeaf03;
     font-size: 0.9rem;
 }
 
@@ -4015,7 +4043,7 @@ rn Products Section Styles */
 
 .benefit-item i {
     font-size: 1.5rem;
-    color: #ffd700;
+    color: #eeaf03;
 }
 
 .benefit-item span {
@@ -4053,7 +4081,7 @@ rn Products Section Styles */
 }
 
 .contact-item i {
-    color: #ffd700;
+    color: #eeaf03;
 }
 
 /* Navigation Actions Responsive */
@@ -4095,41 +4123,32 @@ rn Products Section Styles */
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, #25D366, #128C7E);
+    width: 52px;
+    height: 52px;
+    background: #25D366;
     border-radius: 50%;
-    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.35);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
     text-decoration: none;
-    animation: floatAnimation 3s ease-in-out infinite;
 }
 
 .whatsapp-button:hover {
-    transform: scale(1.1) translateY(-5px);
-    box-shadow: 0 12px 40px rgba(37, 211, 102, 0.6);
+    background: #1ebe5d;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+}
+
+.whatsapp-button i {
+    font-size: 1.6rem;
+    color: white;
 }
 
 .salin-icon {
-    width: 70px;
-    height: 70px;
-    object-fit: contain;
-    position: relative;
-    z-index: 2;
-    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
-    animation: salinWave 2s ease-in-out infinite;
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
+    display: none;
 }
 
 .whatsapp-pulse {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: rgba(37, 211, 102, 0.4);
-    animation: pulse 2s ease-out infinite;
+    display: none;
 }
 
 .whatsapp-message {
