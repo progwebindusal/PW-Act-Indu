@@ -1214,6 +1214,9 @@ function showBrandProducts(sector, brandKey, btnEl) {
 function flipToFront() {
     const flipper = document.getElementById('bookFlipper');
     flipper.classList.remove('flipped');
+    // Limpiar estado activo al volver
+    document.querySelectorAll('.brand-logo-btn').forEach(b => b.classList.remove('active'));
+}
 }
 
 // Toggle ficha técnica inline

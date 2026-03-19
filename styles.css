@@ -5406,19 +5406,34 @@ orce hide quality badges on mobile */
    NUEVO MODAL: Selector de marca + lista de productos
    ============================================= */
 
-/* Selector de marcas */
+/* Selector de marcas — diseño premium */
 .brand-selector {
     text-align: center;
-    padding: 1rem 0 2rem;
+    padding: 2.5rem 1.5rem 2rem;
+    background: linear-gradient(135deg, #0d1b3e 0%, #1a2f5e 50%, #0d1b3e 100%);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Patrón de fondo sutil */
+.brand-selector::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(44,90,160,0.4) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 50%, rgba(223,164,3,0.15) 0%, transparent 60%);
+    pointer-events: none;
 }
 
 .brand-selector-hint {
-    font-size: 0.8rem;
-    font-weight: 600;
+    font-size: 0.72rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: #aaa;
-    margin-bottom: 2rem;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 2.2rem;
+    position: relative;
 }
 
 .brand-logos-row {
@@ -5426,34 +5441,37 @@ orce hide quality badges on mobile */
     justify-content: center;
     gap: 2rem;
     flex-wrap: wrap;
+    position: relative;
 }
 
+/* Card de marca */
 .brand-logo-btn {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0;
-    background: #fff;
-    border: none;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
     border-radius: 20px;
     padding: 0;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    min-width: 160px;
-    max-width: 200px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    min-width: 155px;
+    max-width: 190px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
     overflow: hidden;
     position: relative;
+    backdrop-filter: blur(10px);
 }
 
-/* Zona del logo */
+/* Zona del logo con fondo blanco limpio */
 .brand-logo-btn img {
     width: 100%;
-    height: 130px;
+    height: 120px;
     object-fit: contain;
-    padding: 1.5rem 1.5rem 1rem;
-    background: #f8f9fa;
-    transition: transform 0.3s ease;
+    padding: 1.4rem 1.4rem 1rem;
+    background: rgba(255,255,255,0.96);
+    transition: transform 0.35s ease;
     display: block;
 }
 
@@ -5461,13 +5479,13 @@ orce hide quality badges on mobile */
 .brand-logo-btn span {
     display: block;
     width: 100%;
-    padding: 0.7rem 1rem;
-    font-size: 0.88rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.82rem;
     font-weight: 700;
-    color: #2c5aa0;
-    background: #fff;
-    border-top: 2px solid #f0f0f0;
-    letter-spacing: 0.3px;
+    color: rgba(255,255,255,0.85);
+    background: transparent;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
     transition: all 0.3s ease;
 }
 
@@ -5481,37 +5499,56 @@ orce hide quality badges on mobile */
     height: 3px;
     background: linear-gradient(90deg, #2c5aa0, #dfa403);
     transform: scaleX(0);
-    transition: transform 0.3s ease;
+    transition: transform 0.35s ease;
     transform-origin: left;
 }
 
+/* Brillo en hover */
+.brand-logo-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+    transition: left 0.5s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
 .brand-logo-btn:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 32px rgba(44, 90, 160, 0.18);
+    transform: translateY(-8px) scale(1.03);
+    border-color: rgba(255,255,255,0.3);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 30px rgba(44,90,160,0.3);
+    background: rgba(255,255,255,0.1);
 }
 
 .brand-logo-btn:hover img {
-    transform: scale(1.06);
+    transform: scale(1.07);
 }
 
 .brand-logo-btn:hover span {
-    color: #1e3f73;
-    background: #f0f5ff;
+    color: #fff;
 }
 
 .brand-logo-btn:hover::after {
     transform: scaleX(1);
 }
 
+.brand-logo-btn:hover::before {
+    left: 150%;
+}
+
+/* Estado activo — sin sombreado amarillo, solo borde sutil */
 .brand-logo-btn.active {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 32px rgba(223, 164, 3, 0.25);
+    border-color: rgba(223,164,3,0.5);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    transform: none;
 }
 
 .brand-logo-btn.active span {
-    background: #fffbee;
-    color: #b07d00;
-    border-top-color: #dfa403;
+    color: rgba(255,255,255,0.85);
 }
 
 .brand-logo-btn.active::after {
@@ -5658,7 +5695,7 @@ orce hide quality badges on mobile */
         max-width: 150px;
     }
     .brand-logo-btn img {
-        height: 100px;
+        height: 90px;
     }
     .product-list-row {
         flex-wrap: wrap;
