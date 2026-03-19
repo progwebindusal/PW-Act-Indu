@@ -1113,9 +1113,9 @@ const sectorTitles = {
 
 // Configuración de marcas
 const brandConfig = {
-    'cruz-de-oro': { label: 'Cruz de Oro', logo: 'catalogo/co.png' },
-    'monte-blanco': { label: 'Monte Blanco', logo: 'catalogo/mb.png' },
-    'condor': { label: 'Cóndor', logo: 'catalogo/condor.png' }
+    'cruz-de-oro': { label: 'Cruz de Oro', logo: 'catalogo/logos_svg/CRUZ DE ORO EDITABLE FINAL-01.svg' },
+    'monte-blanco': { label: 'Monte Blanco', logo: 'catalogo/logos_svg/MONTE BLANCO ADOBO-01.svg' },
+    'condor': { label: 'Cóndor', logo: 'catalogo/logos_svg/CONDOR LOGO_Mesa de trabajo 1.svg' }
 };
 
 // Abrir modal — paso 1: selección de marca
