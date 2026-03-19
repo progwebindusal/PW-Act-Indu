@@ -5401,3 +5401,230 @@ orce hide quality badges on mobile */
         justify-content: flex-start !important;
     }
 }
+
+/* =============================================
+   NUEVO MODAL: Selector de marca + lista de productos
+   ============================================= */
+
+/* Selector de marcas */
+.brand-selector {
+    text-align: center;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #f0f0f0;
+    margin-bottom: 1.5rem;
+}
+
+.brand-selector-hint {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+}
+
+.brand-logos-row {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.brand-logo-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    background: #f8f9fa;
+    border: 2px solid #e0e0e0;
+    border-radius: 14px;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    min-width: 120px;
+}
+
+.brand-logo-btn img {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.25s ease;
+}
+
+.brand-logo-btn span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #444;
+}
+
+.brand-logo-btn:hover {
+    border-color: #2c5aa0;
+    background: #eef3fb;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(44, 90, 160, 0.15);
+}
+
+.brand-logo-btn:hover img {
+    transform: scale(1.08);
+}
+
+.brand-logo-btn.active {
+    border-color: #dfa403;
+    background: #fffbee;
+    box-shadow: 0 6px 20px rgba(223, 164, 3, 0.25);
+}
+
+.brand-logo-btn.active span {
+    color: #b07d00;
+}
+
+/* Panel de productos */
+.brand-products-panel {
+    min-height: 0;
+}
+
+.no-products {
+    text-align: center;
+    color: #999;
+    padding: 2rem;
+    font-style: italic;
+}
+
+/* Lista de productos */
+.product-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.product-list-item {
+    border: 1px solid #e8e8e8;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: box-shadow 0.2s ease;
+}
+
+.product-list-item:hover {
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.product-list-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    background: #fff;
+}
+
+.product-list-thumb {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    border-radius: 6px;
+    background: #f5f5f5;
+    flex-shrink: 0;
+}
+
+.product-list-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.product-list-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #222;
+    line-height: 1.3;
+}
+
+.product-list-desc {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.product-sheet-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: none;
+    border: 1px solid #2c5aa0;
+    color: #2c5aa0;
+    border-radius: 20px;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.product-sheet-toggle:hover {
+    background: #2c5aa0;
+    color: white;
+}
+
+.product-sheet-toggle i {
+    transition: transform 0.25s ease;
+}
+
+/* Ficha técnica desplegable */
+.product-sheet {
+    background: #f8faff;
+    border-top: 1px solid #dde8f8;
+    padding: 1rem 1.2rem;
+}
+
+.product-sheet[hidden] {
+    display: none;
+}
+
+.product-sheet .specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+}
+
+.product-sheet .specs-table tr:nth-child(even) {
+    background: rgba(44, 90, 160, 0.04);
+}
+
+.product-sheet .spec-label {
+    font-weight: 600;
+    color: #2c5aa0;
+    padding: 0.4rem 0.8rem 0.4rem 0;
+    width: 40%;
+    vertical-align: top;
+}
+
+.product-sheet .spec-value {
+    color: #444;
+    padding: 0.4rem 0;
+    line-height: 1.4;
+}
+
+@media (max-width: 600px) {
+    .brand-logos-row {
+        gap: 0.8rem;
+    }
+    .brand-logo-btn {
+        min-width: 90px;
+        padding: 0.75rem 1rem;
+    }
+    .brand-logo-btn img {
+        height: 44px;
+    }
+    .product-list-row {
+        flex-wrap: wrap;
+    }
+    .product-sheet-toggle {
+        width: 100%;
+        justify-content: center;
+        margin-top: 0.3rem;
+    }
+    .product-sheet .spec-label {
+        width: 50%;
+    }
+}

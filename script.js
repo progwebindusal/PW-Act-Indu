@@ -963,97 +963,137 @@ function toggleAccordion(element) {
     accordionItem.classList.toggle('active');
 }
 
-// Catálogos de productos por sector
+// Catálogos de productos por sector, organizados por marca
+// Estructura: { sector: { marca: [ productos ] } }
 const productCatalogs = {
-    industria: [
-        { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
-        { name: 'SAL MICRONIZADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
-        { name: 'SAL REFINADA CRUZ DE ORO GOLD', description: 'SACOS 20KG', image: 'catalogo/IMG_4791X  Cruz de Oro 20 gold.png' },
-        { name: 'SAL REFINADA CRUZ DE ORO SELLO AZUL', description: 'SACOS 20KG', image: 'catalogo/CRUZ DE ORO AZUL.png' },
-        { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 5KG', image: 'catalogo/Cruz de Oro 5 kg.png' },
-        { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 25KG', image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' },
-        { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 5KG', image: 'catalogo/Monte Blanco 5 kg Recristalizada.png' },
-        { name: 'SAL INDUSTRIAL MONTE BLANCO', description: 'SACOS 20KG', image: 'catalogo/MONTEBLANCO INDUSTRIAL 20 KG.png' }
-        
-    ],
-    petrolera: [
-        { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
-        { name: 'SAL MICRONIZADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
-        { name: 'SAL REFINADA CRUZ DE ORO GOLD', description: 'SACOS 20KG', image: 'catalogo/IMG_4791X  Cruz de Oro 20 gold.png' },
-        { name: 'SAL REFINADA CRUZ DE ORO SELLO AZUL', description: 'SACOS 20KG', image: 'catalogo/CRUZ DE ORO AZUL.png' },
-        { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 5KG', image: 'catalogo/Cruz de Oro 5 kg.png' },
-        { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 25KG', image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' },
-        { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 5KG', image: 'catalogo/Monte Blanco 5 kg Recristalizada.png' },
-        { name: 'SALMUERA', description: 'CONTENEDORES', image: 'catalogo/salmuera.jpg' }
-    ],
-    agroindustria: [
-        { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
-        { name: 'SAL MICRONIZADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
-        { name: 'SAL REFINADA CRUZ DE ORO GOLD', description: 'SACOS 20KG', image: 'catalogo/IMG_4791X  Cruz de Oro 20 gold.png' },
-        { name: 'SAL REFINADA CRUZ DE ORO SELLO AZUL', description: 'SACOS 20KG', image: 'catalogo/CRUZ DE ORO AZUL.png' },
-        { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 5KG', image: 'catalogo/Cruz de Oro 5 kg.png' },
-        { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 25KG', image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' },
-        { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 5KG', image: 'catalogo/Monte Blanco 5 kg Recristalizada.png' }
-    ],
-    quesera: [
-        { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
-        { name: 'SAL MICRONIZADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
-        { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 20KG', image: 'catalogo/IMG_4791X  Cruz de Oro 20 gold.png' },
-        { name: 'SAL REFINADA CRUZ DE ORO SELLO AZUL', description: 'SACOS 20KG', image: 'catalogo/CRUZ DE ORO AZUL.png' },
-        { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 5KG', image: 'catalogo/Cruz de Oro 5 kg.png' },
-        { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 25KG', image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' },
-        { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 5KG', image: 'catalogo/Monte Blanco 5 kg Recristalizada.png' }
-    ],
-    textil: [
-        { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
-        { name: 'SAL MICRONIZADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
-        { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 20KG', image: 'catalogo/IMG_4791X  Cruz de Oro 20 gold.png' },
-        { name: 'SAL REFINADA CRUZ DE ORO SELLO AZUL', description: 'SACOS 20KG', image: 'catalogo/CRUZ DE ORO AZUL.png' },
-        { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 5KG', image: 'catalogo/Cruz de Oro 5 kg.png' },
-        { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 25KG', image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' },
-        { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 5KG', image: 'catalogo/Monte Blanco 5 kg Recristalizada.png' }
-    ],
-    farmaceutica: [
-        { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
-        { name: 'SAL MICRONIZADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
-        { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 20KG', image: 'catalogo/IMG_4791X  Cruz de Oro 20 gold.png' },
-        { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 5KG', image: 'catalogo/Cruz de Oro 5 kg.png' },
-        { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 25KG', image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' },
-        { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 5KG', image: 'catalogo/Monte Blanco 5 kg Recristalizada.png' }
-    ],
-    agraria: [
-        { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
-        { name: 'SAL MICRONIZADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
-        { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 20KG', image: 'catalogo/IMG_4791X  Cruz de Oro 20 gold.png' },
-        { name: 'SAL REFINADA CRUZ DE ORO SELLO AZUL', description: 'SACOS 20KG', image: 'catalogo/CRUZ DE ORO AZUL.png' },
-        { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 5KG', image: 'catalogo/Cruz de Oro 5 kg.png' },
-        { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 25KG', image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' },
-        { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 5KG', image: 'catalogo/Monte Blanco 5 kg Recristalizada.png' }
-    ],
-    hogar: [
-        { name: 'SAL COMESTIBLE REFINADA FINA CRUZ DE ORO', description: 'PACAS 25 X 1KG', image: 'catalogo/IMG_4786X  Cruz de Oro 1.000 gr.png' },
-        { name: 'SAL COMESTIBLE REFINADA FINA CRUZ DE ORO', description: 'PACAS 50 X 500GR', image: 'catalogo/cruz-de-oro-500g.png' },
-        { name: 'SAL COMESTIBLE RECRISTALIZADA FINA MONTE BLANCO', description: 'PACAS 25 X 1KG', image: 'catalogo/IMG_4784X  Monte Blanco 1.000 gr.png' },
-        { name: 'SAL COMESTIBLE RECRISTALIZADA FINA MONTE BLANCO', description: 'PACAS 50 X 500GR', image: 'catalogo/IMG_4783X  Monte Blanco 500 gr.png' },
-
-        { name: 'SALERO MONTE BLANCO 500GR', description: 'CAJA 12 UNIDADES', image: 'catalogo/SAL MONTE BLANCO.png' },
-        { name: 'ADOBO MONTE BLANCO 170GR', description: 'CAJA 12 UNIDADES', image: 'catalogo/IMG_20240405_105838_869.png' },
-        { name: 'SALERO CÓNDOR 500GR', description: 'CAJA 12 UNIDADES', image: 'catalogo/SAL CONDOR.png' }
-    ],
-    aguas: [
-        { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
-        { name: 'SAL MICRONIZADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
-        { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 20KG', image: 'catalogo/IMG_4791X  Cruz de Oro 20 gold.png' },
-        { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 5KG', image: 'catalogo/Cruz de Oro 5 kg.png' },
-        { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 25KG', image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' },
-        { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 5KG', image: 'catalogo/Monte Blanco 5 kg Recristalizada.png' }
-    ],
-    piscinas: [
-        { name: 'SAL INDUSTRIAL MONTE BLANCO', description: 'SACOS 20KG', image: 'catalogo/MONTEBLANCO INDUSTRIAL 20 KG.png' }
-    ],
-    salmuera: [
-        { name: 'SALMUERA', description: 'CONTENEDORES', image: 'catalogo/salmuera.jpg' }
-    ]
+    industria: {
+        'cruz-de-oro': [
+            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
+            { name: 'SAL MICRONIZADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
+            { name: 'SAL REFINADA CRUZ DE ORO GOLD', description: 'SACOS 20KG', image: 'catalogo/IMG_4791X  Cruz de Oro 20 gold.png' },
+            { name: 'SAL REFINADA CRUZ DE ORO SELLO AZUL', description: 'SACOS 20KG', image: 'catalogo/CRUZ DE ORO AZUL.png' },
+            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 5KG', image: 'catalogo/Cruz de Oro 5 kg.png' }
+        ],
+        'monte-blanco': [
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 25KG', image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' },
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 5KG', image: 'catalogo/Monte Blanco 5 kg Recristalizada.png' },
+            { name: 'SAL INDUSTRIAL MONTE BLANCO', description: 'SACOS 20KG', image: 'catalogo/MONTEBLANCO INDUSTRIAL 20 KG.png' }
+        ]
+    },
+    petrolera: {
+        'cruz-de-oro': [
+            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
+            { name: 'SAL MICRONIZADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
+            { name: 'SAL REFINADA CRUZ DE ORO GOLD', description: 'SACOS 20KG', image: 'catalogo/IMG_4791X  Cruz de Oro 20 gold.png' },
+            { name: 'SAL REFINADA CRUZ DE ORO SELLO AZUL', description: 'SACOS 20KG', image: 'catalogo/CRUZ DE ORO AZUL.png' },
+            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 5KG', image: 'catalogo/Cruz de Oro 5 kg.png' }
+        ],
+        'monte-blanco': [
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 25KG', image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' },
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 5KG', image: 'catalogo/Monte Blanco 5 kg Recristalizada.png' }
+        ]
+    },
+    agroindustria: {
+        'cruz-de-oro': [
+            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
+            { name: 'SAL MICRONIZADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
+            { name: 'SAL REFINADA CRUZ DE ORO GOLD', description: 'SACOS 20KG', image: 'catalogo/IMG_4791X  Cruz de Oro 20 gold.png' },
+            { name: 'SAL REFINADA CRUZ DE ORO SELLO AZUL', description: 'SACOS 20KG', image: 'catalogo/CRUZ DE ORO AZUL.png' },
+            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 5KG', image: 'catalogo/Cruz de Oro 5 kg.png' }
+        ],
+        'monte-blanco': [
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 25KG', image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' },
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 5KG', image: 'catalogo/Monte Blanco 5 kg Recristalizada.png' }
+        ]
+    },
+    quesera: {
+        'cruz-de-oro': [
+            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
+            { name: 'SAL MICRONIZADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
+            { name: 'SAL REFINADA CRUZ DE ORO GOLD', description: 'SACOS 20KG', image: 'catalogo/IMG_4791X  Cruz de Oro 20 gold.png' },
+            { name: 'SAL REFINADA CRUZ DE ORO SELLO AZUL', description: 'SACOS 20KG', image: 'catalogo/CRUZ DE ORO AZUL.png' },
+            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 5KG', image: 'catalogo/Cruz de Oro 5 kg.png' }
+        ],
+        'monte-blanco': [
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 25KG', image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' },
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 5KG', image: 'catalogo/Monte Blanco 5 kg Recristalizada.png' }
+        ]
+    },
+    textil: {
+        'cruz-de-oro': [
+            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
+            { name: 'SAL MICRONIZADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
+            { name: 'SAL REFINADA CRUZ DE ORO GOLD', description: 'SACOS 20KG', image: 'catalogo/IMG_4791X  Cruz de Oro 20 gold.png' },
+            { name: 'SAL REFINADA CRUZ DE ORO SELLO AZUL', description: 'SACOS 20KG', image: 'catalogo/CRUZ DE ORO AZUL.png' },
+            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 5KG', image: 'catalogo/Cruz de Oro 5 kg.png' }
+        ],
+        'monte-blanco': [
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 25KG', image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' },
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 5KG', image: 'catalogo/Monte Blanco 5 kg Recristalizada.png' }
+        ]
+    },
+    farmaceutica: {
+        'cruz-de-oro': [
+            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
+            { name: 'SAL MICRONIZADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
+            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 20KG', image: 'catalogo/IMG_4791X  Cruz de Oro 20 gold.png' },
+            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 5KG', image: 'catalogo/Cruz de Oro 5 kg.png' }
+        ],
+        'monte-blanco': [
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 25KG', image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' },
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 5KG', image: 'catalogo/Monte Blanco 5 kg Recristalizada.png' }
+        ]
+    },
+    agraria: {
+        'cruz-de-oro': [
+            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
+            { name: 'SAL MICRONIZADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
+            { name: 'SAL REFINADA CRUZ DE ORO GOLD', description: 'SACOS 20KG', image: 'catalogo/IMG_4791X  Cruz de Oro 20 gold.png' },
+            { name: 'SAL REFINADA CRUZ DE ORO SELLO AZUL', description: 'SACOS 20KG', image: 'catalogo/CRUZ DE ORO AZUL.png' },
+            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 5KG', image: 'catalogo/Cruz de Oro 5 kg.png' }
+        ],
+        'monte-blanco': [
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 25KG', image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' },
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 5KG', image: 'catalogo/Monte Blanco 5 kg Recristalizada.png' }
+        ]
+    },
+    hogar: {
+        'cruz-de-oro': [
+            { name: 'SAL COMESTIBLE REFINADA FINA CRUZ DE ORO', description: 'PACAS 25 X 1KG', image: 'catalogo/IMG_4786X  Cruz de Oro 1.000 gr.png' },
+            { name: 'SAL COMESTIBLE REFINADA FINA CRUZ DE ORO', description: 'PACAS 50 X 500GR', image: 'catalogo/cruz-de-oro-500g.png' }
+        ],
+        'monte-blanco': [
+            { name: 'SAL COMESTIBLE RECRISTALIZADA FINA MONTE BLANCO', description: 'PACAS 25 X 1KG', image: 'catalogo/IMG_4784X  Monte Blanco 1.000 gr.png' },
+            { name: 'SAL COMESTIBLE RECRISTALIZADA FINA MONTE BLANCO', description: 'PACAS 50 X 500GR', image: 'catalogo/IMG_4783X  Monte Blanco 500 gr.png' },
+            { name: 'SALERO MONTE BLANCO 500GR', description: 'CAJA 12 UNIDADES', image: 'catalogo/SAL MONTE BLANCO.png' },
+            { name: 'ADOBO MONTE BLANCO 170GR', description: 'CAJA 12 UNIDADES', image: 'catalogo/IMG_20240405_105838_869.png' }
+        ],
+        'condor': [
+            { name: 'SALERO CÓNDOR 500GR', description: 'CAJA 12 UNIDADES', image: 'catalogo/SAL CONDOR.png' }
+        ]
+    },
+    aguas: {
+        'cruz-de-oro': [
+            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
+            { name: 'SAL MICRONIZADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
+            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 20KG', image: 'catalogo/IMG_4791X  Cruz de Oro 20 gold.png' },
+            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 5KG', image: 'catalogo/Cruz de Oro 5 kg.png' }
+        ],
+        'monte-blanco': [
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 25KG', image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' },
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 5KG', image: 'catalogo/Monte Blanco 5 kg Recristalizada.png' }
+        ]
+    },
+    piscinas: {
+        'monte-blanco': [
+            { name: 'SAL INDUSTRIAL MONTE BLANCO', description: 'SACOS 20KG', image: 'catalogo/MONTEBLANCO INDUSTRIAL 20 KG.png' }
+        ]
+    },
+    salmuera: {
+        'monte-blanco': [
+            { name: 'SALMUERA', description: 'CONTENEDORES', image: 'catalogo/salmuera.jpg' }
+        ]
+    }
 };
 
 // Títulos de sectores
@@ -1063,90 +1103,106 @@ const sectorTitles = {
     agroindustria: 'Agroindustria',
     quesera: 'Industria Quesera',
     textil: 'Industria Textil',
-    farmaceutica: 'Sal Farmacéutica',
-    agraria: 'Industria Agraria',
+    farmaceutica: 'Industria Farmacéutica',
+    agraria: 'Consumo Animal',
     hogar: 'Hogar - Consumo Masivo',
     aguas: 'Tratamiento de Aguas',
     piscinas: 'Poul Salt',
     salmuera: 'Salmuera'
 };
 
-// Abrir modal de productos
+// Configuración de marcas
+const brandConfig = {
+    'cruz-de-oro': { label: 'Cruz de Oro', logo: 'catalogo/co.png' },
+    'monte-blanco': { label: 'Monte Blanco', logo: 'catalogo/mb.png' },
+    'condor': { label: 'Cóndor', logo: 'catalogo/condor.png' }
+};
+
+// Abrir modal — paso 1: selección de marca
 function openProductModal(sector) {
     const modal = document.getElementById('productModal');
     const modalTitle = document.getElementById('modalTitle');
     const modalBody = document.getElementById('modalBody');
-    
-    // Establecer título
-    modalTitle.textContent = sectorTitles[sector];
-    
-    // Obtener productos del sector
-    const products = productCatalogs[sector] || [];
-    
-    // Generar HTML de productos
-    let productsHTML = '<div class="product-grid">';
-    products.forEach((product, index) => {
-        productsHTML += `
-            <div class="product-item" data-product-index="${index}">
-                <div class="product-item-actions">
-                    <button class="product-action-btn" onclick="event.stopPropagation(); viewProductImage('${product.image}', '${product.name}')" title="Ver imagen ampliada">
-                        <i class="fas fa-eye"></i>
-                    </button>
-                    <button class="product-action-btn" onclick="event.stopPropagation(); viewProductDetails('${sector}', ${index})" title="Ver detalles técnicos">
-                        <i class="fas fa-info-circle"></i>
-                    </button>
-                </div>
-                <div class="product-item-image">
-                    <img src="${product.image}" alt="${product.name}" loading="lazy">
-                </div>
-                <h4>${product.name}</h4>
-                <p>${product.description}</p>
-            </div>
-        `;
+
+    modalTitle.textContent = sectorTitles[sector] || sector;
+
+    const sectorData = productCatalogs[sector] || {};
+    const brands = Object.keys(sectorData);
+
+    let html = `<div class="brand-selector">
+        <p class="brand-selector-hint">Selecciona una marca para ver sus productos</p>
+        <div class="brand-logos-row">`;
+
+    brands.forEach(brandKey => {
+        const brand = brandConfig[brandKey];
+        if (!brand) return;
+        html += `
+            <button class="brand-logo-btn" onclick="showBrandProducts('${sector}', '${brandKey}', this)">
+                <img src="${brand.logo}" alt="${brand.label}">
+                <span>${brand.label}</span>
+            </button>`;
     });
-    productsHTML += '</div>';
-    
-    modalBody.innerHTML = productsHTML;
-    
-    // Agregar event listeners para móvil
-    setTimeout(() => {
-        const productItems = modalBody.querySelectorAll('.product-item');
-        productItems.forEach(item => {
-            item.addEventListener('click', function(e) {
-                // Solo en dispositivos táctiles
-                if ('ontouchstart' in window) {
-                    // Si ya está activo, no hacer nada (dejar que los botones funcionen)
-                    if (this.classList.contains('active')) {
-                        return;
-                    }
-                    
-                    // Desactivar otros items
-                    productItems.forEach(otherItem => {
-                        if (otherItem !== this) {
-                            otherItem.classList.remove('active');
-                        }
-                    });
-                    
-                    // Activar este item
-                    this.classList.add('active');
-                    e.stopPropagation();
-                }
-            });
-        });
-        
-        // Cerrar items activos al hacer clic fuera
-        modalBody.addEventListener('click', function(e) {
-            if (e.target === this || e.target.classList.contains('product-grid')) {
-                productItems.forEach(item => {
-                    item.classList.remove('active');
-                });
-            }
-        });
-    }, 100);
-    
-    // Mostrar modal
+
+    html += `</div></div>
+        <div class="brand-products-panel" id="brandProductsPanel"></div>`;
+
+    modalBody.innerHTML = html;
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
+}
+
+// Paso 2: mostrar productos de la marca seleccionada
+function showBrandProducts(sector, brandKey, btnEl) {
+    // Marcar botón activo
+    document.querySelectorAll('.brand-logo-btn').forEach(b => b.classList.remove('active'));
+    btnEl.classList.add('active');
+
+    const products = (productCatalogs[sector] || {})[brandKey] || [];
+    const panel = document.getElementById('brandProductsPanel');
+
+    if (!products.length) {
+        panel.innerHTML = '<p class="no-products">No hay productos registrados para esta marca en este sector.</p>';
+        return;
+    }
+
+    let html = `<ul class="product-list">`;
+    products.forEach((product, idx) => {
+        const uid = `prod-${sector}-${brandKey}-${idx}`;
+        const specs = getTechnicalDetails(product);
+        html += `
+        <li class="product-list-item">
+            <div class="product-list-row">
+                <img src="${product.image}" alt="${product.name}" class="product-list-thumb">
+                <div class="product-list-info">
+                    <span class="product-list-name">${product.name}</span>
+                    <span class="product-list-desc">${product.description}</span>
+                </div>
+                <button class="product-sheet-toggle" onclick="toggleSheet('${uid}')" aria-expanded="false" aria-controls="${uid}">
+                    <i class="fas fa-chevron-down"></i> Ficha técnica
+                </button>
+            </div>
+            <div class="product-sheet" id="${uid}" hidden>
+                <table class="specs-table">
+                    ${specs.map(s => `<tr><td class="spec-label">${s.label}</td><td class="spec-value">${s.value}</td></tr>`).join('')}
+                </table>
+            </div>
+        </li>`;
+    });
+    html += `</ul>`;
+
+    panel.innerHTML = html;
+    // Scroll suave al panel
+    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+// Toggle ficha técnica inline
+function toggleSheet(uid) {
+    const sheet = document.getElementById(uid);
+    const btn = sheet.previousElementSibling.querySelector('.product-sheet-toggle');
+    const isOpen = !sheet.hidden;
+    sheet.hidden = isOpen;
+    btn.setAttribute('aria-expanded', String(!isOpen));
+    btn.querySelector('i').className = isOpen ? 'fas fa-chevron-down' : 'fas fa-chevron-up';
 }
 
 // Cerrar modal de productos
@@ -1274,9 +1330,19 @@ function initImageZoom() {
     });
 }
 
-// Ver detalles técnicos del producto
-function viewProductDetails(sector, productIndex) {
-    const product = productCatalogs[sector][productIndex];
+// Ver detalles técnicos del producto (compatibilidad con llamadas externas)
+function viewProductDetails(sector, brandKey, productIndex) {
+    const sectorData = productCatalogs[sector] || {};
+    // Soporte para llamada con 2 args (sector, index) — busca en todas las marcas
+    let product;
+    if (productIndex === undefined) {
+        // brandKey es en realidad el índice global
+        const allProducts = Object.values(sectorData).flat();
+        product = allProducts[brandKey];
+    } else {
+        product = (sectorData[brandKey] || [])[productIndex];
+    }
+    if (!product) return;
     
     // Detalles técnicos genéricos basados en el tipo de producto
     const technicalDetails = getTechnicalDetails(product);
