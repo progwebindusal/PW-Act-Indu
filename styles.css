@@ -5628,3 +5628,93 @@ orce hide quality badges on mobile */
         width: 50%;
     }
 }
+
+/* =============================================
+   EFECTO LIBRO — flip 3D entre marcas y productos
+   ============================================= */
+
+.modal-body {
+    perspective: 1200px;
+    overflow-x: hidden !important;
+}
+
+/* El flipper ocupa el espacio de la cara visible */
+.book-flipper {
+    position: relative;
+    width: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.book-flipper.flipped {
+    transform: rotateY(-180deg);
+}
+
+/* Ambas caras apiladas; la cara trasera se oculta con backface-visibility */
+.book-page {
+    width: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* Cara frontal: selector de marcas — en flujo normal */
+.book-front {
+    transform: rotateY(0deg);
+}
+
+/* Cara trasera: lista de productos — absoluta y pre-rotada 180° */
+.book-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotateY(180deg);
+}
+
+/* Cuando está flipped, la cara trasera pasa a flujo normal para dar altura */
+.book-flipper.flipped .book-front {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.book-flipper.flipped .book-back {
+    position: relative;
+}
+
+/* Botón volver */
+.book-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: none;
+    border: none;
+    color: #2c5aa0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.3rem 0;
+    margin-bottom: 1rem;
+    transition: color 0.2s;
+}
+
+.book-back-btn:hover {
+    color: #dfa403;
+}
+
+/* Título de marca en la cara trasera */
+.brand-products-title {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-size: 1.1rem;
+    color: #2c5aa0;
+    margin-bottom: 1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.brand-products-logo {
+    height: 36px;
+    width: auto;
+    object-fit: contain;
+}

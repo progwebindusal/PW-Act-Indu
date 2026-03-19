@@ -1129,70 +1129,91 @@ function openProductModal(sector) {
     const sectorData = productCatalogs[sector] || {};
     const brands = Object.keys(sectorData);
 
-    let html = `<div class="brand-selector">
-        <p class="brand-selector-hint">Selecciona una marca para ver sus productos</p>
-        <div class="brand-logos-row">`;
-
+    // Estructura de libro: dos caras dentro de un flipper
+    let brandBtns = '';
     brands.forEach(brandKey => {
         const brand = brandConfig[brandKey];
         if (!brand) return;
-        html += `
+        brandBtns += `
             <button class="brand-logo-btn" onclick="showBrandProducts('${sector}', '${brandKey}', this)">
                 <img src="${brand.logo}" alt="${brand.label}">
                 <span>${brand.label}</span>
             </button>`;
     });
 
-    html += `</div></div>
-        <div class="brand-products-panel" id="brandProductsPanel"></div>`;
+    modalBody.innerHTML = `
+        <div class="book-flipper" id="bookFlipper">
+            <div class="book-page book-front">
+                <div class="brand-selector">
+                    <p class="brand-selector-hint">Selecciona una marca para ver sus productos</p>
+                    <div class="brand-logos-row">${brandBtns}</div>
+                </div>
+            </div>
+            <div class="book-page book-back">
+                <button class="book-back-btn" onclick="flipToFront()">
+                    <i class="fas fa-arrow-left"></i> Volver a marcas
+                </button>
+                <div id="brandProductsPanel"></div>
+            </div>
+        </div>`;
 
-    modalBody.innerHTML = html;
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
 }
 
-// Paso 2: mostrar productos de la marca seleccionada
+// Flip hacia la cara de productos
 function showBrandProducts(sector, brandKey, btnEl) {
-    // Marcar botón activo
     document.querySelectorAll('.brand-logo-btn').forEach(b => b.classList.remove('active'));
     btnEl.classList.add('active');
 
     const products = (productCatalogs[sector] || {})[brandKey] || [];
     const panel = document.getElementById('brandProductsPanel');
+    const brand = brandConfig[brandKey];
 
     if (!products.length) {
         panel.innerHTML = '<p class="no-products">No hay productos registrados para esta marca en este sector.</p>';
-        return;
+    } else {
+        let html = `<h3 class="brand-products-title">
+            <img src="${brand.logo}" alt="${brand.label}" class="brand-products-logo">
+            ${brand.label}
+        </h3><ul class="product-list">`;
+        products.forEach((product, idx) => {
+            const uid = `prod-${sector}-${brandKey}-${idx}`;
+            const specs = getTechnicalDetails(product);
+            html += `
+            <li class="product-list-item">
+                <div class="product-list-row">
+                    <img src="${product.image}" alt="${product.name}" class="product-list-thumb">
+                    <div class="product-list-info">
+                        <span class="product-list-name">${product.name}</span>
+                        <span class="product-list-desc">${product.description}</span>
+                    </div>
+                    <button class="product-sheet-toggle" onclick="toggleSheet('${uid}')" aria-expanded="false" aria-controls="${uid}">
+                        <i class="fas fa-chevron-down"></i> Ficha técnica
+                    </button>
+                </div>
+                <div class="product-sheet" id="${uid}" hidden>
+                    <table class="specs-table">
+                        ${specs.map(s => `<tr><td class="spec-label">${s.label}</td><td class="spec-value">${s.value}</td></tr>`).join('')}
+                    </table>
+                </div>
+            </li>`;
+        });
+        html += `</ul>`;
+        panel.innerHTML = html;
     }
 
-    let html = `<ul class="product-list">`;
-    products.forEach((product, idx) => {
-        const uid = `prod-${sector}-${brandKey}-${idx}`;
-        const specs = getTechnicalDetails(product);
-        html += `
-        <li class="product-list-item">
-            <div class="product-list-row">
-                <img src="${product.image}" alt="${product.name}" class="product-list-thumb">
-                <div class="product-list-info">
-                    <span class="product-list-name">${product.name}</span>
-                    <span class="product-list-desc">${product.description}</span>
-                </div>
-                <button class="product-sheet-toggle" onclick="toggleSheet('${uid}')" aria-expanded="false" aria-controls="${uid}">
-                    <i class="fas fa-chevron-down"></i> Ficha técnica
-                </button>
-            </div>
-            <div class="product-sheet" id="${uid}" hidden>
-                <table class="specs-table">
-                    ${specs.map(s => `<tr><td class="spec-label">${s.label}</td><td class="spec-value">${s.value}</td></tr>`).join('')}
-                </table>
-            </div>
-        </li>`;
-    });
-    html += `</ul>`;
+    // Ejecutar el flip
+    const flipper = document.getElementById('bookFlipper');
+    flipper.classList.add('flipped');
+    // Scroll al inicio del panel tras el flip
+    setTimeout(() => { panel.parentElement.scrollTop = 0; }, 350);
+}
 
-    panel.innerHTML = html;
-    // Scroll suave al panel
-    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+// Flip de vuelta a la cara de marcas
+function flipToFront() {
+    const flipper = document.getElementById('bookFlipper');
+    flipper.classList.remove('flipped');
 }
 
 // Toggle ficha técnica inline
