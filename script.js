@@ -1217,7 +1217,6 @@ function flipToFront() {
     // Limpiar estado activo al volver
     document.querySelectorAll('.brand-logo-btn').forEach(b => b.classList.remove('active'));
 }
-}
 
 // Toggle ficha técnica inline
 function toggleSheet(uid) {
