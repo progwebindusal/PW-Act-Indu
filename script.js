@@ -990,7 +990,8 @@ const productCatalogs = {
         ],
         'monte-blanco': [
             { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 25KG', image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' },
-            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 5KG', image: 'catalogo/Monte Blanco 5 kg Recristalizada.png' }
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 5KG', image: 'catalogo/Monte Blanco 5 kg Recristalizada.png' },
+            { name: 'SAL PARA SALMUERA PETROLERA MONTE BLANCO', description: 'SACOS 25KG', image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' }
         ]
     },
     agroindustria: {
@@ -1091,7 +1092,8 @@ const productCatalogs = {
     },
     salmuera: {
         'monte-blanco': [
-            { name: 'SALMUERA', description: 'CONTENEDORES', image: 'catalogo/salmuera.jpg' }
+            { name: 'SALMUERA INDUSTRIAL', description: 'CONTENEDORES', image: 'catalogo/salmuera.jpg' },
+            { name: 'SALMUERA PARA INDUSTRIA PETROLERA', description: 'CONTENEDORES', image: 'catalogo/salin2.png' }
         ]
     }
 };
@@ -1427,7 +1429,27 @@ function getTechnicalDetails(product) {
         { label: 'Producto', value: product.name },
         { label: 'Presentación', value: product.description }
     ];
-    
+
+    // Especificaciones para SAL PARA SALMUERA PETROLERA
+    if (product.name.includes('SALMUERA PETROLERA')) {
+        details.push(
+            { label: 'Tipo', value: 'Sal para Salmuera - Sector Petrolero' },
+            { label: 'Cloruro de Sodio (NaCl)', value: 'Mínimo 99.5%' },
+            { label: 'Humedad', value: 'Máximo 0.3%' },
+            { label: 'Materia Insoluble', value: 'Máximo 0.1%' },
+            { label: 'Sulfatos (SO₄)', value: 'Máximo 0.6%' },
+            { label: 'Calcio (Ca)', value: 'Máximo 0.1%' },
+            { label: 'Magnesio (Mg)', value: 'Máximo 0.1%' },
+            { label: 'Carbonatos', value: 'Máximo 0.1%' },
+            { label: 'Anticompactante', value: 'Máximo 10 mg/Kg' },
+            { label: 'Granulometría', value: 'Tamiz N 20 (841 µ) retiene Máximo 2%' },
+            { label: 'Granulometría', value: 'Tamiz N 70 (210 µ) retiene Máximo 19%' },
+            { label: 'Aplicación', value: 'Preparación de salmueras para fluidos de perforación y completación de pozos petroleros' },
+            { label: 'Presentación', value: 'Sacos de 25 kg' }
+        );
+        return details;
+    }
+
     // Especificaciones detalladas para Cruz de Oro en sacos (excepto Sello Azul)
     if (isCruzDeOro && isSaco && !product.name.includes('SELLO AZUL')) {
         details.push(
@@ -1479,7 +1501,32 @@ function getTechnicalDetails(product) {
             { label: 'Uso', value: 'Industrial y piscinas' }
         );
     }
-    // Especificaciones para SALMUERA
+    // Especificaciones para SALMUERA PARA INDUSTRIA PETROLERA
+    else if (product.name.includes('SALMUERA PARA INDUSTRIA PETROLERA')) {
+        details.push(
+            { label: 'Tipo', value: 'Salmuera - Sector Petrolero' },
+            { label: 'Composición', value: 'Cloruro sódico (NaCl) disuelto en agua' },
+            { label: 'Usos', value: 'Fluidos de perforación, completación y workover de pozos petroleros' },
+            { label: 'Proceso de Elaboración', value: 'Se obtiene diluyendo sal recristalizada de alta pureza con agua tratada, almacenada en decantadores y filtrada antes de su despacho.' },
+            { label: 'Envasado y Transporte', value: 'En contenedores o cisternas.' },
+            { label: 'Parámetros Físicos - Medida', value: 'Grados Baumé' },
+            { label: 'Parámetros Físicos - Rango', value: 'Desde 0° (mín.) hasta 24.5° (máx.)' },
+            { label: 'Densidad', value: 'Hasta 1.197 g/cm³ (salmuera saturada)' },
+            { label: 'Parámetros Organolépticos', value: 'Producto inodoro y sabor salino.' },
+            { label: 'Cloruro sódico en materia seca', value: '≥ 97%' },
+            { label: 'Magnesio como MgO', value: '≤ 20 000 mg/kg' },
+            { label: 'Residuo insoluble en agua', value: '≤ 0.5%' },
+            { label: 'pH', value: '< 7' },
+            { label: 'Arsénico', value: '≤ 0.5 mg/kg' },
+            { label: 'Cadmio', value: '≤ 0.5 mg/kg' },
+            { label: 'Cobre', value: '≤ 2 mg/kg' },
+            { label: 'Mercurio', value: '≤ 0.1 mg/kg' },
+            { label: 'Plomo', value: '≤ 2 mg/kg' },
+            { label: 'Aditivos', value: 'NO CONTIENE' },
+            { label: 'Conservación', value: 'Se recomienda conservación en envase cerrado, alejado de contaminantes.' }
+        );
+    }
+    // Especificaciones para SALMUERA INDUSTRIAL
     else if (product.name.includes('SALMUERA')) {
         details.push(
             { label: 'Composición', value: 'Cloruro sódico (NaCl) con agua' },
@@ -1510,7 +1557,7 @@ function getTechnicalDetails(product) {
     else if (isMonteBlanco && isSaco) {
         details.push(
             { label: 'Tipo', value: 'Sal Recristalizada' },
-            { label: 'Cloruro de Sodio (NaCl)', value: 'Mínimo 99.2%' },
+            { label: 'Cloruro de Sodio (NaCl)', value: 'Mínimo 99.5%' },
             { label: 'Humedad', value: 'Máximo 0.3%' },
             { label: 'Materia Insoluble', value: 'Máximo 0.1%' },
             { label: 'Sulfatos', value: 'Máximo 0.6%' },
