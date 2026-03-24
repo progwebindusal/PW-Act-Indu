@@ -13,7 +13,9 @@
 .empleos-banner-bg {
     position: absolute;
     inset: 0;
-    background: url('catalogo/laboratorio.jpeg') center/cover no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .empleos-banner-overlay {
@@ -26,6 +28,7 @@
         rgba(44, 90, 160, 0.75) 70%,
         rgba(44, 90, 160, 0.4) 100%
     );
+    z-index: 0;
 }
 
 .empleos-banner-content {
