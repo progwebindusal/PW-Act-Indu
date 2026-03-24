@@ -155,8 +155,14 @@ body {
     transition: width 0.3s ease;
 }
 
-.nav-link:hover::after {
+.nav-link:hover::after,
+.nav-link.is-active::after {
     width: 100%;
+}
+
+.nav-link.is-active {
+    color: #2c5aa0;
+    font-weight: 600;
 }
 
 /* Dropdown Menu */

@@ -80,6 +80,15 @@ function initNavigation() {
                 }
             });
         });
+
+        // Click activo: mueve el subrayado dorado al link clickeado
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                // Solo aplica a links internos (href con #) o de la misma página
+                navLinks.forEach(l => l.classList.remove('is-active'));
+                this.classList.add('is-active');
+            });
+        });
     }
 }
 
