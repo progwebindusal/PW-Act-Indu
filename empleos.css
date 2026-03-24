@@ -535,134 +535,37 @@
    CV ESPONTÁNEO CTA
    ============================================ */
 .emp-cv-cta {
-    position: relative;
-    padding: 90px 0;
-    overflow: hidden;
-}
-
-.emp-cv-cta-bg {
-    position: absolute;
-    inset: 0;
-    background: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1600&auto=format&fit=crop&q=80') center/cover no-repeat;
-    z-index: 0;
-}
-
-.emp-cv-cta-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        105deg,
-        rgba(13, 42, 94, 0.97) 0%,
-        rgba(30, 63, 115, 0.94) 50%,
-        rgba(44, 90, 160, 0.88) 100%
-    );
-    z-index: 1;
-}
-
-.emp-cv-cta .container {
-    position: relative;
-    z-index: 2;
+    padding: 80px 0;
+    background: linear-gradient(135deg, #0d2a5e, #1e3f73);
+    text-align: center;
 }
 
 .emp-cv-cta-content {
-    display: grid;
-    grid-template-columns: 1fr 380px;
-    align-items: center;
-    gap: 4rem;
-}
-
-.emp-cv-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #dfa403;
-    font-size: 0.78rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 1rem;
-}
-
-.emp-cv-cta-text h2 {
-    color: #fff;
-    font-size: 2.2rem;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-}
-
-.emp-cv-cta-text p {
-    color: rgba(255,255,255,0.72);
-    font-size: 1rem;
-    max-width: 500px;
-    line-height: 1.7;
-    margin-bottom: 1.8rem;
-}
-
-.emp-cv-features {
+    max-width: 600px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
-}
-
-.emp-cv-feature {
-    display: flex;
     align-items: center;
-    gap: 0.6rem;
-    color: rgba(255,255,255,0.85);
-    font-size: 0.9rem;
+    gap: 1.2rem;
 }
 
-.emp-cv-feature i {
-    color: #dfa403;
-    font-size: 0.95rem;
-}
-
-/* Tarjeta derecha */
-.emp-cv-cta-card {
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 20px;
-    padding: 2.5rem 2rem;
-    text-align: center;
-    backdrop-filter: blur(16px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-}
-
-.emp-cv-card-icon {
-    width: 70px;
-    height: 70px;
-    background: linear-gradient(135deg, #dfa403, #f5c518);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1.2rem;
-    box-shadow: 0 8px 25px rgba(223,164,3,0.4);
-}
-
-.emp-cv-card-icon i {
-    font-size: 1.8rem;
-    color: #0d2a5e;
-}
-
-.emp-cv-cta-card h3 {
+.emp-cv-cta-content h2 {
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 2rem;
     font-weight: 700;
-    margin-bottom: 0.7rem;
+    line-height: 1.25;
 }
 
-.emp-cv-cta-card p {
-    color: rgba(255,255,255,0.65);
-    font-size: 0.88rem;
-    line-height: 1.6;
-    margin-bottom: 1.8rem;
+.emp-cv-cta-content p {
+    color: rgba(255,255,255,0.72);
+    font-size: 1rem;
+    line-height: 1.7;
 }
 
-@media (max-width: 768px) {
-    .emp-cv-cta-content { grid-template-columns: 1fr; }
-    .emp-cv-cta-text h2 { font-size: 1.7rem; }
+.emp-cv-cta-content .btn-empleos {
+    margin-top: 0.5rem;
+    width: auto;
+    padding: 0.9rem 2.5rem;
 }
 
 /* ============================================
