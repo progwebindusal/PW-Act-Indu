@@ -1,190 +1,346 @@
-/* ===== EMPLEOS - BANNER EN INDEX ===== */
+/* ============================================
+   EMPLEOS - BANNER EN INDEX.HTML
+   ============================================ */
 .empleos-banner {
     position: relative;
-    padding: 80px 0;
+    padding: 90px 0;
     overflow: hidden;
-    background: linear-gradient(135deg, #1e3f73 0%, #2c5aa0 50%, #1a3560 100%);
+    background: linear-gradient(135deg, #0d2a5e 0%, #1e3f73 40%, #2c5aa0 100%);
 }
 
 .empleos-banner-bg {
     position: absolute;
     inset: 0;
     background: url('catalogo/laboratorio.png') center/cover no-repeat;
-    opacity: 0.08;
+    opacity: 0.06;
 }
 
 .empleos-banner-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(30,63,115,0.95) 0%, rgba(44,90,160,0.9) 100%);
 }
 
 .empleos-banner-content {
     position: relative;
     z-index: 1;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto;
     align-items: center;
-    justify-content: space-between;
-    gap: 3rem;
-    flex-wrap: wrap;
+    gap: 4rem;
 }
 
-.empleos-banner-text { flex: 1; min-width: 280px; }
+.empleos-banner-left { max-width: 600px; }
 
-.empleos-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: rgba(223,164,3,0.2);
-    border: 1px solid rgba(223,164,3,0.5);
+.empleos-eyebrow {
+    display: block;
     color: #dfa403;
-    padding: 0.4rem 1rem;
-    border-radius: 50px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    margin-bottom: 0.8rem;
 }
 
-.empleos-banner-text h2 {
-    font-size: 2.2rem;
+.empleos-banner-left h2 {
+    font-size: 2.4rem;
     font-weight: 700;
     color: #fff;
-    margin-bottom: 0.8rem;
     line-height: 1.2;
+    margin-bottom: 1rem;
 }
 
-.empleos-banner-text p {
-    color: rgba(255,255,255,0.8);
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
-    max-width: 500px;
+.empleos-highlight {
+    color: #dfa403;
 }
 
-.empleos-stats {
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-}
-
-.empleo-stat {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+.empleos-banner-left p {
     color: rgba(255,255,255,0.75);
-    font-size: 0.85rem;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
 }
 
-.empleo-stat i { color: #dfa403; }
-
-.empleos-banner-action {
+.empleos-pillars {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
+}
+
+.empleo-pillar {
+    display: flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: 1rem;
+}
+
+.empleo-pillar i {
+    width: 40px;
+    height: 40px;
+    background: rgba(223,164,3,0.15);
+    border: 1px solid rgba(223,164,3,0.3);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #dfa403;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.empleo-pillar div { display: flex; flex-direction: column; }
+.empleo-pillar strong { color: #fff; font-size: 0.9rem; }
+.empleo-pillar span { color: rgba(255,255,255,0.6); font-size: 0.8rem; }
+
+/* CTA card derecha */
+.empleos-cta-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    min-width: 260px;
+}
+
+.empleos-cta-label {
+    color: #dfa403;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.8rem;
+}
+
+.empleos-cta-card h3 {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
 }
 
 .btn-empleos {
     display: inline-flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: 0.6rem;
     background: linear-gradient(135deg, #dfa403, #f0b800);
     color: #1e3f73;
-    padding: 1rem 2rem;
+    padding: 0.85rem 1.8rem;
     border-radius: 50px;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 0.95rem;
     text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
     transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(223,164,3,0.4);
-    white-space: nowrap;
+    box-shadow: 0 6px 20px rgba(223,164,3,0.35);
 }
 
 .btn-empleos:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(223,164,3,0.5);
-    background: linear-gradient(135deg, #f0b800, #dfa403);
+    box-shadow: 0 10px 30px rgba(223,164,3,0.5);
 }
 
-.btn-empleos i { transition: transform 0.3s ease; }
-.btn-empleos:hover i { transform: translateX(5px); }
+.btn-empleos i { transition: transform 0.3s; }
+.btn-empleos:hover i { transform: translateX(4px); }
 
-.empleos-sub {
-    color: rgba(255,255,255,0.55);
-    font-size: 0.8rem;
-    text-align: center;
-}
-
-/* Nav link empleos */
-.nav-link-empleos {
+/* Nav empleos */
+.nav-item-empleos .nav-link-empleos {
     color: #2c5aa0 !important;
-    font-weight: 600 !important;
+    font-weight: 700 !important;
+    border-bottom: 2px solid #dfa403;
+    padding-bottom: 2px;
 }
-.nav-link-empleos i { margin-right: 4px; color: #dfa403; }
 
-/* ===== EMPLEOS PAGE ===== */
-.empleos-hero {
+/* ============================================
+   EMPLEOS PAGE - HERO
+   ============================================ */
+.emp-hero {
     position: relative;
-    min-height: 380px;
+    min-height: 480px;
     display: flex;
     align-items: center;
-    padding: 120px 0 60px;
-    background: linear-gradient(135deg, #1e3f73 0%, #2c5aa0 100%);
+    padding: 130px 0 80px;
+    background: linear-gradient(135deg, #0d2a5e 0%, #1e3f73 50%, #2c5aa0 100%);
     overflow: hidden;
 }
 
-.empleos-hero .hero-background {
+.emp-hero-overlay {
     position: absolute;
     inset: 0;
     background: url('catalogo/laboratorio.png') center/cover no-repeat;
-    opacity: 0.07;
+    opacity: 0.05;
 }
 
-.empleos-hero .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(30,63,115,0.97) 0%, rgba(44,90,160,0.92) 100%);
-}
-
-.empleos-hero-content {
+.emp-hero-content {
     position: relative;
     z-index: 1;
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto;
+    max-width: 680px;
 }
 
-.empleos-hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: rgba(223,164,3,0.15);
-    border: 1px solid rgba(223,164,3,0.4);
+.emp-hero-eyebrow {
+    display: block;
     color: #dfa403;
-    padding: 0.4rem 1.2rem;
-    border-radius: 50px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin-bottom: 1.2rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.empleos-hero-content h1 {
-    font-size: 2.8rem;
+    font-size: 0.8rem;
     font-weight: 700;
-    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
     margin-bottom: 1rem;
 }
 
-.empleos-hero-content p {
-    color: rgba(255,255,255,0.8);
-    font-size: 1.05rem;
-    margin-bottom: 2rem;
+.emp-hero-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 1.2rem;
 }
 
-/* ===== VACANTES ===== */
+.emp-hero-accent { color: #dfa403; }
+
+.emp-hero-sub {
+    color: rgba(255,255,255,0.75);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    max-width: 540px;
+}
+
+.emp-hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.4);
+    color: #fff;
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.emp-hero-btn:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: #fff;
+}
+
+.emp-hero-wave {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+}
+
+.emp-hero-wave svg { width: 100%; height: 60px; }
+
+/* ============================================
+   PROPUESTA DE VALOR
+   ============================================ */
+.emp-propuesta {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.emp-propuesta-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.emp-prop-card {
+    padding: 2rem 1.5rem;
+    background: #fff;
+    border-radius: 16px;
+    border: 1px solid #e8eef7;
+    transition: all 0.3s;
+}
+
+.emp-prop-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(44,90,160,0.12);
+    border-color: #2c5aa0;
+}
+
+.emp-prop-line {
+    width: 40px;
+    height: 4px;
+    background: linear-gradient(90deg, #dfa403, #f0b800);
+    border-radius: 2px;
+    margin-bottom: 1.2rem;
+}
+
+.emp-prop-card h3 {
+    color: #1e3f73;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+}
+
+.emp-prop-card p {
+    color: #666;
+    font-size: 0.88rem;
+    line-height: 1.7;
+}
+
+/* ============================================
+   ÁREAS
+   ============================================ */
+.emp-areas {
+    padding: 80px 0;
+    background: #fff;
+}
+
+.emp-areas-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.2rem;
+    margin-top: 2.5rem;
+}
+
+.emp-area-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1.8rem 1rem;
+    background: #f8f9fa;
+    border: 1px solid #e8eef7;
+    border-radius: 14px;
+    text-align: center;
+    transition: all 0.3s;
+    cursor: default;
+}
+
+.emp-area-item:hover {
+    background: linear-gradient(135deg, #1e3f73, #2c5aa0);
+    border-color: #2c5aa0;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(44,90,160,0.2);
+}
+
+.emp-area-item i {
+    font-size: 1.6rem;
+    color: #2c5aa0;
+    transition: color 0.3s;
+}
+
+.emp-area-item:hover i { color: #dfa403; }
+
+.emp-area-item span {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #444;
+    transition: color 0.3s;
+}
+
+.emp-area-item:hover span { color: #fff; }
+
+/* ============================================
+   VACANTES
+   ============================================ */
 .vacantes-section {
     padding: 80px 0;
     background: #f8f9fa;
@@ -197,11 +353,6 @@
     gap: 2rem;
     margin-bottom: 3rem;
     flex-wrap: wrap;
-}
-
-.vacantes-header .section-header {
-    margin-bottom: 0;
-    text-align: left;
 }
 
 .vacantes-header .section-header::after { display: none; }
@@ -233,13 +384,13 @@
     gap: 1.5rem;
 }
 
-/* Tarjeta de vacante */
 .vacante-card {
     background: #fff;
     border-radius: 16px;
     padding: 1.8rem;
-    box-shadow: 0 4px 20px rgba(44,90,160,0.08);
+    box-shadow: 0 4px 20px rgba(44,90,160,0.07);
     border: 1px solid #e8eef7;
+    border-left: 4px solid #2c5aa0;
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
@@ -249,7 +400,7 @@
 .vacante-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 35px rgba(44,90,160,0.15);
-    border-color: #2c5aa0;
+    border-left-color: #dfa403;
 }
 
 .vacante-card-header {
@@ -267,12 +418,12 @@
 }
 
 .vacante-area-tag {
-    background: linear-gradient(135deg, #e8eef7, #d0ddf0);
+    background: #e8eef7;
     color: #2c5aa0;
     padding: 0.3rem 0.8rem;
     border-radius: 50px;
-    font-size: 0.75rem;
-    font-weight: 600;
+    font-size: 0.72rem;
+    font-weight: 700;
     white-space: nowrap;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -290,7 +441,7 @@
 }
 
 .vacante-requisitos {
-    color: #666;
+    color: #555;
     font-size: 0.82rem;
     line-height: 1.5;
     background: #f0f4fa;
@@ -313,7 +464,7 @@
     font-size: 0.82rem;
 }
 
-.vacante-meta-item i { color: #2c5aa0; font-size: 0.85rem; }
+.vacante-meta-item i { color: #2c5aa0; }
 
 .vacante-card-footer {
     display: flex;
@@ -324,10 +475,7 @@
     gap: 1rem;
 }
 
-.vacante-fecha {
-    color: #aaa;
-    font-size: 0.78rem;
-}
+.vacante-fecha { color: #aaa; font-size: 0.78rem; }
 
 .btn-aplicar {
     background: linear-gradient(135deg, #2c5aa0, #1e3f73);
@@ -351,7 +499,6 @@
     transform: translateY(-2px);
 }
 
-/* Sin vacantes */
 .sin-vacantes {
     text-align: center;
     padding: 4rem 2rem;
@@ -363,7 +510,38 @@
 .sin-vacantes p { margin-bottom: 1.5rem; }
 .hidden { display: none !important; }
 
-/* ===== POR QUÉ SECTION ===== */
+/* ============================================
+   CV ESPONTÁNEO CTA
+   ============================================ */
+.emp-cv-cta {
+    padding: 70px 0;
+    background: linear-gradient(135deg, #0d2a5e, #1e3f73);
+}
+
+.emp-cv-cta-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.emp-cv-cta-text h2 {
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+}
+
+.emp-cv-cta-text p {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.95rem;
+    max-width: 500px;
+}
+
+/* ============================================
+   POR QUÉ SECTION
+   ============================================ */
 .porque-section {
     padding: 80px 0;
     background: #fff;
@@ -380,7 +558,7 @@
     text-align: center;
     padding: 2rem 1.5rem;
     border-radius: 16px;
-    background: linear-gradient(135deg, #f8f9fa, #e8eef7);
+    background: #f8f9fa;
     border: 1px solid #e0e7ef;
     transition: all 0.3s ease;
 }
@@ -406,7 +584,9 @@
 .porque-card h3 { color: #1e3f73; font-size: 1rem; font-weight: 700; margin-bottom: 0.6rem; }
 .porque-card p { color: #666; font-size: 0.88rem; line-height: 1.6; }
 
-/* ===== MODALES ===== */
+/* ============================================
+   MODAL APLICAR
+   ============================================ */
 .empleo-modal {
     position: fixed;
     inset: 0;
@@ -420,10 +600,7 @@
     animation: fadeInModal 0.2s ease;
 }
 
-@keyframes fadeInModal {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
+@keyframes fadeInModal { from { opacity: 0; } to { opacity: 1; } }
 
 .empleo-modal-content {
     background: #fff;
@@ -438,7 +615,7 @@
 
 @keyframes slideUpModal {
     from { transform: translateY(30px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+    to   { transform: translateY(0);    opacity: 1; }
 }
 
 .empleo-modal-header {
@@ -449,7 +626,6 @@
     border-bottom: 1px solid #e8eef7;
     background: linear-gradient(135deg, #1e3f73, #2c5aa0);
     border-radius: 20px 20px 0 0;
-    color: #fff;
 }
 
 .empleo-modal-header h3 { font-size: 1.2rem; font-weight: 700; color: #fff; }
@@ -475,11 +651,7 @@
 
 .empleo-modal-body { padding: 2rem; }
 
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
 .form-group {
     display: flex;
@@ -488,11 +660,7 @@
     margin-bottom: 1rem;
 }
 
-.form-group label {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #444;
-}
+.form-group label { font-size: 0.85rem; font-weight: 600; color: #444; }
 
 .form-group input,
 .form-group select,
@@ -521,15 +689,22 @@
     border-top: 1px solid #f0f4fa;
 }
 
-/* ===== RESPONSIVE ===== */
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+    .emp-propuesta-grid { grid-template-columns: repeat(2, 1fr); }
+    .emp-areas-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
 @media (max-width: 768px) {
-    .empleos-banner-content { flex-direction: column; text-align: center; }
-    .empleos-banner-text p { max-width: 100%; }
-    .empleos-stats { justify-content: center; }
-    .empleos-banner-action { width: 100%; }
-    .btn-empleos { width: 100%; justify-content: center; }
+    .empleos-banner-content { grid-template-columns: 1fr; }
+    .empleos-cta-card { width: 100%; }
+    .emp-hero-content h1 { font-size: 2.2rem; }
+    .emp-propuesta-grid { grid-template-columns: 1fr; }
+    .emp-areas-grid { grid-template-columns: repeat(2, 1fr); }
     .vacantes-header { flex-direction: column; align-items: flex-start; }
     .vacantes-grid { grid-template-columns: 1fr; }
+    .emp-cv-cta-content { flex-direction: column; text-align: center; }
     .form-row { grid-template-columns: 1fr; }
-    .empleos-hero-content h1 { font-size: 2rem; }
 }

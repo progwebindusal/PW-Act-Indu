@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bolsa de Empleo - Indusalca</title>
+    <title>Trabaja con Nosotros - Indusalca</title>
     <link rel="icon" type="image/svg+xml" href="catalogo/icono.svg">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="empleos.css">
@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
@@ -18,11 +19,13 @@
                 <a href="index.html"><img src="catalogo/logo1.png" alt="Indusalca" class="logo"></a>
             </div>
             <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item nav-item-empleos">
+                    <a href="empleos.html" class="nav-link nav-link-empleos active">Empleos</a>
+                </li>
                 <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
                 <li class="nav-item"><a href="index.html#about" class="nav-link">Nosotros</a></li>
                 <li class="nav-item"><a href="index.html#industries" class="nav-link">Sectores</a></li>
                 <li class="nav-item"><a href="index.html#contact" class="nav-link">Contacto</a></li>
-                <li class="nav-item"><a href="empleos.html" class="nav-link nav-link-empleos active">Empleos</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
                 <span class="bar"></span><span class="bar"></span><span class="bar"></span>
@@ -30,26 +33,76 @@
         </div>
     </nav>
 
-    <!-- Hero Empleos -->
-    <section class="empleos-hero">
-        <div class="hero-background"><div class="hero-overlay"></div></div>
+    <!-- Hero -->
+    <section class="emp-hero">
+        <div class="emp-hero-overlay"></div>
         <div class="container">
-            <div class="empleos-hero-content">
-                <div class="empleos-hero-badge">Bolsa de Empleo</div>
-                <h1>Trabaja con Nosotros</h1>
-                <p>Forma parte de una empresa líder con más de 73 años de experiencia en Venezuela. Buscamos talento comprometido con la excelencia.</p>
+            <div class="emp-hero-content">
+                <p class="emp-hero-eyebrow">Bolsa de Empleo</p>
+                <h1>Únete a un equipo<br><span class="emp-hero-accent">que transforma Venezuela</span></h1>
+                <p class="emp-hero-sub">Más de 73 años de historia, líderes en la industria salinera. Buscamos talento comprometido con la calidad y el crecimiento.</p>
+                <a href="#vacantes" class="emp-hero-btn">Ver vacantes disponibles <i class="fas fa-arrow-down"></i></a>
+            </div>
+        </div>
+        <div class="emp-hero-wave">
+            <svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f8f9fa"/></svg>
+        </div>
+    </section>
+
+    <!-- Propuesta de valor -->
+    <section class="emp-propuesta">
+        <div class="container">
+            <div class="emp-propuesta-grid">
+                <div class="emp-prop-card">
+                    <div class="emp-prop-line"></div>
+                    <h3>Global</h3>
+                    <p>Empresa líder con presencia nacional. La planta recristalizadora más grande de Venezuela, sirviendo a múltiples sectores industriales.</p>
+                </div>
+                <div class="emp-prop-card">
+                    <div class="emp-prop-line"></div>
+                    <h3>Innovador</h3>
+                    <p>Trabajamos con tecnología avanzada y bajo normas ISO 9001, HACCP y BPF. Apostamos por la mejora continua en cada proceso.</p>
+                </div>
+                <div class="emp-prop-card">
+                    <div class="emp-prop-line"></div>
+                    <h3>Humano</h3>
+                    <p>Somos una familia sólida y comprometida. Valoramos el bienestar de nuestros colaboradores y fomentamos un ambiente de respeto.</p>
+                </div>
+                <div class="emp-prop-card">
+                    <div class="emp-prop-line"></div>
+                    <h3>Estable</h3>
+                    <p>73 años de trayectoria respaldan nuestra solidez. Ofrecemos estabilidad laboral y oportunidades reales de crecimiento profesional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Áreas -->
+    <section class="emp-areas">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Oportunidades</div>
+                <h2 class="section-title">Áreas donde puedes crecer</h2>
+                <p class="section-subtitle">Desarrolla tu carrera en alguna de nuestras áreas de trabajo</p>
+            </div>
+            <div class="emp-areas-grid">
+                <div class="emp-area-item"><i class="fas fa-flask"></i><span>Producción y Calidad</span></div>
+                <div class="emp-area-item"><i class="fas fa-chart-bar"></i><span>Administración</span></div>
+                <div class="emp-area-item"><i class="fas fa-handshake"></i><span>Ventas</span></div>
+                <div class="emp-area-item"><i class="fas fa-truck"></i><span>Logística</span></div>
+                <div class="emp-area-item"><i class="fas fa-users-cog"></i><span>Recursos Humanos</span></div>
+                <div class="emp-area-item"><i class="fas fa-tools"></i><span>Mantenimiento</span></div>
             </div>
         </div>
     </section>
 
     <!-- Vacantes -->
-    <section class="vacantes-section">
+    <section class="vacantes-section" id="vacantes">
         <div class="container">
             <div class="vacantes-header">
-                <div class="section-header">
-                    <div class="section-badge">Oportunidades</div>
+                <div class="section-header" style="text-align:left;margin-bottom:0;">
+                    <div class="section-badge">Posiciones abiertas</div>
                     <h2 class="section-title">Vacantes Disponibles</h2>
-                    <p class="section-subtitle">Encuentra la oportunidad que se adapta a tu perfil</p>
                 </div>
                 <div class="vacantes-filtros">
                     <input type="text" id="buscar-vacante" placeholder="Buscar cargo..." class="filtro-input">
@@ -67,9 +120,7 @@
                 </div>
             </div>
 
-            <div id="vacantes-lista" class="vacantes-grid">
-                <!-- Se carga dinámicamente -->
-            </div>
+            <div id="vacantes-lista" class="vacantes-grid"></div>
 
             <div id="sin-vacantes" class="sin-vacantes hidden">
                 <i class="fas fa-search"></i>
@@ -77,6 +128,21 @@
                 <p>Déjanos tu CV y te contactaremos cuando surja una oportunidad.</p>
                 <button class="btn btn-primary" onclick="abrirFormulario(null)">
                     <i class="fas fa-paper-plane"></i> Enviar CV Espontáneo
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CV Espontáneo CTA -->
+    <section class="emp-cv-cta">
+        <div class="container">
+            <div class="emp-cv-cta-content">
+                <div class="emp-cv-cta-text">
+                    <h2>¿Ninguna vacante encaja con tu perfil?</h2>
+                    <p>No te pierdas ninguna oportunidad. Envíanos tu CV y te contactaremos cuando surja una posición que se adapte a ti.</p>
+                </div>
+                <button class="btn-empleos" onclick="abrirFormulario(null)">
+                    Enviar mi CV <i class="fas fa-paper-plane"></i>
                 </button>
             </div>
         </div>
@@ -106,7 +172,7 @@
                     <p>Más de 73 años de trayectoria respaldan la solidez de nuestra empresa.</p>
                 </div>
                 <div class="porque-card">
-                    <div class="porque-icon"><i class="fas fa-star"></i></div>
+                    <div class="porque-icon"><i class="fas fa-award"></i></div>
                     <h3>Empresa Líder</h3>
                     <p>La planta recristalizadora más grande de Venezuela. Sé parte del liderazgo.</p>
                 </div>
