@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bolsa de Empleo - Indusalca</title>
+    <link rel="icon" type="image/svg+xml" href="catalogo/icono.svg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="empleos.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html"><img src="catalogo/logo1.png" alt="Indusalca" class="logo"></a>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="index.html#about" class="nav-link">Nosotros</a></li>
+                <li class="nav-item"><a href="index.html#industries" class="nav-link">Sectores</a></li>
+                <li class="nav-item"><a href="index.html#contact" class="nav-link">Contacto</a></li>
+                <li class="nav-item"><a href="empleos.html" class="nav-link nav-link-empleos active"><i class="fas fa-briefcase"></i> Empleos</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Empleos -->
+    <section class="empleos-hero">
+        <div class="hero-background"><div class="hero-overlay"></div></div>
+        <div class="container">
+            <div class="empleos-hero-content">
+                <div class="empleos-hero-badge"><i class="fas fa-briefcase"></i> Bolsa de Empleo</div>
+                <h1>Trabaja con Nosotros</h1>
+                <p>Forma parte de una empresa líder con más de 73 años de experiencia en Venezuela. Buscamos talento comprometido con la excelencia.</p>
+                <div class="empleos-hero-stats">
+                    <div class="eh-stat"><i class="fas fa-building"></i><span>Empresa líder en Venezuela</span></div>
+                    <div class="eh-stat"><i class="fas fa-award"></i><span>Certificada ISO 9001</span></div>
+                    <div class="eh-stat"><i class="fas fa-heart"></i><span>Bienestar del empleado</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vacantes -->
+    <section class="vacantes-section">
+        <div class="container">
+            <div class="vacantes-header">
+                <div class="section-header">
+                    <div class="section-badge">Oportunidades</div>
+                    <h2 class="section-title">Vacantes Disponibles</h2>
+                    <p class="section-subtitle">Encuentra la oportunidad que se adapta a tu perfil</p>
+                </div>
+                <div class="vacantes-filtros">
+                    <input type="text" id="buscar-vacante" placeholder="Buscar cargo..." class="filtro-input">
+                    <select id="filtro-area" class="filtro-select">
+                        <option value="">Todas las áreas</option>
+                        <option value="produccion">Producción</option>
+                        <option value="administracion">Administración</option>
+                        <option value="ventas">Ventas</option>
+                        <option value="logistica">Logística</option>
+                        <option value="rrhh">Recursos Humanos</option>
+                        <option value="calidad">Calidad</option>
+                        <option value="mantenimiento">Mantenimiento</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="vacantes-lista" class="vacantes-grid">
+                <!-- Se carga dinámicamente -->
+            </div>
+
+            <div id="sin-vacantes" class="sin-vacantes hidden">
+                <i class="fas fa-search"></i>
+                <h3>No hay vacantes disponibles en este momento</h3>
+                <p>Déjanos tu CV y te contactaremos cuando surja una oportunidad.</p>
+                <button class="btn btn-primary" onclick="abrirFormulario(null)">
+                    <i class="fas fa-paper-plane"></i> Enviar CV Espontáneo
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Por qué trabajar con nosotros -->
+    <section class="porque-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Beneficios</div>
+                <h2 class="section-title">¿Por qué trabajar en Indusalca?</h2>
+            </div>
+            <div class="porque-grid">
+                <div class="porque-card">
+                    <div class="porque-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Crecimiento Profesional</h3>
+                    <p>Oportunidades de desarrollo y capacitación continua para potenciar tu carrera.</p>
+                </div>
+                <div class="porque-card">
+                    <div class="porque-icon"><i class="fas fa-users"></i></div>
+                    <h3>Equipo Humano</h3>
+                    <p>Un ambiente de trabajo colaborativo, respetuoso y orientado al logro.</p>
+                </div>
+                <div class="porque-card">
+                    <div class="porque-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Estabilidad Laboral</h3>
+                    <p>Más de 73 años de trayectoria respaldan la solidez de nuestra empresa.</p>
+                </div>
+                <div class="porque-card">
+                    <div class="porque-icon"><i class="fas fa-star"></i></div>
+                    <h3>Empresa Líder</h3>
+                    <p>La planta recristalizadora más grande de Venezuela. Sé parte del liderazgo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Aplicar -->
+    <div id="modal-aplicar" class="empleo-modal hidden">
+        <div class="empleo-modal-content">
+            <div class="empleo-modal-header">
+                <div>
+                    <h3 id="modal-cargo-titulo">Aplicar al cargo</h3>
+                    <p id="modal-cargo-area" class="modal-area-tag"></p>
+                </div>
+                <button class="modal-close-btn" onclick="cerrarFormulario()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="empleo-modal-body">
+                <form id="form-aplicar" novalidate>
+                    <input type="hidden" id="campo-cargo-id">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nombre completo *</label>
+                            <input type="text" id="ap-nombre" placeholder="Tu nombre completo" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Cédula de identidad *</label>
+                            <input type="text" id="ap-cedula" placeholder="V-00000000" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Correo electrónico *</label>
+                            <input type="email" id="ap-email" placeholder="correo@ejemplo.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Teléfono *</label>
+                            <input type="tel" id="ap-telefono" placeholder="0414-0000000" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Nivel de educación *</label>
+                        <select id="ap-educacion" required>
+                            <option value="">Selecciona...</option>
+                            <option>Bachiller</option>
+                            <option>TSU</option>
+                            <option>Universitario</option>
+                            <option>Postgrado / Maestría</option>
+                            <option>Doctorado</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Experiencia relevante *</label>
+                        <textarea id="ap-experiencia" rows="3" placeholder="Describe brevemente tu experiencia relacionada con el cargo..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Mensaje adicional (opcional)</label>
+                        <textarea id="ap-mensaje" rows="2" placeholder="¿Algo más que quieras contarnos?"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="cerrarFormulario()">Cancelar</button>
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Enviar Aplicación</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Admin -->
+    <div id="modal-admin" class="empleo-modal hidden">
+        <div class="empleo-modal-content empleo-modal-admin">
+            <div class="empleo-modal-header">
+                <h3><i class="fas fa-cog"></i> Panel de Administración - RRHH</h3>
+                <button class="modal-close-btn" onclick="cerrarAdmin()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="empleo-modal-body" id="admin-body">
+                <!-- Login o panel según estado -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón Admin (discreto) -->
+    <button class="btn-admin-acceso" onclick="abrirAdmin()" title="Administración RRHH">
+        <i class="fas fa-lock"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo"><img src="catalogo/logo1.png" alt="Indusalca"></div>
+                    <p>Industrias Salineras C.A. - Líderes en productos químicos industriales con más de 73 años de experiencia.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/indusalcave/"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/indusalcave/?hl=es"><i class="fab fa-instagram"></i></a>
+                        <a href="https://ve.linkedin.com/company/industrias-salineras-ca-indusalca"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-phone"></i> 0261-2008150</p>
+                        <p><i class="fas fa-envelope"></i> ventas@indusalca.com.ve</p>
+                    </div>
+                    <div class="footer-badge">
+                        <img src="catalogo/bien hecho en Venezuela.png" alt="Hecho en Venezuela" class="venezuela-badge">
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Indusalca. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="empleos.js"></script>
+</body>
+</html>
