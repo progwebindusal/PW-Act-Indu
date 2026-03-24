@@ -137,6 +137,11 @@ function abrirFormulario(vacanteId) {
 
     document.getElementById('form-aplicar').reset();
     document.getElementById('campo-cargo-id').value = vacanteId || '';
+    // Reset file input label
+    const fileText = document.getElementById('file-upload-text');
+    const fileLabel = document.querySelector('.file-upload-label');
+    if (fileText) fileText.textContent = 'Seleccionar archivo PDF';
+    if (fileLabel) fileLabel.classList.remove('has-file');
     modal.classList.remove('hidden');
     document.body.style.overflow = 'hidden';
 }
@@ -155,6 +160,30 @@ document.addEventListener('DOMContentLoaded', function () {
     // Submit
     const form = document.getElementById('form-aplicar');
     if (!form) return;
+
+    // File input: mostrar nombre del archivo
+    const fileInput = document.getElementById('ap-cv');
+    if (fileInput) {
+        fileInput.addEventListener('change', function () {
+            const fileText  = document.getElementById('file-upload-text');
+            const fileLabel = document.querySelector('.file-upload-label');
+            if (this.files && this.files[0]) {
+                const file = this.files[0];
+                if (file.size > 5 * 1024 * 1024) {
+                    mostrarNotif('El archivo supera los 5MB. Por favor selecciona un PDF más pequeño.', 'error');
+                    this.value = '';
+                    fileText.textContent = 'Seleccionar archivo PDF';
+                    fileLabel.classList.remove('has-file');
+                    return;
+                }
+                fileText.textContent = file.name;
+                fileLabel.classList.add('has-file');
+            } else {
+                fileText.textContent = 'Seleccionar archivo PDF';
+                fileLabel.classList.remove('has-file');
+            }
+        });
+    }
 
     form.addEventListener('submit', function (e) {
         e.preventDefault();

@@ -230,6 +230,17 @@
                         <label>Mensaje adicional (opcional)</label>
                         <textarea id="ap-mensaje" rows="2" placeholder="¿Algo más que quieras contarnos?"></textarea>
                     </div>
+                    <div class="form-group">
+                        <label>Currículum (PDF, máx. 5MB)</label>
+                        <div class="file-upload-wrapper">
+                            <input type="file" id="ap-cv" accept=".pdf" class="file-input">
+                            <label for="ap-cv" class="file-upload-label">
+                                <i class="fas fa-upload"></i>
+                                <span id="file-upload-text">Seleccionar archivo PDF</span>
+                            </label>
+                        </div>
+                        <p class="file-hint">Solo archivos PDF. Máximo 5MB.</p>
+                    </div>
                     <div class="form-actions">
                         <button type="button" class="btn btn-secondary" onclick="cerrarFormulario()">Cancelar</button>
                         <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Enviar Aplicación</button>
