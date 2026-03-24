@@ -167,10 +167,10 @@
 .btn-empleos i { transition: transform 0.3s; }
 .btn-empleos:hover i { transform: translateX(5px); }
 
-/* Nav empleos — sin subrayado permanente, usa .is-active como el resto */
+/* Nav empleos — mismo formato que el resto */
 .nav-link-empleos {
-    color: #2c5aa0 !important;
-    font-weight: 700 !important;
+    color: inherit;
+    font-weight: inherit;
 }
 
 /* ============================================
