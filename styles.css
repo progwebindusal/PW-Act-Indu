@@ -3931,18 +3931,18 @@ rn Products Section Styles */
     z-index: 2;
 }
 
-/* Order Background - Fondo base con gradiente azul */
+/* Order Background - Fondo con imagen real */
 .order-background {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #2c5aa0 0%, #1e3f73 50%, #0f2a4a 100%);
+    background: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1600&auto=format&fit=crop&q=80') center/cover no-repeat;
     z-index: -2;
 }
 
-/* Order Background Before - Patrón de micro-cristales de sal */
+/* Order Background Before - Luces de acento */
 .order-background::before {
     content: '';
     position: absolute;
@@ -3951,90 +3951,35 @@ rn Products Section Styles */
     width: 100%;
     height: 100%;
     background: 
-        radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="salt-crystals-order" width="40" height="40" patternUnits="userSpaceOnUse"><g opacity="0.12"><rect x="8" y="8" width="6" height="6" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="0.4" rx="0.5"/><rect x="18" y="5" width="4" height="4" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.25)" stroke-width="0.3" rx="0.3" transform="rotate(15 20 7)"/><rect x="28" y="12" width="5" height="5" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.28)" stroke-width="0.35" rx="0.4" transform="rotate(-10 30.5 14.5)"/><rect x="5" y="22" width="4.5" height="4.5" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.22)" stroke-width="0.3" rx="0.3" transform="rotate(25 7.25 24.25)"/><rect x="20" y="25" width="7" height="7" fill="rgba(255,255,255,0.18)" stroke="rgba(255,255,255,0.35)" stroke-width="0.45" rx="0.5" transform="rotate(-5 23.5 28.5)"/><rect x="32" y="28" width="3.5" height="3.5" fill="rgba(255,255,255,0.09)" stroke="rgba(255,255,255,0.2)" stroke-width="0.25" rx="0.25" transform="rotate(20 33.75 29.75)"/><rect x="15" y="18" width="3" height="3" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.18)" stroke-width="0.2" rx="0.2"/></g></pattern></defs><rect width="100" height="100" fill="url(%23salt-crystals-order)"/></svg>');
-    animation: float 30s ease-in-out infinite;
+        radial-gradient(ellipse at 10% 50%, rgba(223, 164, 3, 0.15) 0%, transparent 55%),
+        radial-gradient(ellipse at 90% 20%, rgba(44, 90, 160, 0.2) 0%, transparent 50%);
 }
 
-/* Order Overlay - Capa de overlay semi-transparente */
+/* Order Overlay - Gradiente direccional profundo */
 .order-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(44, 90, 160, 0.8) 0%, rgba(15, 42, 74, 0.9) 100%);
+    background: linear-gradient(
+        105deg,
+        rgba(13, 42, 94, 0.96) 0%,
+        rgba(30, 63, 115, 0.92) 45%,
+        rgba(44, 90, 160, 0.80) 70%,
+        rgba(15, 42, 74, 0.88) 100%
+    );
     z-index: -1;
 }
 
-/* Order Floating Elements - Contenedor de elementos flotantes */
-.order-floating-elements {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
-
-/* Order Floating Element - Estilo base de cubos flotantes */
-.order-floating-element {
-    position: absolute;
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 15%;
-    animation: floatUpDown 6s ease-in-out infinite;
-    backdrop-filter: blur(5px);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    transform: rotate(45deg);
-}
-
-/* Order Element 1 - Esquina superior izquierda */
-.order-element-1 {
-    width: 90px;
-    height: 90px;
-    top: 8%;
-    left: 5%;
-    animation-delay: 0s;
-    background: 
-        rgba(255, 255, 255, 0.08),
-        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="order-crystal1" width="30" height="30" patternUnits="userSpaceOnUse"><rect x="10" y="10" width="4" height="4" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.5)" stroke-width="0.6" rx="0.3"/><rect x="18" y="8" width="3" height="3" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.45)" stroke-width="0.5" rx="0.25"/><rect x="8" y="20" width="3.5" height="3.5" fill="rgba(255,255,255,0.28)" stroke="rgba(255,255,255,0.48)" stroke-width="0.55" rx="0.28"/></pattern></defs><rect width="100" height="100" fill="url(%23order-crystal1)"/></svg>');
-}
-
-/* Order Element 2 - Esquina superior derecha */
-.order-element-2 {
-    width: 120px;
-    height: 120px;
-    top: 5%;
-    right: 8%;
-    animation-delay: 2s;
-    background: 
-        rgba(255, 255, 255, 0.08),
-        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="order-crystal2" width="35" height="35" patternUnits="userSpaceOnUse"><rect x="12" y="12" width="5" height="5" fill="rgba(255,255,255,0.32)" stroke="rgba(255,255,255,0.55)" stroke-width="0.7" rx="0.4"/><rect x="22" y="10" width="3.5" height="3.5" fill="rgba(255,255,255,0.28)" stroke="rgba(255,255,255,0.5)" stroke-width="0.6" rx="0.3"/><rect x="10" y="24" width="4" height="4" fill="rgba(255,255,255,0.3)" stroke="rgba(255,255,255,0.52)" stroke-width="0.65" rx="0.35"/></pattern></defs><rect width="100" height="100" fill="url(%23order-crystal2)"/></svg>');
-}
-
-/* Order Element 3 - Esquina inferior izquierda */
-.order-element-3 {
-    width: 80px;
-    height: 80px;
-    bottom: 10%;
-    left: 8%;
-    animation-delay: 4s;
-    background: 
-        rgba(255, 255, 255, 0.08),
-        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="order-crystal3" width="25" height="25" patternUnits="userSpaceOnUse"><rect x="8" y="8" width="3.5" height="3.5" fill="rgba(255,255,255,0.28)" stroke="rgba(255,255,255,0.48)" stroke-width="0.55" rx="0.28"/><rect x="16" y="7" width="2.5" height="2.5" fill="rgba(255,255,255,0.24)" stroke="rgba(255,255,255,0.44)" stroke-width="0.5" rx="0.22"/><rect x="7" y="17" width="3" height="3" fill="rgba(255,255,255,0.26)" stroke="rgba(255,255,255,0.46)" stroke-width="0.52" rx="0.25"/></pattern></defs><rect width="100" height="100" fill="url(%23order-crystal3)"/></svg>');
-}
-
-/* Order Element 4 - Esquina inferior derecha */
+/* Order Floating Elements - ocultos, reemplazados por imagen de fondo */
+.order-floating-elements,
+.order-floating-element,
+.order-element-1,
+.order-element-2,
+.order-element-3,
 .order-element-4 {
-    width: 100px;
-    height: 100px;
-    bottom: 8%;
-    right: 6%;
-    animation-delay: 1s;
-    background: 
-        rgba(255, 255, 255, 0.08),
-        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="order-crystal4" width="32" height="32" patternUnits="userSpaceOnUse"><rect x="11" y="11" width="4.5" height="4.5" fill="rgba(255,255,255,0.31)" stroke="rgba(255,255,255,0.53)" stroke-width="0.65" rx="0.35"/><rect x="20" y="9" width="3" height="3" fill="rgba(255,255,255,0.27)" stroke="rgba(255,255,255,0.48)" stroke-width="0.55" rx="0.27"/><rect x="9" y="22" width="3.8" height="3.8" fill="rgba(255,255,255,0.29)" stroke="rgba(255,255,255,0.5)" stroke-width="0.6" rx="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23order-crystal4)"/></svg>');
+    display: none;
 }
 
 .order-content {
