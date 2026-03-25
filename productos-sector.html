@@ -86,6 +86,7 @@
         background: linear-gradient(135deg, #f0f4fb 0%, #e8eef7 100%);
         display: flex; align-items: center; justify-content: center;
         padding: 2rem; overflow: hidden; position: relative; min-height: 220px;
+        cursor: pointer;
     }
     .ps-card-img::after {
         content: ''; position: absolute; inset: 0;
@@ -97,6 +98,20 @@
         filter: drop-shadow(0 8px 20px rgba(0,0,0,0.12));
     }
     .ps-card:hover .ps-card-img img { transform: scale(1.07) translateY(-4px); }
+
+    /* Lupa sobre imagen */
+    .ps-zoom-btn {
+        position: absolute; bottom: 12px; right: 12px; z-index: 2;
+        width: 36px; height: 36px; border-radius: 50%;
+        background: rgba(255,255,255,0.9); border: none; cursor: pointer;
+        display: flex; align-items: center; justify-content: center;
+        color: #2c5aa0; font-size: 0.9rem;
+        box-shadow: 0 2px 10px rgba(44,90,160,0.2);
+        opacity: 0; transform: scale(0.8);
+        transition: all .25s ease;
+    }
+    .ps-card:hover .ps-zoom-btn { opacity: 1; transform: scale(1); }
+    .ps-zoom-btn:hover { background: #2c5aa0; color: #fff; transform: scale(1.1) !important; }
 
     /* Info panel */
     .ps-card-info { padding: 2rem 2.2rem; display: flex; flex-direction: column; justify-content: center; gap: 0.7rem; }
@@ -171,8 +186,6 @@
     .ps-modal-close:hover { background: rgba(255,255,255,0.3); }
 
     .ps-modal-body { padding: 1.8rem 2rem; overflow-y: auto; flex: 1; }
-    .ps-modal-img-row { display: flex; justify-content: center; margin-bottom: 1.6rem; }
-    .ps-modal-img-row img { max-height: 160px; object-fit: contain; filter: drop-shadow(0 6px 16px rgba(0,0,0,0.1)); }
 
     .ps-modal-specs-title { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #aab; margin-bottom: 0.8rem; }
     .ps-modal-table { width: 100%; border-collapse: collapse; }
@@ -184,16 +197,50 @@
     .ps-modal-table tr:nth-child(even) .ml,
     .ps-modal-table tr:nth-child(even) .mv { padding-left: 0.5rem; }
 
-    .ps-modal-footer { padding: 1.2rem 2rem; border-top: 1px solid #f0f4fb; display: flex; justify-content: flex-end; }
-    .ps-modal-contact {
-        display: inline-flex; align-items: center; gap: 0.5rem;
-        background: linear-gradient(135deg,#dfa403,#f5c518); color: #0d2a5e;
-        border: none; border-radius: 50px; padding: 0.7rem 1.8rem;
-        font-family: 'Poppins',sans-serif; font-size: 0.85rem; font-weight: 700;
-        cursor: pointer; text-decoration: none; transition: all .25s;
-        box-shadow: 0 4px 14px rgba(223,164,3,.35);
+    /* ── LIGHTBOX imagen ── */
+    .ps-lightbox {
+        position: fixed; inset: 0; background: rgba(5,10,30,0.92);
+        backdrop-filter: blur(8px); z-index: 2000;
+        display: flex; align-items: center; justify-content: center;
+        padding: 2rem; opacity: 0; pointer-events: none;
+        transition: opacity .25s ease;
     }
-    .ps-modal-contact:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(223,164,3,.5); }
+    .ps-lightbox.open { opacity: 1; pointer-events: all; }
+    .ps-lightbox img {
+        max-width: 90vw; max-height: 85vh; object-fit: contain;
+        border-radius: 12px; box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+        transform: scale(0.92); transition: transform .3s cubic-bezier(.4,0,.2,1);
+        filter: drop-shadow(0 0 40px rgba(255,255,255,0.05));
+    }
+    .ps-lightbox.open img { transform: scale(1); }
+    .ps-lightbox-close {
+        position: absolute; top: 1.2rem; right: 1.2rem;
+        background: rgba(255,255,255,0.12); border: none; color: #fff;
+        width: 42px; height: 42px; border-radius: 50%; cursor: pointer;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 1.1rem; transition: background .2s;
+    }
+    .ps-lightbox-close:hover { background: rgba(255,255,255,0.25); }
+
+    /* ── WHATSAPP FLOTANTE ── */
+    .ps-wa-float {
+        position: fixed; bottom: 28px; right: 28px; z-index: 500;
+    }
+    .ps-wa-btn {
+        width: 58px; height: 58px; border-radius: 50%;
+        background: #25d366; border: none; cursor: pointer;
+        display: flex; align-items: center; justify-content: center;
+        box-shadow: 0 6px 24px rgba(37,211,102,0.45);
+        transition: all .3s ease; text-decoration: none; color: #fff;
+        font-size: 1.6rem;
+    }
+    .ps-wa-btn:hover { transform: scale(1.1); box-shadow: 0 10px 32px rgba(37,211,102,0.6); }
+    .ps-wa-pulse {
+        position: absolute; inset: 0; border-radius: 50%;
+        background: rgba(37,211,102,0.4);
+        animation: waPulse 2s ease-out infinite;
+    }
+    @keyframes waPulse { 0%{transform:scale(1);opacity:.7} 100%{transform:scale(1.8);opacity:0} }
 
     /* ── EMPTY ── */
     .ps-empty { text-align: center; padding: 5rem 2rem; }
@@ -267,14 +314,25 @@
             <button class="ps-modal-close" onclick="closeFichaBtn()"><i class="fas fa-times"></i></button>
         </div>
         <div class="ps-modal-body">
-            <div class="ps-modal-img-row"><img id="fichaImg" src="" alt=""></div>
             <p class="ps-modal-specs-title">Especificaciones técnicas</p>
             <table class="ps-modal-table" id="fichaTable"></table>
         </div>
-        <div class="ps-modal-footer">
-            <a href="index.html#contact" class="ps-modal-contact"><i class="fas fa-envelope"></i> Solicitar información</a>
-        </div>
     </div>
+</div>
+
+<!-- Lightbox imagen -->
+<div class="ps-lightbox" id="psLightbox" onclick="closeLightbox()">
+    <button class="ps-lightbox-close" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
+    <img id="psLightboxImg" src="" alt="">
+</div>
+
+<!-- WhatsApp flotante -->
+<div class="ps-wa-float">
+    <div class="ps-wa-pulse"></div>
+    <a href="https://wa.me/584140060054?text=Hola,%20me%20gustaría%20obtener%20información%20sobre%20sus%20productos"
+       target="_blank" class="ps-wa-btn" title="Contáctanos por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 </div>
 
 <script src="script.js"></script>
@@ -336,8 +394,11 @@
             const idx = `${currentSector}-${brandKey}-${i}`;
             return `
             <div class="ps-card">
-                <div class="ps-card-img">
+                <div class="ps-card-img" onclick="openLightbox('${p.image}','${p.name}')">
                     <img src="${p.image}" alt="${p.name}" loading="lazy">
+                    <button class="ps-zoom-btn" title="Ver imagen ampliada" onclick="event.stopPropagation();openLightbox('${p.image}','${p.name}')">
+                        <i class="fas fa-search-plus"></i>
+                    </button>
                 </div>
                 <div class="ps-card-info">
                     <div class="ps-card-brand">
@@ -380,11 +441,9 @@
 
         const specs = typeof getTechnicalDetails === 'function' ? getTechnicalDetails(p) : [];
 
-        document.getElementById('fichaLogo').src       = brand.logo || '';
-        document.getElementById('fichaNombre').textContent = p.name;
-        document.getElementById('fichaDesc').textContent   = p.description;
-        document.getElementById('fichaImg').src        = p.image;
-        document.getElementById('fichaImg').alt        = p.name;
+        document.getElementById('fichaLogo').src              = brand.logo || '';
+        document.getElementById('fichaNombre').textContent    = p.name;
+        document.getElementById('fichaDesc').textContent      = p.description;
 
         const table = document.getElementById('fichaTable');
         if (specs.length) {
@@ -408,7 +467,22 @@
         if (e.target === document.getElementById('fichaModal')) closeFichaBtn();
     }
 
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeFichaBtn(); });
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') { closeFichaBtn(); closeLightbox(); }
+    });
+
+    // Lightbox
+    function openLightbox(src, alt) {
+        const lb = document.getElementById('psLightbox');
+        const img = document.getElementById('psLightboxImg');
+        img.src = src; img.alt = alt;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+        document.getElementById('psLightbox').classList.remove('open');
+        document.body.style.overflow = '';
+    }
 
     // Render inicial
     if (activeBrand) renderProducts(activeBrand);
