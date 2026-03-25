@@ -1138,7 +1138,8 @@ function openProductModal(sector) {
     modalTitle.textContent = sectorTitles[sector] || sector;
 
     const sectorData = productCatalogs[sector] || {};
-    const brands = Object.keys(sectorData);
+    const BRAND_ORDER = ['monte-blanco', 'cruz-de-oro', 'condor'];
+    const brands = BRAND_ORDER.filter(b => sectorData[b]);
 
     let brandBtns = '';
     brands.forEach(brandKey => {

@@ -307,7 +307,6 @@
     <div class="ps-modal" id="fichaContent">
         <div class="ps-modal-head">
             <div class="ps-modal-head-left">
-                <img id="fichaLogo" src="" alt="">
                 <h3 id="fichaNombre"></h3>
                 <span class="ps-modal-pres" id="fichaDesc"></span>
             </div>
@@ -441,7 +440,6 @@
 
         const specs = typeof getTechnicalDetails === 'function' ? getTechnicalDetails(p) : [];
 
-        document.getElementById('fichaLogo').src              = brand.logo || '';
         document.getElementById('fichaNombre').textContent    = p.name;
         document.getElementById('fichaDesc').textContent      = p.description;
 
