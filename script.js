@@ -1140,13 +1140,12 @@ function openProductModal(sector) {
     const sectorData = productCatalogs[sector] || {};
     const brands = Object.keys(sectorData);
 
-    // Estructura de libro: dos caras dentro de un flipper
     let brandBtns = '';
     brands.forEach(brandKey => {
         const brand = brandConfig[brandKey];
         if (!brand) return;
         brandBtns += `
-            <button class="brand-logo-btn" onclick="showBrandProducts('${sector}', '${brandKey}', this)">
+            <button class="brand-logo-btn" onclick="goToProductPage('${sector}', '${brandKey}')">
                 <img src="${brand.logo}" alt="${brand.label}">
                 <span>${brand.label}</span>
             </button>`;
@@ -1172,8 +1171,21 @@ function openProductModal(sector) {
     document.body.style.overflow = 'hidden';
 }
 
-// Flip hacia la cara de productos
-function showBrandProducts(sector, brandKey, btnEl) {
+// Nueva función: redirige a la página de productos filtrada
+function goToProductPage(sector, brandKey) {
+    closeProductModal();
+    window.location.href = `productos-sector.html?sector=${sector}&marca=${brandKey}`;
+}
+
+/* ============================================================
+   LEGACY — Sistema anterior de flip 3D dentro del modal
+   Se conserva documentado para reimplementar si se desea.
+   Para restaurar: reemplazar goToProductPage() por showBrandProducts()
+   en los botones de marca dentro de openProductModal().
+   ============================================================
+
+// Flip hacia la cara de productos (LEGACY)
+function showBrandProducts_LEGACY(sector, brandKey, btnEl) {
     document.querySelectorAll('.brand-logo-btn').forEach(b => b.classList.remove('active'));
     btnEl.classList.add('active');
 
@@ -1214,20 +1226,18 @@ function showBrandProducts(sector, brandKey, btnEl) {
         panel.innerHTML = html;
     }
 
-    // Ejecutar el flip
     const flipper = document.getElementById('bookFlipper');
     flipper.classList.add('flipped');
-    // Scroll al inicio del panel tras el flip
     setTimeout(() => { panel.parentElement.scrollTop = 0; }, 350);
 }
 
-// Flip de vuelta a la cara de marcas
-function flipToFront() {
+// Flip de vuelta a marcas (LEGACY)
+function flipToFront_LEGACY() {
     const flipper = document.getElementById('bookFlipper');
     flipper.classList.remove('flipped');
-    // Limpiar estado activo al volver
     document.querySelectorAll('.brand-logo-btn').forEach(b => b.classList.remove('active'));
 }
+============================================================ */
 
 // Toggle ficha técnica inline
 function toggleSheet(uid) {

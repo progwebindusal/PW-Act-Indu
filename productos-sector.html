@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Indusalca</title>
+    <link rel="icon" type="image/svg+xml" href="catalogo/icono.svg">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ── PAGE LAYOUT ── */
+        body { background: #f4f6fb; }
+
+        .ps-navbar {
+            position: fixed; top: 0; width: 100%;
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 2px 20px rgba(44,90,160,0.1);
+            z-index: 100; height: 70px;
+            display: flex; align-items: center;
+        }
+        .ps-navbar .container {
+            display: flex; align-items: center;
+            justify-content: space-between; gap: 1rem;
+        }
+        .ps-back-btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            color: #2c5aa0; font-weight: 600; font-size: 0.9rem;
+            text-decoration: none; border: none; background: none;
+            cursor: pointer; transition: color 0.2s;
+        }
+        .ps-back-btn:hover { color: #dfa403; }
+        .ps-nav-logo img { height: 36px; }
+
+        /* ── HERO STRIP ── */
+        .ps-hero {
+            margin-top: 70px;
+            background: linear-gradient(105deg, #0d2a5e 0%, #1e3f73 55%, #2c5aa0 100%);
+            padding: 48px 0 40px;
+            position: relative; overflow: hidden;
+        }
+        .ps-hero::after {
+            content: '';
+            position: absolute; inset: 0;
+            background: radial-gradient(ellipse at 80% 50%, rgba(223,164,3,0.12) 0%, transparent 60%);
+        }
+        .ps-hero .container { position: relative; z-index: 1; }
+        .ps-breadcrumb {
+            font-size: 0.75rem; color: rgba(255,255,255,0.5);
+            text-transform: uppercase; letter-spacing: 2px;
+            margin-bottom: 0.6rem;
+        }
+        .ps-breadcrumb span { color: #dfa403; }
+        .ps-hero h1 {
+            font-size: 2rem; font-weight: 700; color: #fff;
+            margin: 0 0 0.4rem; line-height: 1.2;
+        }
+        .ps-hero-sub { color: rgba(255,255,255,0.65); font-size: 0.95rem; }
+
+        /* ── BRAND TABS ── */
+        .ps-brand-bar {
+            background: #fff;
+            border-bottom: 1px solid #e8eef7;
+            position: sticky; top: 70px; z-index: 90;
+        }
+        .ps-brand-tabs {
+            display: flex; gap: 0; overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .ps-brand-tabs::-webkit-scrollbar { display: none; }
+        .ps-brand-tab {
+            display: flex; align-items: center; gap: 0.6rem;
+            padding: 0.9rem 1.8rem;
+            border: none; background: none; cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.88rem; font-weight: 600;
+            color: #888; white-space: nowrap;
+            border-bottom: 3px solid transparent;
+            transition: all 0.25s;
+        }
+        .ps-brand-tab img { height: 28px; object-fit: contain; filter: grayscale(1) opacity(0.5); transition: all 0.25s; }
+        .ps-brand-tab:hover { color: #2c5aa0; }
+        .ps-brand-tab:hover img { filter: none; }
+        .ps-brand-tab.active {
+            color: #2c5aa0;
+            border-bottom-color: #dfa403;
+        }
+        .ps-brand-tab.active img { filter: none; }
+
+        /* ── MAIN CONTENT ── */
+        .ps-main { padding: 40px 0 80px; }
+
+        /* ── PRODUCT GRID ── */
+        .ps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* ── PRODUCT CARD ── */
+        .ps-card {
+            background: #fff;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(44,90,160,0.07);
+            border: 1px solid #e8eef7;
+            transition: all 0.3s ease;
+            display: flex; flex-direction: column;
+        }
+        .ps-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(44,90,160,0.14);
+            border-color: #2c5aa0;
+        }
+        .ps-card-img {
+            background: #f8f9fa;
+            height: 200px;
+            display: flex; align-items: center; justify-content: center;
+            padding: 1.5rem; overflow: hidden;
+        }
+        .ps-card-img img {
+            max-height: 100%; max-width: 100%;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
+        .ps-card:hover .ps-card-img img { transform: scale(1.06); }
+
+        .ps-card-body { padding: 1.2rem 1.4rem; flex: 1; display: flex; flex-direction: column; gap: 0.4rem; }
+        .ps-card-brand-logo { height: 22px; object-fit: contain; margin-bottom: 0.2rem; }
+        .ps-card-name { font-size: 0.95rem; font-weight: 700; color: #1e3f73; line-height: 1.3; }
+        .ps-card-desc {
+            display: inline-block;
+            background: #e8eef7; color: #2c5aa0;
+            font-size: 0.72rem; font-weight: 700;
+            padding: 0.25rem 0.7rem; border-radius: 50px;
+            text-transform: uppercase; letter-spacing: 0.5px;
+            width: fit-content;
+        }
+
+        /* Ficha técnica toggle */
+        .ps-sheet-btn {
+            margin-top: auto; padding-top: 0.8rem;
+            display: flex; align-items: center; gap: 0.4rem;
+            background: none; border: 1px solid #dde8f8;
+            color: #2c5aa0; border-radius: 8px;
+            padding: 0.5rem 1rem; font-family: 'Poppins', sans-serif;
+            font-size: 0.8rem; font-weight: 600; cursor: pointer;
+            transition: all 0.2s; width: 100%; justify-content: center;
+        }
+        .ps-sheet-btn:hover { background: #2c5aa0; color: #fff; border-color: #2c5aa0; }
+
+        .ps-sheet {
+            border-top: 1px solid #e8eef7;
+            padding: 1rem 1.4rem;
+            background: #f8faff;
+        }
+        .ps-sheet[hidden] { display: none; }
+        .ps-specs { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+        .ps-specs tr:nth-child(even) { background: rgba(44,90,160,0.04); }
+        .ps-specs .sl { font-weight: 600; color: #2c5aa0; padding: 0.35rem 0.6rem 0.35rem 0; width: 42%; vertical-align: top; }
+        .ps-specs .sv { color: #444; padding: 0.35rem 0; line-height: 1.4; }
+
+        /* ── EMPTY STATE ── */
+        .ps-empty {
+            text-align: center; padding: 5rem 2rem; color: #aaa;
+            grid-column: 1 / -1;
+        }
+        .ps-empty i { font-size: 3rem; color: #d0daea; display: block; margin-bottom: 1rem; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 600px) {
+            .ps-hero h1 { font-size: 1.5rem; }
+            .ps-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+            .ps-card-img { height: 150px; }
+        }
+        @media (max-width: 400px) {
+            .ps-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar mínimo -->
+    <nav class="ps-navbar">
+        <div class="container">
+            <button class="ps-back-btn" onclick="history.back()">
+                <i class="fas fa-arrow-left"></i> Volver
+            </button>
+            <div class="ps-nav-logo">
+                <a href="index.html"><img src="catalogo/logo1.png" alt="Indusalca"></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="ps-hero">
+        <div class="container">
+            <p class="ps-breadcrumb">Indusalca › Sectores › <span id="heroSector">—</span></p>
+            <h1 id="heroTitle">Productos</h1>
+            <p class="ps-hero-sub" id="heroSub">Filtra por marca para ver el catálogo disponible</p>
+        </div>
+    </section>
+
+    <!-- Brand tabs -->
+    <div class="ps-brand-bar">
+        <div class="container">
+            <div class="ps-brand-tabs" id="brandTabs"></div>
+        </div>
+    </div>
+
+    <!-- Products -->
+    <main class="ps-main">
+        <div class="container">
+            <div class="ps-grid" id="productGrid"></div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script>
+        // Lee parámetros de URL
+        const params = new URLSearchParams(location.search);
+        const currentSector = params.get('sector') || '';
+        const currentMarca  = params.get('marca')  || '';
+
+        // Rellena hero
+        document.getElementById('heroSector').textContent = sectorTitles[currentSector] || currentSector;
+        document.getElementById('heroTitle').textContent  = sectorTitles[currentSector] || 'Productos';
+
+        // Construye tabs de marcas disponibles para este sector
+        const sectorData = productCatalogs[currentSector] || {};
+        const availableBrands = Object.keys(sectorData);
+        const tabsEl = document.getElementById('brandTabs');
+
+        availableBrands.forEach(bk => {
+            const b = brandConfig[bk];
+            if (!b) return;
+            const tab = document.createElement('button');
+            tab.className = 'ps-brand-tab' + (bk === currentMarca ? ' active' : '');
+            tab.innerHTML = `<img src="${b.logo}" alt="${b.label}"> ${b.label}`;
+            tab.addEventListener('click', () => {
+                history.replaceState(null, '', `?sector=${currentSector}&marca=${bk}`);
+                document.querySelectorAll('.ps-brand-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                renderProducts(bk);
+            });
+            tabsEl.appendChild(tab);
+        });
+
+        // Renderiza productos
+        function renderProducts(brandKey) {
+            const grid = document.getElementById('productGrid');
+            const products = (sectorData[brandKey] || []);
+            const brand = brandConfig[brandKey] || {};
+
+            if (!products.length) {
+                grid.innerHTML = `<div class="ps-empty"><i class="fas fa-box-open"></i><p>No hay productos registrados para esta selección.</p></div>`;
+                return;
+            }
+
+            grid.innerHTML = products.map((p, i) => {
+                const uid = `ps-${currentSector}-${brandKey}-${i}`;
+                const specs = typeof getTechnicalDetails === 'function' ? getTechnicalDetails(p) : [];
+                const specsHtml = specs.length
+                    ? specs.map(s => `<tr><td class="sl">${s.label}</td><td class="sv">${s.value}</td></tr>`).join('')
+                    : '<tr><td class="sl" colspan="2" style="color:#aaa">Sin ficha técnica disponible</td></tr>';
+
+                return `
+                <div class="ps-card">
+                    <div class="ps-card-img">
+                        <img src="${p.image}" alt="${p.name}" loading="lazy">
+                    </div>
+                    <div class="ps-card-body">
+                        <img src="${brand.logo}" alt="${brand.label}" class="ps-card-brand-logo">
+                        <p class="ps-card-name">${p.name}</p>
+                        <span class="ps-card-desc">${p.description}</span>
+                        <button class="ps-sheet-btn" onclick="togglePsSheet('${uid}')">
+                            <i class="fas fa-list-alt"></i> Ficha técnica
+                        </button>
+                    </div>
+                    <div class="ps-sheet" id="${uid}" hidden>
+                        <table class="ps-specs">
+                            ${specsHtml}
+                        </table>
+                    </div>
+                </div>`;
+            }).join('');
+        }
+
+        function togglePsSheet(uid) {
+            const el = document.getElementById(uid);
+            el.hidden = !el.hidden;
+            const btn = el.previousElementSibling.querySelector('.ps-sheet-btn');
+            btn.innerHTML = el.hidden
+                ? '<i class="fas fa-list-alt"></i> Ficha técnica'
+                : '<i class="fas fa-chevron-up"></i> Cerrar ficha';
+        }
+
+        // Render inicial
+        if (currentMarca) renderProducts(currentMarca);
+        else if (availableBrands.length) renderProducts(availableBrands[0]);
+    </script>
+</body>
+</html>
