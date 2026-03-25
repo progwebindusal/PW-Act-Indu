@@ -5,300 +5,348 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos - Indusalca</title>
     <link rel="icon" type="image/svg+xml" href="catalogo/icono.svg">
-    <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* ── PAGE LAYOUT ── */
-        body { background: #f4f6fb; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; background: #f0f4fb; color: #333; overflow-x: hidden; }
 
-        .ps-navbar {
-            position: fixed; top: 0; width: 100%;
-            background: rgba(255,255,255,0.97);
-            backdrop-filter: blur(20px);
-            box-shadow: 0 2px 20px rgba(44,90,160,0.1);
-            z-index: 100; height: 70px;
-            display: flex; align-items: center;
-        }
-        .ps-navbar .container {
-            display: flex; align-items: center;
-            justify-content: space-between; gap: 1rem;
-        }
-        .ps-back-btn {
-            display: inline-flex; align-items: center; gap: 0.5rem;
-            color: #2c5aa0; font-weight: 600; font-size: 0.9rem;
-            text-decoration: none; border: none; background: none;
-            cursor: pointer; transition: color 0.2s;
-        }
-        .ps-back-btn:hover { color: #dfa403; }
-        .ps-nav-logo img { height: 36px; }
+    /* ── NAVBAR ── */
+    .ps-nav {
+        position: fixed; top: 0; width: 100%; height: 68px;
+        background: rgba(255,255,255,0.96); backdrop-filter: blur(20px);
+        box-shadow: 0 2px 24px rgba(44,90,160,0.1);
+        display: flex; align-items: center; z-index: 200;
+    }
+    .ps-nav .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .ps-back { display: inline-flex; align-items: center; gap: 0.5rem; background: none; border: none; color: #2c5aa0; font-family: 'Poppins',sans-serif; font-size: 0.88rem; font-weight: 600; cursor: pointer; transition: color .2s; }
+    .ps-back:hover { color: #dfa403; }
+    .ps-nav-logo img { height: 38px; }
+    .ps-nav-cta { display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg,#dfa403,#f5c518); color: #0d2a5e; padding: 0.5rem 1.2rem; border-radius: 50px; font-size: 0.82rem; font-weight: 700; text-decoration: none; transition: all .25s; }
+    .ps-nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(223,164,3,.4); }
 
-        /* ── HERO STRIP ── */
-        .ps-hero {
-            margin-top: 70px;
-            background: linear-gradient(105deg, #0d2a5e 0%, #1e3f73 55%, #2c5aa0 100%);
-            padding: 48px 0 40px;
-            position: relative; overflow: hidden;
-        }
-        .ps-hero::after {
-            content: '';
-            position: absolute; inset: 0;
-            background: radial-gradient(ellipse at 80% 50%, rgba(223,164,3,0.12) 0%, transparent 60%);
-        }
-        .ps-hero .container { position: relative; z-index: 1; }
-        .ps-breadcrumb {
-            font-size: 0.75rem; color: rgba(255,255,255,0.5);
-            text-transform: uppercase; letter-spacing: 2px;
-            margin-bottom: 0.6rem;
-        }
-        .ps-breadcrumb span { color: #dfa403; }
-        .ps-hero h1 {
-            font-size: 2rem; font-weight: 700; color: #fff;
-            margin: 0 0 0.4rem; line-height: 1.2;
-        }
-        .ps-hero-sub { color: rgba(255,255,255,0.65); font-size: 0.95rem; }
+    /* ── HERO ── */
+    .ps-hero {
+        margin-top: 68px; min-height: 320px;
+        background: linear-gradient(105deg, #071a3e 0%, #0d2a5e 40%, #1e3f73 70%, #2c5aa0 100%);
+        position: relative; overflow: hidden;
+        display: flex; align-items: center;
+    }
+    .ps-hero-particles { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+    .ps-hero-particles span {
+        position: absolute; border-radius: 50%;
+        background: rgba(255,255,255,0.06);
+        animation: floatP 8s ease-in-out infinite;
+    }
+    .ps-hero-particles span:nth-child(1) { width:180px;height:180px;top:-40px;right:10%;animation-delay:0s; }
+    .ps-hero-particles span:nth-child(2) { width:100px;height:100px;bottom:20px;right:25%;animation-delay:2s; }
+    .ps-hero-particles span:nth-child(3) { width:60px;height:60px;top:30%;left:5%;animation-delay:4s; }
+    .ps-hero-particles span:nth-child(4) { width:140px;height:140px;bottom:-30px;left:30%;animation-delay:1s; }
+    @keyframes floatP { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-20px) scale(1.05)} }
 
-        /* ── BRAND TABS ── */
-        .ps-brand-bar {
-            background: #fff;
-            border-bottom: 1px solid #e8eef7;
-            position: sticky; top: 70px; z-index: 90;
-        }
-        .ps-brand-tabs {
-            display: flex; gap: 0; overflow-x: auto;
-            scrollbar-width: none;
-        }
-        .ps-brand-tabs::-webkit-scrollbar { display: none; }
-        .ps-brand-tab {
-            display: flex; align-items: center; gap: 0.6rem;
-            padding: 0.9rem 1.8rem;
-            border: none; background: none; cursor: pointer;
-            font-family: 'Poppins', sans-serif;
-            font-size: 0.88rem; font-weight: 600;
-            color: #888; white-space: nowrap;
-            border-bottom: 3px solid transparent;
-            transition: all 0.25s;
-        }
-        .ps-brand-tab img { height: 28px; object-fit: contain; filter: grayscale(1) opacity(0.5); transition: all 0.25s; }
-        .ps-brand-tab:hover { color: #2c5aa0; }
-        .ps-brand-tab:hover img { filter: none; }
-        .ps-brand-tab.active {
-            color: #2c5aa0;
-            border-bottom-color: #dfa403;
-        }
-        .ps-brand-tab.active img { filter: none; }
+    .ps-hero-accent {
+        position: absolute; right: 0; top: 0; bottom: 0; width: 45%;
+        background: radial-gradient(ellipse at 80% 50%, rgba(223,164,3,0.18) 0%, transparent 65%);
+    }
+    .ps-hero .wrap { position: relative; z-index: 2; padding: 60px 24px; }
+    .ps-crumb { font-size: 0.72rem; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 2.5px; margin-bottom: 0.8rem; }
+    .ps-crumb strong { color: #dfa403; }
+    .ps-hero h1 { font-size: 2.6rem; font-weight: 800; color: #fff; line-height: 1.15; margin-bottom: 0.6rem; letter-spacing: -0.5px; }
+    .ps-hero h1 em { font-style: normal; color: #dfa403; }
+    .ps-hero-desc { color: rgba(255,255,255,0.65); font-size: 1rem; max-width: 520px; line-height: 1.7; }
+    .ps-hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 50px; padding: 0.4rem 1rem; font-size: 0.78rem; color: rgba(255,255,255,0.8); margin-top: 1.2rem; }
 
-        /* ── MAIN CONTENT ── */
-        .ps-main { padding: 40px 0 80px; }
+    /* ── BRAND SELECTOR ── */
+    .ps-brand-section { background: #fff; border-bottom: 1px solid #e4ecf7; padding: 28px 0; }
+    .ps-brand-section .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .ps-brand-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #aab; margin-bottom: 1.2rem; }
+    .ps-brand-cards { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .ps-brand-card {
+        display: flex; align-items: center; gap: 0.9rem;
+        padding: 0.8rem 1.4rem; border-radius: 14px;
+        border: 2px solid #e4ecf7; background: #f8faff;
+        cursor: pointer; transition: all .25s;
+        min-width: 160px;
+    }
+    .ps-brand-card img { height: 36px; object-fit: contain; filter: grayscale(.4); transition: filter .25s; }
+    .ps-brand-card span { font-size: 0.85rem; font-weight: 700; color: #666; transition: color .25s; }
+    .ps-brand-card:hover { border-color: #2c5aa0; background: #eef3fb; }
+    .ps-brand-card:hover img { filter: none; }
+    .ps-brand-card:hover span { color: #2c5aa0; }
+    .ps-brand-card.active { border-color: #dfa403; background: linear-gradient(135deg,#fffbee,#fff8d6); box-shadow: 0 4px 18px rgba(223,164,3,.2); }
+    .ps-brand-card.active img { filter: none; }
+    .ps-brand-card.active span { color: #0d2a5e; }
+    .ps-brand-dot { width: 8px; height: 8px; border-radius: 50%; background: #dfa403; display: none; flex-shrink: 0; }
+    .ps-brand-card.active .ps-brand-dot { display: block; }
 
-        /* ── PRODUCT GRID ── */
-        .ps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 1.5rem;
-        }
+    /* ── MAIN ── */
+    .ps-main { max-width: 1200px; margin: 0 auto; padding: 40px 24px 80px; }
 
-        /* ── PRODUCT CARD ── */
-        .ps-card {
-            background: #fff;
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(44,90,160,0.07);
-            border: 1px solid #e8eef7;
-            transition: all 0.3s ease;
-            display: flex; flex-direction: column;
-        }
-        .ps-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 16px 40px rgba(44,90,160,0.14);
-            border-color: #2c5aa0;
-        }
-        .ps-card-img {
-            background: #f8f9fa;
-            height: 200px;
-            display: flex; align-items: center; justify-content: center;
-            padding: 1.5rem; overflow: hidden;
-        }
-        .ps-card-img img {
-            max-height: 100%; max-width: 100%;
-            object-fit: contain;
-            transition: transform 0.4s ease;
-        }
-        .ps-card:hover .ps-card-img img { transform: scale(1.06); }
+    /* Count bar */
+    .ps-count-bar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.8rem; flex-wrap: wrap; gap: 0.8rem; }
+    .ps-count { font-size: 0.82rem; color: #888; }
+    .ps-count strong { color: #2c5aa0; font-size: 1rem; }
+    .ps-view-toggle { display: flex; gap: 0.4rem; }
+    .ps-view-btn { width: 36px; height: 36px; border: 1px solid #dde8f8; border-radius: 8px; background: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #aab; transition: all .2s; }
+    .ps-view-btn.active, .ps-view-btn:hover { background: #2c5aa0; color: #fff; border-color: #2c5aa0; }
 
-        .ps-card-body { padding: 1.2rem 1.4rem; flex: 1; display: flex; flex-direction: column; gap: 0.4rem; }
-        .ps-card-brand-logo { height: 22px; object-fit: contain; margin-bottom: 0.2rem; }
-        .ps-card-name { font-size: 0.95rem; font-weight: 700; color: #1e3f73; line-height: 1.3; }
-        .ps-card-desc {
-            display: inline-block;
-            background: #e8eef7; color: #2c5aa0;
-            font-size: 0.72rem; font-weight: 700;
-            padding: 0.25rem 0.7rem; border-radius: 50px;
-            text-transform: uppercase; letter-spacing: 0.5px;
-            width: fit-content;
-        }
+    /* ── PRODUCT GRID ── */
+    .ps-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.6rem; }
+    .ps-grid.list-view { grid-template-columns: 1fr; }
 
-        /* Ficha técnica toggle */
-        .ps-sheet-btn {
-            margin-top: auto; padding-top: 0.8rem;
-            display: flex; align-items: center; gap: 0.4rem;
-            background: none; border: 1px solid #dde8f8;
-            color: #2c5aa0; border-radius: 8px;
-            padding: 0.5rem 1rem; font-family: 'Poppins', sans-serif;
-            font-size: 0.8rem; font-weight: 600; cursor: pointer;
-            transition: all 0.2s; width: 100%; justify-content: center;
-        }
-        .ps-sheet-btn:hover { background: #2c5aa0; color: #fff; border-color: #2c5aa0; }
+    /* ── PRODUCT CARD ── */
+    .ps-card {
+        background: #fff; border-radius: 20px; overflow: hidden;
+        box-shadow: 0 4px 24px rgba(44,90,160,0.07);
+        border: 1px solid #e8eef7;
+        transition: all .35s cubic-bezier(.4,0,.2,1);
+        display: flex; flex-direction: column;
+        position: relative;
+    }
+    .ps-card::before {
+        content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+        background: linear-gradient(90deg, #2c5aa0, #dfa403);
+        transform: scaleX(0); transform-origin: left;
+        transition: transform .35s ease;
+    }
+    .ps-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(44,90,160,0.16); border-color: transparent; }
+    .ps-card:hover::before { transform: scaleX(1); }
 
-        .ps-sheet {
-            border-top: 1px solid #e8eef7;
-            padding: 1rem 1.4rem;
-            background: #f8faff;
-        }
-        .ps-sheet[hidden] { display: none; }
-        .ps-specs { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
-        .ps-specs tr:nth-child(even) { background: rgba(44,90,160,0.04); }
-        .ps-specs .sl { font-weight: 600; color: #2c5aa0; padding: 0.35rem 0.6rem 0.35rem 0; width: 42%; vertical-align: top; }
-        .ps-specs .sv { color: #444; padding: 0.35rem 0; line-height: 1.4; }
+    /* Image area */
+    .ps-card-img {
+        background: linear-gradient(135deg, #f8f9fa 0%, #eef2f8 100%);
+        height: 220px; display: flex; align-items: center; justify-content: center;
+        padding: 1.8rem; overflow: hidden; position: relative;
+    }
+    .ps-card-img::after {
+        content: ''; position: absolute; inset: 0;
+        background: radial-gradient(ellipse at 50% 100%, rgba(44,90,160,0.06) 0%, transparent 70%);
+    }
+    .ps-card-img img { max-height: 100%; max-width: 100%; object-fit: contain; transition: transform .4s ease; position: relative; z-index: 1; }
+    .ps-card:hover .ps-card-img img { transform: scale(1.08) translateY(-4px); }
 
-        /* ── EMPTY STATE ── */
-        .ps-empty {
-            text-align: center; padding: 5rem 2rem; color: #aaa;
-            grid-column: 1 / -1;
-        }
-        .ps-empty i { font-size: 3rem; color: #d0daea; display: block; margin-bottom: 1rem; }
+    /* Body */
+    .ps-card-body { padding: 1.4rem 1.6rem 1.2rem; flex: 1; display: flex; flex-direction: column; gap: 0.5rem; }
+    .ps-card-brand { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.2rem; }
+    .ps-card-brand img { height: 20px; object-fit: contain; }
+    .ps-card-name { font-size: 1rem; font-weight: 700; color: #0d2a5e; line-height: 1.3; }
+    .ps-card-pres {
+        display: inline-flex; align-items: center; gap: 0.4rem;
+        background: #eef3fb; color: #2c5aa0;
+        font-size: 0.72rem; font-weight: 700;
+        padding: 0.3rem 0.8rem; border-radius: 50px;
+        text-transform: uppercase; letter-spacing: 0.5px; width: fit-content;
+    }
 
-        /* ── RESPONSIVE ── */
-        @media (max-width: 600px) {
-            .ps-hero h1 { font-size: 1.5rem; }
-            .ps-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
-            .ps-card-img { height: 150px; }
-        }
-        @media (max-width: 400px) {
-            .ps-grid { grid-template-columns: 1fr; }
-        }
+    /* Actions */
+    .ps-card-actions { display: flex; gap: 0.6rem; margin-top: auto; padding-top: 1rem; }
+    .ps-btn-sheet {
+        flex: 1; display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+        background: none; border: 1.5px solid #dde8f8; color: #2c5aa0;
+        border-radius: 10px; padding: 0.6rem; font-family: 'Poppins',sans-serif;
+        font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: all .2s;
+    }
+    .ps-btn-sheet:hover { background: #2c5aa0; color: #fff; border-color: #2c5aa0; }
+    .ps-btn-contact {
+        display: flex; align-items: center; justify-content: center;
+        width: 40px; height: 40px; border-radius: 10px;
+        background: linear-gradient(135deg,#dfa403,#f5c518);
+        color: #0d2a5e; border: none; cursor: pointer; transition: all .2s;
+        flex-shrink: 0; font-size: 0.9rem;
+    }
+    .ps-btn-contact:hover { transform: scale(1.1); box-shadow: 0 4px 14px rgba(223,164,3,.4); }
+
+    /* Ficha técnica */
+    .ps-sheet { border-top: 1px solid #e8eef7; padding: 1.2rem 1.6rem; background: #f8faff; }
+    .ps-sheet[hidden] { display: none; }
+    .ps-specs { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+    .ps-specs tr { border-bottom: 1px solid #eef2f8; }
+    .ps-specs tr:last-child { border-bottom: none; }
+    .ps-specs .sl { font-weight: 600; color: #2c5aa0; padding: 0.45rem 0.8rem 0.45rem 0; width: 42%; vertical-align: top; }
+    .ps-specs .sv { color: #444; padding: 0.45rem 0; line-height: 1.5; }
+
+    /* LIST VIEW */
+    .ps-grid.list-view .ps-card { flex-direction: row; }
+    .ps-grid.list-view .ps-card-img { width: 160px; height: auto; min-height: 140px; flex-shrink: 0; border-radius: 0; }
+    .ps-grid.list-view .ps-card-body { padding: 1.2rem 1.4rem; }
+    .ps-grid.list-view .ps-sheet { border-top: none; border-left: 1px solid #e8eef7; }
+
+    /* ── EMPTY ── */
+    .ps-empty { grid-column: 1/-1; text-align: center; padding: 5rem 2rem; }
+    .ps-empty-icon { width: 80px; height: 80px; background: #eef3fb; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem; }
+    .ps-empty-icon i { font-size: 2rem; color: #2c5aa0; }
+    .ps-empty h3 { color: #444; margin-bottom: 0.4rem; }
+    .ps-empty p { color: #aaa; font-size: 0.9rem; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+        .ps-hero h1 { font-size: 1.8rem; }
+        .ps-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+        .ps-nav-cta { display: none; }
+        .ps-grid.list-view .ps-card { flex-direction: column; }
+        .ps-grid.list-view .ps-card-img { width: 100%; height: 180px; }
+    }
+    @media (max-width: 480px) {
+        .ps-grid { grid-template-columns: 1fr 1fr; }
+        .ps-card-img { height: 160px; }
+    }
     </style>
 </head>
 <body>
 
-    <!-- Navbar mínimo -->
-    <nav class="ps-navbar">
-        <div class="container">
-            <button class="ps-back-btn" onclick="history.back()">
-                <i class="fas fa-arrow-left"></i> Volver
-            </button>
-            <div class="ps-nav-logo">
-                <a href="index.html"><img src="catalogo/logo1.png" alt="Indusalca"></a>
-            </div>
-        </div>
-    </nav>
+<!-- Navbar -->
+<nav class="ps-nav">
+    <div class="wrap">
+        <button class="ps-back" onclick="history.back()"><i class="fas fa-arrow-left"></i> Volver</button>
+        <div class="ps-nav-logo"><a href="index.html"><img src="catalogo/logo1.png" alt="Indusalca"></a></div>
+        <a href="index.html#contact" class="ps-nav-cta"><i class="fas fa-shopping-cart"></i> Hacer Pedido</a>
+    </div>
+</nav>
 
-    <!-- Hero -->
-    <section class="ps-hero">
-        <div class="container">
-            <p class="ps-breadcrumb">Indusalca › Sectores › <span id="heroSector">—</span></p>
-            <h1 id="heroTitle">Productos</h1>
-            <p class="ps-hero-sub" id="heroSub">Filtra por marca para ver el catálogo disponible</p>
-        </div>
-    </section>
+<!-- Hero -->
+<section class="ps-hero">
+    <div class="ps-hero-particles">
+        <span></span><span></span><span></span><span></span>
+    </div>
+    <div class="ps-hero-accent"></div>
+    <div class="wrap">
+        <p class="ps-crumb">Indusalca &rsaquo; Sectores &rsaquo; <strong id="heroSector">—</strong></p>
+        <h1 id="heroTitle">Nuestros <em>Productos</em></h1>
+        <p class="ps-hero-desc" id="heroDesc">Selecciona una marca para explorar el catálogo disponible para este sector.</p>
+        <div class="ps-hero-badge"><i class="fas fa-certificate"></i> Calidad certificada · 73 años de experiencia</div>
+    </div>
+</section>
 
-    <!-- Brand tabs -->
-    <div class="ps-brand-bar">
-        <div class="container">
-            <div class="ps-brand-tabs" id="brandTabs"></div>
+<!-- Brand selector -->
+<div class="ps-brand-section">
+    <div class="wrap">
+        <p class="ps-brand-label">Selecciona una marca</p>
+        <div class="ps-brand-cards" id="brandCards"></div>
+    </div>
+</div>
+
+<!-- Products -->
+<main class="ps-main">
+    <div class="ps-count-bar">
+        <p class="ps-count"><strong id="prodCount">0</strong> productos encontrados</p>
+        <div class="ps-view-toggle">
+            <button class="ps-view-btn active" id="btnGrid" title="Vista cuadrícula" onclick="setView('grid')"><i class="fas fa-th"></i></button>
+            <button class="ps-view-btn" id="btnList" title="Vista lista" onclick="setView('list')"><i class="fas fa-list"></i></button>
         </div>
     </div>
+    <div class="ps-grid" id="productGrid"></div>
+</main>
 
-    <!-- Products -->
-    <main class="ps-main">
-        <div class="container">
-            <div class="ps-grid" id="productGrid"></div>
-        </div>
-    </main>
+<script src="script.js"></script>
+<script>
+    const params       = new URLSearchParams(location.search);
+    const currentSector = params.get('sector') || '';
+    let   activeBrand   = params.get('marca')  || '';
 
-    <script src="script.js"></script>
-    <script>
-        // Lee parámetros de URL
-        const params = new URLSearchParams(location.search);
-        const currentSector = params.get('sector') || '';
-        const currentMarca  = params.get('marca')  || '';
+    // Monte Blanco siempre primero
+    const BRAND_ORDER = ['monte-blanco', 'cruz-de-oro', 'condor'];
 
-        // Rellena hero
-        document.getElementById('heroSector').textContent = sectorTitles[currentSector] || currentSector;
-        document.getElementById('heroTitle').textContent  = sectorTitles[currentSector] || 'Productos';
+    const sectorData     = productCatalogs[currentSector] || {};
+    const availableBrands = BRAND_ORDER.filter(b => sectorData[b]);
 
-        // Construye tabs de marcas disponibles para este sector
-        const sectorData = productCatalogs[currentSector] || {};
-        const availableBrands = Object.keys(sectorData);
-        const tabsEl = document.getElementById('brandTabs');
+    // Hero
+    document.getElementById('heroSector').textContent = sectorTitles[currentSector] || currentSector;
+    document.getElementById('heroTitle').innerHTML    = `Productos de <em>${sectorTitles[currentSector] || 'este sector'}</em>`;
 
-        availableBrands.forEach(bk => {
-            const b = brandConfig[bk];
-            if (!b) return;
-            const tab = document.createElement('button');
-            tab.className = 'ps-brand-tab' + (bk === currentMarca ? ' active' : '');
-            tab.innerHTML = `<img src="${b.logo}" alt="${b.label}"> ${b.label}`;
-            tab.addEventListener('click', () => {
-                history.replaceState(null, '', `?sector=${currentSector}&marca=${bk}`);
-                document.querySelectorAll('.ps-brand-tab').forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                renderProducts(bk);
-            });
-            tabsEl.appendChild(tab);
-        });
+    // Si no hay marca en URL, usar la primera disponible
+    if (!activeBrand || !sectorData[activeBrand]) activeBrand = availableBrands[0] || '';
 
-        // Renderiza productos
-        function renderProducts(brandKey) {
-            const grid = document.getElementById('productGrid');
-            const products = (sectorData[brandKey] || []);
-            const brand = brandConfig[brandKey] || {};
+    // Construir brand cards
+    const cardsEl = document.getElementById('brandCards');
+    availableBrands.forEach(bk => {
+        const b = brandConfig[bk];
+        if (!b) return;
+        const card = document.createElement('button');
+        card.className = 'ps-brand-card' + (bk === activeBrand ? ' active' : '');
+        card.dataset.brand = bk;
+        card.innerHTML = `<img src="${b.logo}" alt="${b.label}"><span>${b.label}</span><div class="ps-brand-dot"></div>`;
+        card.addEventListener('click', () => switchBrand(bk));
+        cardsEl.appendChild(card);
+    });
 
-            if (!products.length) {
-                grid.innerHTML = `<div class="ps-empty"><i class="fas fa-box-open"></i><p>No hay productos registrados para esta selección.</p></div>`;
-                return;
-            }
+    function switchBrand(bk) {
+        activeBrand = bk;
+        history.replaceState(null, '', `?sector=${currentSector}&marca=${bk}`);
+        document.querySelectorAll('.ps-brand-card').forEach(c => c.classList.toggle('active', c.dataset.brand === bk));
+        renderProducts(bk);
+    }
 
-            grid.innerHTML = products.map((p, i) => {
-                const uid = `ps-${currentSector}-${brandKey}-${i}`;
-                const specs = typeof getTechnicalDetails === 'function' ? getTechnicalDetails(p) : [];
-                const specsHtml = specs.length
-                    ? specs.map(s => `<tr><td class="sl">${s.label}</td><td class="sv">${s.value}</td></tr>`).join('')
-                    : '<tr><td class="sl" colspan="2" style="color:#aaa">Sin ficha técnica disponible</td></tr>';
+    // Render productos
+    function renderProducts(brandKey) {
+        const grid     = document.getElementById('productGrid');
+        const products = sectorData[brandKey] || [];
+        const brand    = brandConfig[brandKey] || {};
 
-                return `
-                <div class="ps-card">
-                    <div class="ps-card-img">
-                        <img src="${p.image}" alt="${p.name}" loading="lazy">
+        document.getElementById('prodCount').textContent = products.length;
+
+        if (!products.length) {
+            grid.innerHTML = `
+            <div class="ps-empty">
+                <div class="ps-empty-icon"><i class="fas fa-box-open"></i></div>
+                <h3>Sin productos registrados</h3>
+                <p>No hay productos disponibles para esta marca en este sector.</p>
+            </div>`;
+            return;
+        }
+
+        grid.innerHTML = products.map((p, i) => {
+            const uid   = `ps-${currentSector}-${brandKey}-${i}`;
+            const specs = typeof getTechnicalDetails === 'function' ? getTechnicalDetails(p) : [];
+            const specsHtml = specs.length
+                ? specs.map(s => `<tr><td class="sl">${s.label}</td><td class="sv">${s.value}</td></tr>`).join('')
+                : `<tr><td class="sl" colspan="2" style="color:#bbb;font-style:italic">Ficha técnica no disponible</td></tr>`;
+
+            return `
+            <div class="ps-card">
+                <div class="ps-card-img">
+                    <img src="${p.image}" alt="${p.name}" loading="lazy">
+                </div>
+                <div class="ps-card-body">
+                    <div class="ps-card-brand">
+                        <img src="${brand.logo}" alt="${brand.label}">
                     </div>
-                    <div class="ps-card-body">
-                        <img src="${brand.logo}" alt="${brand.label}" class="ps-card-brand-logo">
-                        <p class="ps-card-name">${p.name}</p>
-                        <span class="ps-card-desc">${p.description}</span>
-                        <button class="ps-sheet-btn" onclick="togglePsSheet('${uid}')">
-                            <i class="fas fa-list-alt"></i> Ficha técnica
+                    <p class="ps-card-name">${p.name}</p>
+                    <span class="ps-card-pres"><i class="fas fa-box"></i> ${p.description}</span>
+                    <div class="ps-card-actions">
+                        <button class="ps-btn-sheet" onclick="toggleSheet('${uid}')">
+                            <i class="fas fa-file-alt"></i> Ficha técnica
                         </button>
+                        <a href="index.html#contact" class="ps-btn-contact" title="Solicitar producto">
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
                     </div>
-                    <div class="ps-sheet" id="${uid}" hidden>
-                        <table class="ps-specs">
-                            ${specsHtml}
-                        </table>
-                    </div>
-                </div>`;
-            }).join('');
-        }
+                </div>
+                <div class="ps-sheet" id="${uid}" hidden>
+                    <table class="ps-specs">${specsHtml}</table>
+                </div>
+            </div>`;
+        }).join('');
+    }
 
-        function togglePsSheet(uid) {
-            const el = document.getElementById(uid);
-            el.hidden = !el.hidden;
-            const btn = el.previousElementSibling.querySelector('.ps-sheet-btn');
-            btn.innerHTML = el.hidden
-                ? '<i class="fas fa-list-alt"></i> Ficha técnica'
-                : '<i class="fas fa-chevron-up"></i> Cerrar ficha';
-        }
+    function toggleSheet(uid) {
+        const el  = document.getElementById(uid);
+        const btn = el.previousElementSibling.querySelector('.ps-btn-sheet');
+        el.hidden = !el.hidden;
+        btn.innerHTML = el.hidden
+            ? '<i class="fas fa-file-alt"></i> Ficha técnica'
+            : '<i class="fas fa-chevron-up"></i> Cerrar ficha';
+    }
 
-        // Render inicial
-        if (currentMarca) renderProducts(currentMarca);
-        else if (availableBrands.length) renderProducts(availableBrands[0]);
-    </script>
+    function setView(mode) {
+        const grid = document.getElementById('productGrid');
+        grid.classList.toggle('list-view', mode === 'list');
+        document.getElementById('btnGrid').classList.toggle('active', mode === 'grid');
+        document.getElementById('btnList').classList.toggle('active', mode === 'list');
+    }
+
+    // Render inicial
+    if (activeBrand) renderProducts(activeBrand);
+</script>
 </body>
 </html>
