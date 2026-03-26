@@ -977,9 +977,7 @@ function toggleAccordion(element) {
 const productCatalogs = {
     agroindustria: {
         'monte-blanco': [
-            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 20KG', image: 'catalogo/MONTEBLANCO INDUSTRIAL 20 KG.png' },
-            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 5KG',  image: 'catalogo/Monte Blanco 5 kg Recristalizada.png' },
-            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'BIG BAG',    image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' }
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 20KG · SACOS 5KG · BIG BAG', image: 'catalogo/granos/mb recristalizada.jpeg' }
         ],
         'cruz-de-oro': [
             { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 20KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
@@ -1007,9 +1005,7 @@ const productCatalogs = {
     },
     quesera: {
         'monte-blanco': [
-            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 20KG', image: 'catalogo/MONTEBLANCO INDUSTRIAL 20 KG.png' },
-            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 5KG',  image: 'catalogo/Monte Blanco 5 kg Recristalizada.png' },
-            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'BIG BAG',    image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' }
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 20KG · SACOS 5KG · BIG BAG', image: 'catalogo/granos/mb recristalizada.jpeg' }
         ],
         'cruz-de-oro': [
             { name: 'SAL REFINADA CRUZ DE ORO',           description: 'SACOS 20KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
@@ -1050,8 +1046,7 @@ const productCatalogs = {
     },
     petrolera: {
         'monte-blanco': [
-            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 20KG', image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' },
-            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 5KG',  image: 'catalogo/Monte Blanco 5 kg Recristalizada.png' },
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 20KG · SACOS 5KG', image: 'catalogo/granos/mb recristalizada.jpeg' },
             { name: 'SAL PARA SALMUERA PETROLERA MONTE BLANCO', description: 'SACOS 20KG', image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' }
         ],
         'cruz-de-oro': [
