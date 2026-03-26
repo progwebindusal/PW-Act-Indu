@@ -987,7 +987,7 @@ const productCatalogs = {
             { name: 'SAL REFINADA CRUZ DE ORO', description: 'BIG BAG',    image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' }
         ],
         'condor': [
-            { name: 'SALERO CÓNDOR 500GR', description: '1X12 UNIDADES', image: 'catalogo/SAL CONDOR.png' }
+            { name: 'SAL MARINA MOLIDA CÓNDOR', description: '1X12 UNIDADES: SALERO 500 gr', image: 'catalogo/SAL CONDOR.png' }
         ]
     },
     hogar: {
@@ -1002,7 +1002,7 @@ const productCatalogs = {
             { name: 'SAL COMESTIBLE REFINADA FINA CRUZ DE ORO', description: 'PACAS 20 X 1/2KG', image: 'catalogo/cruz-de-oro-500g.png' }
         ],
         'condor': [
-            { name: 'SALERO CÓNDOR 500GR', description: '1X12 UNIDADES', image: 'catalogo/SAL CONDOR.png' }
+            { name: 'SAL MARINA MOLIDA CÓNDOR', description: '1X12 UNIDADES', image: 'catalogo/SAL CONDOR.png' }
         ]
     },
     quesera: {
@@ -1403,6 +1403,7 @@ function getTechnicalDetails(product) {
     const isSalero = product.name.includes('SALERO');
     const isAdobo = product.name.includes('ADOBO');
     const isSaco = product.description.includes('SACOS');
+    const isBigBag = product.description.includes('BIG BAG');
     const isPaca = product.description.includes('PACAS');
     const isCaja = product.description.includes('CAJA');
     
@@ -1431,8 +1432,8 @@ function getTechnicalDetails(product) {
         return details;
     }
 
-    // Especificaciones detalladas para Cruz de Oro en sacos (excepto Sello Azul)
-    if (isCruzDeOro && isSaco && !product.name.includes('SELLO AZUL')) {
+    // Especificaciones detalladas para Cruz de Oro en sacos o big bag (excepto Sello Azul)
+    if (isCruzDeOro && (isSaco || isBigBag) && !product.name.includes('SELLO AZUL')) {
         details.push(
             { label: 'Tipo', value: 'Sal Refinada' },
             { label: 'Cloruro de Sodio (NaCl)', value: 'Mínimo 99%' },
@@ -1450,7 +1451,7 @@ function getTechnicalDetails(product) {
         );
     }
     // Especificaciones detalladas para Cruz de Oro Sello Azul
-    else if (isCruzDeOro && isSaco && product.name.includes('SELLO AZUL')) {
+    else if (isCruzDeOro && (isSaco || isBigBag) && product.name.includes('SELLO AZUL')) {
         details.push(
             { label: 'Tipo', value: 'Sal Refinada' },
             { label: 'Cloruro de Sodio (NaCl)', value: 'Mínimo 95%' },
@@ -1534,8 +1535,8 @@ function getTechnicalDetails(product) {
             { label: 'Conservación', value: 'Se recomienda su conservación en envase cerrado' }
         );
     }
-    // Especificaciones detalladas para Monte Blanco en sacos
-    else if (isMonteBlanco && isSaco) {
+    // Especificaciones detalladas para Monte Blanco en sacos o big bag
+    else if (isMonteBlanco && (isSaco || isBigBag)) {
         details.push(
             { label: 'Tipo', value: 'Sal Recristalizada' },
             { label: 'Cloruro de Sodio (NaCl)', value: 'Mínimo 99.5%' },
