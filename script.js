@@ -975,123 +975,67 @@ function toggleAccordion(element) {
 // Catálogos de productos por sector, organizados por marca
 // Estructura: { sector: { marca: [ productos ] } }
 const productCatalogs = {
-    industria: {
-        'cruz-de-oro': [
-            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
-            { name: 'SAL MICRONIZADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
-            { name: 'SAL REFINADA CRUZ DE ORO GOLD', description: 'SACOS 20KG', image: 'catalogo/IMG_4791X  Cruz de Oro 20 gold.png' },
-            { name: 'SAL REFINADA CRUZ DE ORO SELLO AZUL', description: 'SACOS 20KG', image: 'catalogo/CRUZ DE ORO AZUL.png' },
-            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 5KG', image: 'catalogo/Cruz de Oro 5 kg.png' }
-        ],
-        'monte-blanco': [
-            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 25KG', image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' },
-            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 5KG', image: 'catalogo/Monte Blanco 5 kg Recristalizada.png' },
-            { name: 'SAL INDUSTRIAL MONTE BLANCO', description: 'SACOS 20KG', image: 'catalogo/MONTEBLANCO INDUSTRIAL 20 KG.png' }
-        ]
-    },
-    petrolera: {
-        'cruz-de-oro': [
-            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
-            { name: 'SAL MICRONIZADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
-            { name: 'SAL REFINADA CRUZ DE ORO GOLD', description: 'SACOS 20KG', image: 'catalogo/IMG_4791X  Cruz de Oro 20 gold.png' },
-            { name: 'SAL REFINADA CRUZ DE ORO SELLO AZUL', description: 'SACOS 20KG', image: 'catalogo/CRUZ DE ORO AZUL.png' },
-            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 5KG', image: 'catalogo/Cruz de Oro 5 kg.png' }
-        ],
-        'monte-blanco': [
-            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 25KG', image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' },
-            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 5KG', image: 'catalogo/Monte Blanco 5 kg Recristalizada.png' },
-            { name: 'SAL PARA SALMUERA PETROLERA MONTE BLANCO', description: 'SACOS 25KG', image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' }
-        ]
-    },
     agroindustria: {
-        'cruz-de-oro': [
-            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
-            { name: 'SAL MICRONIZADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
-            { name: 'SAL REFINADA CRUZ DE ORO GOLD', description: 'SACOS 20KG', image: 'catalogo/IMG_4791X  Cruz de Oro 20 gold.png' },
-            { name: 'SAL REFINADA CRUZ DE ORO SELLO AZUL', description: 'SACOS 20KG', image: 'catalogo/CRUZ DE ORO AZUL.png' },
-            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 5KG', image: 'catalogo/Cruz de Oro 5 kg.png' }
-        ],
         'monte-blanco': [
-            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 25KG', image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' },
-            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 5KG', image: 'catalogo/Monte Blanco 5 kg Recristalizada.png' }
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 20KG', image: 'catalogo/MONTEBLANCO INDUSTRIAL 20 KG.png' },
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 5KG',  image: 'catalogo/Monte Blanco 5 kg Recristalizada.png' },
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'BIG BAG',    image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' }
+        ],
+        'cruz-de-oro': [
+            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 20KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
+            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 5KG',  image: 'catalogo/Cruz de Oro 5 kg.png' },
+            { name: 'SAL REFINADA CRUZ DE ORO', description: 'BIG BAG',    image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' }
+        ],
+        'condor': [
+            { name: 'SALERO CÓNDOR 500GR', description: '1X12 UNIDADES', image: 'catalogo/SAL CONDOR.png' }
+        ]
+    },
+    hogar: {
+        'monte-blanco': [
+            { name: 'SAL COMESTIBLE RECRISTALIZADA FINA MONTE BLANCO', description: 'PACAS 20 X 1KG',   image: 'catalogo/IMG_4784X  Monte Blanco 1.000 gr.png' },
+            { name: 'SAL COMESTIBLE RECRISTALIZADA FINA MONTE BLANCO', description: 'PACAS 20 X 1/2KG', image: 'catalogo/IMG_4783X  Monte Blanco 500 gr.png' },
+            { name: 'SALERO MONTE BLANCO 500GR',                       description: '1X12 UNIDADES',    image: 'catalogo/SAL MONTE BLANCO.png' },
+            { name: 'ADOBO COMPLETO MONTE BLANCO',                     description: '12/170GR — POTE 170GR', image: 'catalogo/IMG_20240405_105838_869.png' }
+        ],
+        'cruz-de-oro': [
+            { name: 'SAL COMESTIBLE REFINADA FINA CRUZ DE ORO', description: 'PACAS 20 X 1KG',   image: 'catalogo/IMG_4786X  Cruz de Oro 1.000 gr.png' },
+            { name: 'SAL COMESTIBLE REFINADA FINA CRUZ DE ORO', description: 'PACAS 20 X 1/2KG', image: 'catalogo/cruz-de-oro-500g.png' }
+        ],
+        'condor': [
+            { name: 'SALERO CÓNDOR 500GR', description: '1X12 UNIDADES', image: 'catalogo/SAL CONDOR.png' }
         ]
     },
     quesera: {
-        'cruz-de-oro': [
-            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
-            { name: 'SAL MICRONIZADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
-            { name: 'SAL REFINADA CRUZ DE ORO GOLD', description: 'SACOS 20KG', image: 'catalogo/IMG_4791X  Cruz de Oro 20 gold.png' },
-            { name: 'SAL REFINADA CRUZ DE ORO SELLO AZUL', description: 'SACOS 20KG', image: 'catalogo/CRUZ DE ORO AZUL.png' },
-            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 5KG', image: 'catalogo/Cruz de Oro 5 kg.png' }
-        ],
         'monte-blanco': [
-            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 25KG', image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' },
-            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 5KG', image: 'catalogo/Monte Blanco 5 kg Recristalizada.png' }
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 20KG', image: 'catalogo/MONTEBLANCO INDUSTRIAL 20 KG.png' },
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 5KG',  image: 'catalogo/Monte Blanco 5 kg Recristalizada.png' },
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'BIG BAG',    image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' }
+        ],
+        'cruz-de-oro': [
+            { name: 'SAL REFINADA CRUZ DE ORO',           description: 'SACOS 20KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
+            { name: 'SAL REFINADA CRUZ DE ORO',           description: 'SACOS 5KG',  image: 'catalogo/Cruz de Oro 5 kg.png' },
+            { name: 'SAL REFINADA CRUZ DE ORO',           description: 'BIG BAG',    image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
+            { name: 'SAL REFINADA CRUZ DE ORO SELLO AZUL', description: 'SACOS 20KG', image: 'catalogo/CRUZ DE ORO AZUL.png' }
+        ]
+    },
+    industria: {
+        'monte-blanco': [
+            { name: 'SAL INDUSTRIAL MONTE BLANCO', description: 'SACOS 20KG', image: 'catalogo/MONTEBLANCO INDUSTRIAL 20 KG.png' }
         ]
     },
     textil: {
         'cruz-de-oro': [
-            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
-            { name: 'SAL MICRONIZADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
-            { name: 'SAL REFINADA CRUZ DE ORO GOLD', description: 'SACOS 20KG', image: 'catalogo/IMG_4791X  Cruz de Oro 20 gold.png' },
-            { name: 'SAL REFINADA CRUZ DE ORO SELLO AZUL', description: 'SACOS 20KG', image: 'catalogo/CRUZ DE ORO AZUL.png' },
-            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 5KG', image: 'catalogo/Cruz de Oro 5 kg.png' }
-        ],
-        'monte-blanco': [
-            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 25KG', image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' },
-            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 5KG', image: 'catalogo/Monte Blanco 5 kg Recristalizada.png' }
-        ]
-    },
-    farmaceutica: {
-        'cruz-de-oro': [
-            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
-            { name: 'SAL MICRONIZADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
-            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 20KG', image: 'catalogo/IMG_4791X  Cruz de Oro 20 gold.png' },
-            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 5KG', image: 'catalogo/Cruz de Oro 5 kg.png' }
-        ],
-        'monte-blanco': [
-            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 25KG', image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' },
-            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 5KG', image: 'catalogo/Monte Blanco 5 kg Recristalizada.png' }
-        ]
-    },
-    agraria: {
-        'cruz-de-oro': [
-            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
-            { name: 'SAL MICRONIZADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
-            { name: 'SAL REFINADA CRUZ DE ORO GOLD', description: 'SACOS 20KG', image: 'catalogo/IMG_4791X  Cruz de Oro 20 gold.png' },
-            { name: 'SAL REFINADA CRUZ DE ORO SELLO AZUL', description: 'SACOS 20KG', image: 'catalogo/CRUZ DE ORO AZUL.png' },
-            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 5KG', image: 'catalogo/Cruz de Oro 5 kg.png' }
-        ],
-        'monte-blanco': [
-            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 25KG', image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' },
-            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 5KG', image: 'catalogo/Monte Blanco 5 kg Recristalizada.png' }
-        ]
-    },
-    hogar: {
-        'cruz-de-oro': [
-            { name: 'SAL COMESTIBLE REFINADA FINA CRUZ DE ORO', description: 'PACAS 25 X 1KG', image: 'catalogo/IMG_4786X  Cruz de Oro 1.000 gr.png' },
-            { name: 'SAL COMESTIBLE REFINADA FINA CRUZ DE ORO', description: 'PACAS 50 X 500GR', image: 'catalogo/cruz-de-oro-500g.png' }
-        ],
-        'monte-blanco': [
-            { name: 'SAL COMESTIBLE RECRISTALIZADA FINA MONTE BLANCO', description: 'PACAS 25 X 1KG', image: 'catalogo/IMG_4784X  Monte Blanco 1.000 gr.png' },
-            { name: 'SAL COMESTIBLE RECRISTALIZADA FINA MONTE BLANCO', description: 'PACAS 50 X 500GR', image: 'catalogo/IMG_4783X  Monte Blanco 500 gr.png' },
-            { name: 'SALERO MONTE BLANCO 500GR', description: 'CAJA 12 UNIDADES', image: 'catalogo/SAL MONTE BLANCO.png' },
-            { name: 'ADOBO MONTE BLANCO 170GR', description: 'CAJA 12 UNIDADES', image: 'catalogo/IMG_20240405_105838_869.png' }
-        ],
-        'condor': [
-            { name: 'SALERO CÓNDOR 500GR', description: 'CAJA 12 UNIDADES', image: 'catalogo/SAL CONDOR.png' }
+            { name: 'SAL REFINADA CRUZ DE ORO SELLO AZUL', description: 'SACOS 20KG', image: 'catalogo/CRUZ DE ORO AZUL.png' }
         ]
     },
     aguas: {
-        'cruz-de-oro': [
-            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
-            { name: 'SAL MICRONIZADA CRUZ DE ORO', description: 'SACOS 25KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
-            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 20KG', image: 'catalogo/IMG_4791X  Cruz de Oro 20 gold.png' },
-            { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 5KG', image: 'catalogo/Cruz de Oro 5 kg.png' }
-        ],
         'monte-blanco': [
-            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 25KG', image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' },
-            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 5KG', image: 'catalogo/Monte Blanco 5 kg Recristalizada.png' }
+            { name: 'SAL INDUSTRIAL MONTE BLANCO', description: 'SACOS 20KG', image: 'catalogo/MONTEBLANCO INDUSTRIAL 20 KG.png' }
+        ]
+    },
+    agraria: {
+        'monte-blanco': [
+            { name: 'SAL INDUSTRIAL MONTE BLANCO', description: 'SACOS 20KG', image: 'catalogo/MONTEBLANCO INDUSTRIAL 20 KG.png' }
         ]
     },
     piscinas: {
@@ -1099,10 +1043,27 @@ const productCatalogs = {
             { name: 'SAL INDUSTRIAL MONTE BLANCO', description: 'SACOS 20KG', image: 'catalogo/MONTEBLANCO INDUSTRIAL 20 KG.png' }
         ]
     },
+    farmaceutica: {
+        'monte-blanco': [
+            { name: 'SAL INDUSTRIAL MONTE BLANCO', description: 'SACOS 20KG', image: 'catalogo/MONTEBLANCO INDUSTRIAL 20 KG.png' }
+        ]
+    },
+    petrolera: {
+        'monte-blanco': [
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 20KG', image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' },
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 5KG',  image: 'catalogo/Monte Blanco 5 kg Recristalizada.png' },
+            { name: 'SAL PARA SALMUERA PETROLERA MONTE BLANCO', description: 'SACOS 20KG', image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' }
+        ],
+        'cruz-de-oro': [
+            { name: 'SAL REFINADA CRUZ DE ORO',           description: 'SACOS 20KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
+            { name: 'SAL MICRONIZADA CRUZ DE ORO',        description: 'SACOS 20KG', image: 'catalogo/IMG_4791X  Cruz de Oro 25 kg Evaporada.png' },
+            { name: 'SAL REFINADA CRUZ DE ORO SELLO AZUL', description: 'SACOS 20KG', image: 'catalogo/CRUZ DE ORO AZUL.png' }
+        ]
+    },
     salmuera: {
         'monte-blanco': [
-            { name: 'SALMUERA INDUSTRIAL', description: 'CONTENEDORES', image: 'catalogo/salmuera.jpg' },
-            { name: 'SALMUERA PARA INDUSTRIA PETROLERA', description: 'CONTENEDORES', image: 'catalogo/salin2.png' }
+            { name: 'SALMUERA INDUSTRIAL',                description: 'CONTENEDORES', image: 'catalogo/salmuera.jpg' },
+            { name: 'SALMUERA PARA INDUSTRIA PETROLERA',  description: 'CONTENEDORES', image: 'catalogo/salin2.png' }
         ]
     }
 };
