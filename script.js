@@ -423,17 +423,9 @@ function initSmoothScrolling() {
     });
 }
 
-// Parallax effects
+// Parallax effects - desactivado (movimiento tosco en hero)
 function initParallaxEffects() {
-    window.addEventListener('scroll', function() {
-        const scrolled = window.pageYOffset;
-        const parallaxElements = document.querySelectorAll('.hero-background');
-        
-        parallaxElements.forEach(element => {
-            const speed = 0.5;
-            element.style.transform = `translateY(${scrolled * speed}px)`;
-        });
-    });
+    // sin efecto parallax
 }
 
 // Additional interactive features
