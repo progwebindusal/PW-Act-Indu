@@ -1397,6 +1397,116 @@ function getTechnicalDetails(product) {
         { label: 'Presentación', value: product.description }
     ];
 
+    // Especificaciones para BRINE 10 LPG 0/10 MB
+    if (product.name.includes('BRINE 10 LPG 0/10')) {
+        details.push(
+            { label: 'Descripción', value: 'Salmuera constituida principalmente por cloruro de sodio (NaCl) y otros componentes en mínima proporción como carbonatos y sulfatos. La materia prima pasa por lavado, molienda en húmedo y disolución en agua a densidad de 10 LPG, manteniendo niveles bajos de turbidez y dureza total.' },
+            { label: 'Densidad (20°C) (LPG)', value: 'Máximo 10' },
+            { label: 'Cloruros (ppm)', value: 'Mínimo 180.000 ppm' },
+            { label: 'Turbidez (NTU)', value: 'Máximo 10' },
+            { label: 'pH', value: 'Máximo 8' },
+            { label: 'Aspecto', value: 'Cristalino' },
+            { label: 'Color', value: 'Cristalino' },
+            { label: 'Sabor', value: 'Salado' },
+            { label: 'Olor', value: 'Característico' }
+        );
+        return details;
+    }
+
+    // Especificaciones para BRINE 10 LPG 0/20 MB
+    if (product.name.includes('BRINE 10 LPG 0/20')) {
+        details.push(
+            { label: 'Descripción', value: 'Salmuera constituida principalmente por cloruro de sodio (NaCl) y otros componentes en mínima proporción como carbonatos, sulfatos y dureza total. Clarificada mediante proceso fisicoquímico en piscinas de sedimentación y tratada con compuestos de coagulación y floculación, removiendo los contaminantes provenientes de las salinas de extracción.' },
+            { label: 'Densidad (20°C) (LPG)', value: 'Máximo 10' },
+            { label: 'Cloruros (ppm)', value: 'Mínimo 180.000 ppm' },
+            { label: 'Turbidez (NTU)', value: 'Máximo 20' },
+            { label: 'pH', value: 'Máximo 10' },
+            { label: 'Aspecto', value: 'Cristalino' },
+            { label: 'Color', value: 'Cristalino' },
+            { label: 'Sabor', value: 'Salado' },
+            { label: 'Olor', value: 'Característico' }
+        );
+        return details;
+    }
+
+    // Especificaciones para BRINE 10 LPG 0/100 MB
+    if (product.name.includes('BRINE 10 LPG 0/100')) {
+        details.push(
+            { label: 'Descripción', value: 'Salmuera constituida principalmente por cloruro de sodio (NaCl) y otros componentes en mínima proporción como carbonatos y sulfatos, a una densidad de 10 LPG. Materia prima extraída de salinas naturales, sometida a lavado continuo para remover impurezas.' },
+            { label: 'Densidad (20°C) (LPG)', value: 'Máximo 10' },
+            { label: 'Cloruros (ppm)', value: 'Mínimo 180.000 ppm' },
+            { label: 'Turbidez (NTU)', value: 'Máximo 100' },
+            { label: 'pH', value: 'Máximo 8.5' },
+            { label: 'Aspecto', value: 'Ligeramente turbio' },
+            { label: 'Sabor', value: 'Salado' },
+            { label: 'Olor', value: 'Característico' }
+        );
+        return details;
+    }
+
+    // Especificaciones para SALT ULTRA FINA MICRONIZADA
+    if (product.name.includes('ULTRA FINA MICRONIZADA')) {
+        details.push(
+            { label: 'Descripción', value: 'Sal refinada, evaporada y recristalizada, constituida principalmente por cloruro de sodio (NaCl), extraída de fuentes naturales al aire libre (Salinas), sometida a purificación y recristalización al vacío. Sin yodo ni flúor.' },
+            { label: 'Proceso', value: 'Única industria en Venezuela con proceso de recristalización. Planta de seis efectos con tecnología Americana, Alemana, Suiza y Japonesa. Cumple normas ISO 9001-2015.' },
+            { label: 'Humedad', value: 'Máximo 0.3%' },
+            { label: 'Cloruro de Sodio (NaCl)', value: 'Mínimo 98%' },
+            { label: 'Materia Insoluble', value: 'Máximo 0.1%' },
+            { label: 'Sulfatos', value: 'Máximo 0.6%' },
+            { label: 'Calcio', value: 'Máximo 0.1%' },
+            { label: 'Magnesio', value: 'Máximo 0.1%' },
+            { label: 'Carbonatos', value: 'Máximo 0.1%' },
+            { label: 'Anticompactante', value: 'Máximo 10 mg/Kg' },
+            { label: 'Granulometría', value: 'Tamiz N 20 (841 µ) debe retener máximo 0%; malla mesh 70 retiene máximo 7%' },
+            { label: 'Aspecto', value: 'Granuloso' },
+            { label: 'Color', value: 'Blanco' },
+            { label: 'Sabor', value: 'Salado' },
+            { label: 'Olor', value: 'Inodoro' }
+        );
+        return details;
+    }
+
+    // Especificaciones para SALT ML/MEDIA
+    if (product.name.includes('SALT ML/MEDIA')) {
+        details.push(
+            { label: 'Descripción', value: 'Fabricada con proceso de Molienda en Húmedo, única en Venezuela. Planta construida con tecnología Americana, Alemana, Suiza y Japonesa. Cumple normas ISO 9001-2015.' },
+            { label: 'Humedad', value: 'Máximo 0.3%' },
+            { label: 'Cloruro de Sodio (NaCl)', value: 'Mínimo 98%' },
+            { label: 'Materia Insoluble', value: 'Máximo 0.1%' },
+            { label: 'Sulfatos', value: 'Máximo 0.6%' },
+            { label: 'Calcio', value: 'Máximo 0.1%' },
+            { label: 'Magnesio', value: 'Máximo 0.1%' },
+            { label: 'Carbonatos', value: 'Máximo 0.1%' },
+            { label: 'Anticompactante', value: 'Máximo 10 mg/Kg' },
+            { label: 'Granulometría', value: 'Tamiz N 20 (841 µ) debe retener máximo 12%; malla mesh 70 pasa máximo 12%' },
+            { label: 'Aspecto', value: 'Granuloso' },
+            { label: 'Color', value: 'Blanco' },
+            { label: 'Sabor', value: 'Salado' },
+            { label: 'Olor', value: 'Inodoro' }
+        );
+        return details;
+    }
+
+    // Especificaciones para SALT ROCK PREMIUM
+    if (product.name.includes('SALT ROCK PREMIUM')) {
+        details.push(
+            { label: 'Descripción', value: 'Sal constituida principalmente por cloruro de sodio (NaCl) y otros componentes como carbonatos, sulfatos y cloruros. Extraída de fuentes naturales al aire libre (salinas), sin secado artificial.' },
+            { label: 'Humedad', value: 'Máximo 5%' },
+            { label: 'Cloruro de Sodio (NaCl)', value: 'Mínimo 98%' },
+            { label: 'Materia Insoluble', value: 'Máximo 0.5%' },
+            { label: 'Sulfatos', value: 'Máximo 1.5%' },
+            { label: 'Calcio', value: 'Máximo 0.30%' },
+            { label: 'Magnesio', value: 'Máximo 0.20%' },
+            { label: 'Carbonatos', value: 'Máximo 0.15%' },
+            { label: 'Carbonato de Calcio', value: 'Máximo 0.25%' },
+            { label: 'Aspecto', value: 'Cristalino' },
+            { label: 'Color', value: 'Blanco con ligera tonalidad amarillenta' },
+            { label: 'Sabor', value: 'Salado' },
+            { label: 'Olor', value: 'Característico' }
+        );
+        return details;
+    }
+
     // Especificaciones para SAL PARA SALMUERA PETROLERA
     if (product.name.includes('SALMUERA PETROLERA')) {
         details.push(
