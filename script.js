@@ -1040,7 +1040,10 @@ const productCatalogs = {
     petrolera: {
         'monte-blanco': [
             { name: 'SAL RECRISTALIZADA MONTE BLANCO', description: 'SACOS 20KG · SACOS 5KG', image: 'catalogo/granos/mb recristalizada.jpeg' },
-            { name: 'SAL PARA SALMUERA PETROLERA MONTE BLANCO', description: 'SACOS 20KG', image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' }
+            { name: 'SAL PARA SALMUERA PETROLERA MONTE BLANCO', description: 'SACOS 20KG', image: 'catalogo/Monte Blanco 25 kg Recristalizada.png' },
+            { name: 'SALT ML/MEDIA MONTE BLANCO', description: 'SACOS 20KG · BIG BAG', image: 'catalogo/granos/mb recristalizada.jpeg' },
+            { name: 'SALT ROCK PREMIUM MONTE BLANCO', description: 'SACOS 20KG · BIG BAG', image: 'catalogo/granos/Mb Industrial.jpeg' },
+            { name: 'SAL ULTRA FINA MICRONIZADA MONTE BLANCO', description: 'SACOS 20KG · BIG BAG', image: 'catalogo/granos/micronizada.jpeg' }
         ],
         'cruz-de-oro': [
             { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 20KG · SACOS 5KG', image: 'catalogo/granos/co refinada.jpeg' },
@@ -1051,7 +1054,10 @@ const productCatalogs = {
     salmuera: {
         'monte-blanco': [
             { name: 'SALMUERA INDUSTRIAL',                description: 'CONTENEDORES', image: 'catalogo/salmuera.jpg' },
-            { name: 'SALMUERA PARA INDUSTRIA PETROLERA',  description: 'CONTENEDORES', image: 'catalogo/salin2.png' }
+            { name: 'SALMUERA PARA INDUSTRIA PETROLERA',  description: 'CONTENEDORES', image: 'catalogo/salin2.png' },
+            { name: 'BRINE 10 LPG 0/100 MB',             description: 'Salmuera preparada con grano grueso', image: 'catalogo/salmueras/brine 10.png' },
+            { name: 'BRINE 10 LPG 0/20 MB',              description: 'Salmuera tratada', image: 'catalogo/salmueras/brine 20.png' },
+            { name: 'BRINE 10 LPG 0/10 MB',              description: 'Salmuera preparada con grano fino', image: 'catalogo/salmueras/brine 100.png' }
         ]
     }
 };
