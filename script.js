@@ -790,7 +790,7 @@ function initInteractiveBackground() {
 // Initialize all advanced features
 document.addEventListener('DOMContentLoaded', function() {
     setTimeout(() => {
-        initParticleSystem();
+        // initParticleSystem(); // desactivado para mejorar rendimiento
         initProductCardEffects();
         initTypingAnimation();
         initAdvancedScrollAnimations();
