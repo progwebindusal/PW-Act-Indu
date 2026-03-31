@@ -977,7 +977,7 @@ const productCatalogs = {
             { name: 'SAL REFINADA CRUZ DE ORO', description: 'SACOS 20KG · SACOS 5KG · BIG BAG', image: 'catalogo/granos/co refinada.jpeg' }
         ],
         'condor': [
-            { name: 'SAL MARINA MOLIDA CÓNDOR', description: '1X12 UNIDADES: SALERO 500 gr', image: 'catalogo/granos/condor.jpeg' }
+            { name: 'SAL MARINA GRUESA EL CÓNDOR', description: '1X12 UNIDADES: SALERO 500 GR', image: 'catalogo/granos/condor.jpeg' }
         ]
     },
     hogar: {
@@ -989,7 +989,7 @@ const productCatalogs = {
             { name: 'SAL COMESTIBLE REFINADA FINA CRUZ DE ORO', description: 'PACAS 20 X 1KG · PACAS 20 X 1/2KG', image: 'catalogo/granos/co refinada.jpeg' }
         ],
         'condor': [
-            { name: 'SAL MARINA MOLIDA CÓNDOR', description: '1X12 UNIDADES', image: 'catalogo/granos/condor.jpeg' }
+            { name: 'SAL MARINA GRUESA EL CÓNDOR', description: '1X12 UNIDADES: SALERO 500 GR', image: 'catalogo/granos/condor.jpeg' }
         ]
     },
     quesera: {
@@ -1442,7 +1442,7 @@ function getTechnicalDetails(product) {
     if (product.name.includes('CONSUMO ANIMAL') || product.name.includes('MOLIDA PARA CONSUMO')) {
         details.push(
             { label: 'Humedad', value: 'Máximo 1%' },
-            { label: 'Cloruro de Sodio (NaCl)', value: 'Mínimo 98%' },
+            { label: 'Cloruro de Sodio (NaCl)', value: 'Mínimo 97%' },
             { label: 'Sulfatos', value: 'Máximo 0.3%' },
             { label: 'Calcio', value: 'Máximo 0.1%' },
             { label: 'Magnesio', value: 'Máximo 0.1%' },
@@ -2051,6 +2051,13 @@ function initBrandInteractions() {
                 console.log(`⏹️ Intervalo de partículas detenido para card ${index}`);
             }
         });
+
+        // Click: navegar a la página de la marca
+        card.addEventListener('click', () => {
+            const brandKey = card.getAttribute('data-brand');
+            if (brandKey) window.location.href = `marca.html?marca=${brandKey}`;
+        });
+        card.style.cursor = 'pointer';
     });
     
     // Animación de entrada para las tarjetas de marca
@@ -2079,81 +2086,87 @@ function initBrandInteractions() {
 
 // Crear partículas decorativas al hacer hover en las marcas - VERSIÓN ULTRA VISIBLE
 function createBrandParticles(card) {
-    console.log('🎨 Creando partículas para card:', card);
-    
-    const particleCount = 15;
-    const colors = ['#ffd700', '#ffed4e', '#ffffff', '#ff8c00'];
-    
-    for (let i = 0; i < particleCount; i++) {
+    const allCards = document.querySelectorAll('.brand-card');
+    const idx = Array.from(allCards).indexOf(card);
+
+    const configs = {
+        0: { count: 18, size: 7,  colors: ['rgba(255,255,255,0.85)', 'rgba(210,235,255,0.8)', 'rgba(180,215,255,0.75)'] },
+        1: { count: 16, size: 9,  colors: ['rgba(255,215,0,0.85)',   'rgba(255,240,100,0.8)', 'rgba(255,255,255,0.8)'] },
+        2: { count: 12, size: 16, colors: ['rgba(255,140,0,0.85)',   'rgba(200,160,80,0.8)', 'rgba(255,200,50,0.75)'] }
+    };
+
+    const cfg = configs[idx] ?? configs[0];
+
+    // Genera un clip-path poligonal irregular aleatorio
+    function randomPolygon() {
+        const pts = 6;
+        const points = [];
+        for (let i = 0; i < pts; i++) {
+            const angle = (i / pts) * 360;
+            const r = 35 + Math.random() * 30; // radio 35-65%
+            const a = angle + (Math.random() - 0.5) * 30; // ángulo con jitter
+            const rad = a * Math.PI / 180;
+            const x = Math.round(50 + r * Math.cos(rad));
+            const y = Math.round(50 + r * Math.sin(rad));
+            points.push(`${x}% ${y}%`);
+        }
+        return `polygon(${points.join(', ')})`;
+    }
+
+    for (let i = 0; i < cfg.count; i++) {
         const particle = document.createElement('div');
-        particle.className = 'brand-particle-animated';
-        
-        const size = Math.random() * 12 + 8; // 8-20px más grandes
-        const color = colors[Math.floor(Math.random() * colors.length)];
-        
-        // Posición inicial aleatoria dentro del card
-        const startX = Math.random() * 80 + 10; // 10-90%
-        const startY = Math.random() * 80 + 10; // 10-90%
-        
-        // Movimiento más amplio
-        const moveX = (Math.random() - 0.5) * 150;
-        const moveY = (Math.random() - 0.5) * 150 - 50; // Bias hacia arriba
-        
-        const duration = Math.random() * 1.5 + 1.5; // 1.5-3s
-        
-        // Estilos inline completos para máxima visibilidad
+        const color    = cfg.colors[Math.floor(Math.random() * cfg.colors.length)];
+        const startX   = Math.random() * 80 + 10;
+        const startY   = Math.random() * 80 + 10;
+        const moveX    = (Math.random() - 0.5) * 120;
+        const moveY    = (Math.random() - 0.5) * 120 - 40;
+        const duration = Math.random() * 1.5 + 1.5;
+        const rot      = Math.random() * 45;
+
+        let shapeStyle;
+        if (idx === 0) {
+            // Monte Blanco: cubo perfecto
+            shapeStyle = `border-radius: ${cfg.size * 0.1}px; border: 1px solid rgba(255,255,255,0.45); box-shadow: inset 0 0 ${cfg.size * 0.6}px rgba(255,255,255,0.2);`;
+        } else if (idx === 1) {
+            // Cruz de Oro: border-radius asimétrico aleatorio
+            const r = () => Math.round(Math.random() * 50 + 10);
+            shapeStyle = `border-radius: ${r()}% ${r()}% ${r()}% ${r()}% / ${r()}% ${r()}% ${r()}% ${r()}%; border: 1px solid rgba(255,255,255,0.35); box-shadow: inset 0 0 ${cfg.size * 0.5}px rgba(255,255,255,0.15);`;
+        } else {
+            // Cóndor: polígono irregular con clip-path
+            shapeStyle = `clip-path: ${randomPolygon()}; border: none; box-shadow: 0 0 ${cfg.size * 0.4}px ${color};`;
+        }
+
         particle.style.cssText = `
             position: absolute;
-            width: ${size}px;
-            height: ${size}px;
+            width: ${cfg.size}px;
+            height: ${cfg.size}px;
             background: ${color};
-            border-radius: 50%;
+            ${shapeStyle}
             left: ${startX}%;
             top: ${startY}%;
             pointer-events: none;
             z-index: 99999;
-            box-shadow: 0 0 ${size * 3}px ${color}, 0 0 ${size * 6}px ${color};
             opacity: 0;
+            transform: rotate(${rot}deg);
             transition: all ${duration}s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             will-change: transform, opacity;
         `;
-        
+
         card.appendChild(particle);
-        
-        console.log('✨ Partícula añadida:', {
-            size: size + 'px',
-            color,
-            startX: startX + '%',
-            startY: startY + '%',
-            moveX: moveX + 'px',
-            moveY: moveY + 'px',
-            duration: duration + 's'
-        });
-        
-        // Forzar reflow para asegurar que la transición funcione
         particle.offsetHeight;
-        
-        // Animar después de un pequeño delay
+
         requestAnimationFrame(() => {
             requestAnimationFrame(() => {
                 particle.style.opacity = '1';
-                particle.style.transform = `translate(${moveX}px, ${moveY}px) scale(0.3)`;
+                particle.style.transform = `translate(${moveX}px, ${moveY}px) rotate(${rot + 45}deg) scale(0.5)`;
             });
         });
-        
-        // Remover después de la animación
+
         setTimeout(() => {
             if (particle.parentNode) {
                 particle.style.opacity = '0';
-                setTimeout(() => {
-                    if (particle.parentNode) {
-                        particle.remove();
-                        console.log('🗑️ Partícula removida');
-                    }
-                }, 300);
+                setTimeout(() => { if (particle.parentNode) particle.remove(); }, 300);
             }
         }, duration * 1000);
     }
-    
-    console.log(`✅ ${particleCount} partículas creadas para el card`);
 }

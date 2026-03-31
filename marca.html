@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marca - Indusalca</title>
+    <link rel="icon" type="image/svg+xml" href="catalogo/icono.svg">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Poppins', sans-serif; background: #f0f4fb; color: #333; overflow-x: hidden; }
+
+    /* NAV */
+    .m-nav { position: fixed; top: 0; width: 100%; height: 68px; background: rgba(255,255,255,0.97); backdrop-filter: blur(20px); box-shadow: 0 2px 24px rgba(44,90,160,0.1); display: flex; align-items: center; z-index: 200; }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; width: 100%; }
+    .m-nav .wrap { display: flex; align-items: center; justify-content: space-between; }
+    .m-back { display: inline-flex; align-items: center; gap: 0.5rem; background: none; border: none; color: #2c5aa0; font-family: 'Poppins',sans-serif; font-size: 0.88rem; font-weight: 600; cursor: pointer; transition: color .2s; }
+    .m-back:hover { color: #dfa403; }
+    .m-nav-logo img { height: 40px; }
+    </style>
+</head>
+<body>
+<nav class="m-nav">
+    <div class="wrap">
+        <button class="m-back" onclick="history.back()"><i class="fas fa-arrow-left"></i> Volver</button>
+        <div class="m-nav-logo"><a href="index.html"><img src="catalogo/logo1.png" alt="Indusalca"></a></div>
+        <div style="width:80px"></div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="m-hero" id="brandHero">
+    <div class="m-hero-bg" id="heroBg"></div>
+    <div class="m-hero-overlay" id="heroOverlay"></div>
+    <canvas class="m-hero-canvas" id="heroCanvas"></canvas>
+    <div class="wrap m-hero-wrap">
+        <div class="m-hero-left">
+            <span class="m-eyebrow" id="heroEyebrow"></span>
+            <h1 class="m-hero-title" id="heroName"></h1>
+            <p class="m-hero-desc" id="heroDesc"></p>
+            <div class="m-hero-pills" id="heroPills"></div>
+        </div>
+        <div class="m-hero-right">
+            <div class="m-logo-ring" id="logoRing">
+                <img id="heroLogo" src="" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="m-hero-wave">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f0f4fb"/></svg>
+    </div>
+</section>
+
+<!-- STATS -->
+<section class="m-stats-bar">
+    <div class="wrap">
+        <div class="m-stats-grid" id="statsGrid"></div>
+    </div>
+</section>
+
+<!-- SECTORES -->
+<section class="m-section">
+    <div class="wrap">
+        <div class="m-section-head">
+            <span class="m-tag">Aplicaciones</span>
+            <h2>Sectores que servimos</h2>
+            <p>Esta marca está presente en múltiples industrias</p>
+        </div>
+        <div class="m-sectors-grid" id="sectorsGrid"></div>
+    </div>
+</section>
+
+<!-- PRODUCTOS -->
+<section class="m-section m-section-dark">
+    <div class="wrap">
+        <div class="m-section-head m-section-head-light">
+            <span class="m-tag m-tag-gold">Catálogo</span>
+            <h2 style="color:#fff">Nuestros Productos</h2>
+            <p style="color:rgba(255,255,255,0.65)" id="productsCount"></p>
+        </div>
+        <div class="m-grid" id="productsGrid"></div>
+    </div>
+</section>
+
+<!-- MODAL FICHA -->
+<div class="m-modal-overlay" id="fichaModal" onclick="closeFicha(event)">
+    <div class="m-modal">
+        <div class="m-modal-head" id="fichaHead">
+            <div><h3 id="fichaNombre"></h3><span id="fichaDesc"></span></div>
+            <button class="m-modal-close" onclick="closeFichaBtn()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="m-modal-body">
+            <p class="m-specs-title">Especificaciones técnicas</p>
+            <table class="m-specs" id="fichaTable"></table>
+        </div>
+    </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="m-lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="m-lightbox-close" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
+    <img id="lightboxImg" src="" alt="">
+</div>
+
+<!-- WHATSAPP -->
+<div class="m-wa">
+    <div class="m-wa-pulse"></div>
+    <a href="https://wa.me/584140060054?text=Hola,%20me%20gustaría%20obtener%20información%20sobre%20sus%20productos" target="_blank"><i class="fab fa-whatsapp"></i></a>
+</div>
+
+<style>
+/* HERO */
+.m-hero { margin-top: 68px; min-height: 480px; position: relative; overflow: hidden; display: flex; align-items: center; }
+.m-hero-bg { position: absolute; inset: 0; z-index: 0; }
+.m-hero-overlay { position: absolute; inset: 0; z-index: 1; }
+.m-hero-canvas { position: absolute; inset: 0; z-index: 2; pointer-events: none; width: 100%; height: 100%; }
+.m-hero-wrap { position: relative; z-index: 3; padding: 70px 24px 100px; display: grid; grid-template-columns: 1fr 340px; align-items: center; gap: 3rem; }
+.m-eyebrow { display: inline-block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: #dfa403; margin-bottom: 0.8rem; }
+.m-hero-title { font-size: 3.2rem; font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 1rem; letter-spacing: -1px; }
+.m-hero-desc { color: rgba(255,255,255,0.7); font-size: 1rem; line-height: 1.75; max-width: 500px; margin-bottom: 1.6rem; }
+.m-hero-pills { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.m-pill { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 50px; padding: 0.4rem 1rem; font-size: 0.75rem; color: rgba(255,255,255,0.85); font-weight: 600; backdrop-filter: blur(8px); }
+.m-logo-ring { width: 280px; height: 280px; border-radius: 50%; background: rgba(255,255,255,0.08); border: 2px solid rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; backdrop-filter: blur(12px); box-shadow: 0 0 60px rgba(0,0,0,0.2), inset 0 0 40px rgba(255,255,255,0.05); animation: logoFloat 4s ease-in-out infinite; }
+.m-logo-ring img { max-width: 70%; max-height: 70%; object-fit: contain; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.3)); }
+@keyframes logoFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+.m-hero-wave { position: absolute; bottom: -1px; left: 0; width: 100%; z-index: 4; line-height: 0; }
+.m-hero-wave svg { width: 100%; height: 80px; }
+
+/* STATS */
+.m-stats-bar { background: #fff; border-bottom: 1px solid #e8eef7; padding: 28px 0; }
+.m-stats-grid { display: flex; gap: 0; justify-content: center; flex-wrap: wrap; }
+.m-stat { flex: 1; min-width: 160px; text-align: center; padding: 1rem 1.5rem; border-right: 1px solid #e8eef7; }
+.m-stat:last-child { border-right: none; }
+.m-stat-num { font-size: 2rem; font-weight: 800; color: #2c5aa0; line-height: 1; }
+.m-stat-label { font-size: 0.78rem; color: #888; margin-top: 0.3rem; font-weight: 500; }
+
+/* SECTIONS */
+.m-section { padding: 72px 0; }
+.m-section-dark { background: linear-gradient(135deg, #071a3e 0%, #0d2a5e 50%, #1e3f73 100%); }
+.m-section-head { text-align: center; margin-bottom: 3rem; }
+.m-section-head h2 { font-size: 2rem; font-weight: 800; color: #0d2a5e; margin: 0.5rem 0; }
+.m-section-head p { color: #888; font-size: 0.95rem; }
+.m-section-head-light h2 { color: #fff; }
+.m-tag { display: inline-block; background: linear-gradient(135deg, #2c5aa0, #1e3f73); color: #fff; padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; }
+.m-tag-gold { background: linear-gradient(135deg, #dfa403, #f5c518); color: #0d2a5e; }
+
+/* SECTORES */
+.m-sectors-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+.m-sector-card { background: #fff; border: 1.5px solid #e4ecf7; border-radius: 16px; padding: 1.4rem 1.2rem; display: flex; flex-direction: column; align-items: center; gap: 0.7rem; text-align: center; transition: all .25s; cursor: default; }
+.m-sector-card:hover { border-color: #2c5aa0; transform: translateY(-4px); box-shadow: 0 10px 28px rgba(44,90,160,0.12); }
+.m-sector-card img { height: 44px; object-fit: contain; }
+.m-sector-card span { font-size: 0.82rem; font-weight: 600; color: #2c5aa0; }
+
+/* PRODUCTOS */
+.m-grid { display: flex; flex-direction: column; gap: 1.4rem; }
+.m-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 20px; overflow: hidden; display: grid; grid-template-columns: 280px 1fr; transition: all .3s; backdrop-filter: blur(8px); }
+.m-card:hover { background: rgba(255,255,255,0.1); border-color: rgba(223,164,3,0.4); transform: translateY(-3px); box-shadow: 0 16px 48px rgba(0,0,0,0.2); }
+.m-card-img { background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; padding: 0; overflow: hidden; position: relative; min-height: 200px; cursor: pointer; }
+.m-card-img img { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: cover; transition: transform .4s; }
+.m-card:hover .m-card-img img { transform: scale(1.06); }
+.m-zoom-btn { position: absolute; bottom: 10px; right: 10px; z-index: 2; width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,0.9); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: #2c5aa0; font-size: 0.85rem; opacity: 0; transform: scale(0.8); transition: all .25s; }
+.m-card:hover .m-zoom-btn { opacity: 1; transform: scale(1); }
+.m-card-info { padding: 1.8rem 2rem; display: flex; flex-direction: column; justify-content: center; gap: 0.7rem; }
+.m-card-name { font-size: 1.1rem; font-weight: 800; color: #fff; line-height: 1.3; }
+.m-card-pres { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(223,164,3,0.15); color: #dfa403; font-size: 0.72rem; font-weight: 700; padding: 0.28rem 0.8rem; border-radius: 50px; text-transform: uppercase; width: fit-content; border: 1px solid rgba(223,164,3,0.3); }
+.m-card-divider { height: 1px; background: rgba(255,255,255,0.1); }
+.m-btn-ficha { display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, #dfa403, #f5c518); color: #0d2a5e; border: none; border-radius: 50px; padding: 0.6rem 1.4rem; font-family: 'Poppins',sans-serif; font-size: 0.82rem; font-weight: 700; cursor: pointer; transition: all .25s; width: fit-content; box-shadow: 0 4px 14px rgba(223,164,3,0.3); }
+.m-btn-ficha:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(223,164,3,0.5); }
+
+/* MODAL */
+.m-modal-overlay { position: fixed; inset: 0; background: rgba(10,20,50,0.7); backdrop-filter: blur(6px); z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 1.5rem; opacity: 0; pointer-events: none; transition: opacity .25s; }
+.m-modal-overlay.open { opacity: 1; pointer-events: all; }
+.m-modal { background: #fff; border-radius: 22px; width: 100%; max-width: 600px; max-height: 88vh; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 30px 80px rgba(0,0,0,0.3); transform: translateY(30px) scale(0.97); transition: transform .3s cubic-bezier(.4,0,.2,1); }
+.m-modal-overlay.open .m-modal { transform: translateY(0) scale(1); }
+.m-modal-head { padding: 1.5rem 2rem; display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+.m-modal-head h3 { font-size: 1.05rem; font-weight: 700; color: #fff; line-height: 1.3; }
+.m-modal-head span { font-size: 0.75rem; color: rgba(255,255,255,0.6); display: block; margin-top: 0.2rem; }
+.m-modal-close { background: rgba(255,255,255,0.15); border: none; color: #fff; width: 34px; height: 34px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 0.95rem; transition: background .2s; flex-shrink: 0; }
+.m-modal-close:hover { background: rgba(255,255,255,0.3); }
+.m-modal-body { padding: 1.8rem 2rem; overflow-y: auto; flex: 1; }
+.m-specs-title { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #aab; margin-bottom: 0.8rem; }
+.m-specs { width: 100%; border-collapse: collapse; }
+.m-specs tr { border-bottom: 1px solid #f0f4fb; }
+.m-specs tr:last-child { border-bottom: none; }
+.m-specs .sl { font-weight: 600; color: #2c5aa0; padding: 0.5rem 0.8rem 0.5rem 0; width: 40%; font-size: 0.8rem; vertical-align: top; }
+.m-specs .sv { color: #444; padding: 0.5rem 0; font-size: 0.8rem; line-height: 1.5; }
+.m-specs tr:nth-child(even) { background: #f8faff; }
+
+/* LIGHTBOX */
+.m-lightbox { position: fixed; inset: 0; background: rgba(5,10,30,0.92); backdrop-filter: blur(8px); z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 2rem; opacity: 0; pointer-events: none; transition: opacity .25s; }
+.m-lightbox.open { opacity: 1; pointer-events: all; }
+.m-lightbox img { max-width: 90vw; max-height: 85vh; object-fit: contain; border-radius: 12px; box-shadow: 0 30px 80px rgba(0,0,0,0.5); transform: scale(0.92); transition: transform .3s cubic-bezier(.4,0,.2,1); }
+.m-lightbox.open img { transform: scale(1); }
+.m-lightbox-close { position: absolute; top: 1.2rem; right: 1.2rem; background: rgba(255,255,255,0.12); border: none; color: #fff; width: 42px; height: 42px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: background .2s; }
+.m-lightbox-close:hover { background: rgba(255,255,255,0.25); }
+
+/* WA */
+.m-wa { position: fixed; bottom: 28px; right: 28px; z-index: 500; }
+.m-wa-pulse { position: absolute; inset: 0; border-radius: 50%; background: rgba(37,211,102,0.4); animation: waPulse 2s ease-out infinite; }
+@keyframes waPulse { 0%{transform:scale(1);opacity:.7} 100%{transform:scale(1.8);opacity:0} }
+.m-wa a { width: 56px; height: 56px; border-radius: 50%; background: #25d366; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.5rem; box-shadow: 0 6px 24px rgba(37,211,102,0.45); transition: all .3s; text-decoration: none; position: relative; z-index: 1; }
+.m-wa a:hover { transform: scale(1.1); }
+
+/* EMPTY */
+.m-empty { text-align: center; padding: 4rem 2rem; color: rgba(255,255,255,0.5); }
+.m-empty i { font-size: 2.5rem; display: block; margin-bottom: 1rem; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .m-hero-wrap { grid-template-columns: 1fr; }
+    .m-hero-right { display: none; }
+    .m-hero-title { font-size: 2rem; }
+    .m-card { grid-template-columns: 1fr; }
+    .m-card-img { min-height: 200px; }
+    .m-stats-grid { gap: 0; }
+    .m-stat { min-width: 120px; }
+    .m-sectors-grid { grid-template-columns: repeat(auto-fill, minmax(140px,1fr)); }
+}
+</style>
+
+<script src="script.js"></script>
+<script>
+const params   = new URLSearchParams(location.search);
+const brandKey = params.get('marca') || 'monte-blanco';
+const brand    = brandConfig[brandKey];
+
+const brandInfo = {
+    'monte-blanco': {
+        eyebrow: 'Marca Principal',
+        desc: 'Sal purificada recristalizada al vacío, eliminando impurezas para garantizar un producto de alta calidad para el consumo humano y agroindustrial.',
+        pills: ['Recristalizada al vacío', 'Sin impurezas', 'Grano uniforme'],
+        heroBg: 'linear-gradient(135deg, #071a3e 0%, #0d2a5e 50%, #1e3f73 100%)',
+        heroOverlay: 'radial-gradient(ellipse at 75% 50%, rgba(44,90,160,0.35) 0%, transparent 65%)',
+        particleColor: 'rgba(180,215,255,',
+        stats: [
+            { num: '99.5%', label: 'Pureza NaCl' },
+            { num: '0.3%', label: 'Humedad máx.' },
+            { num: 'Vacío', label: 'Proceso' },
+            { num: '73+', label: 'Años de calidad' }
+        ]
+    },
+    'cruz-de-oro': {
+        eyebrow: 'Sal Refinada',
+        desc: 'Sal refinada de alta pureza, en cuya elaboración se eliminan las impurezas, garantizando un producto de calidad para el consumo humano e industrial.',
+        pills: ['Sal molida en húmedo', 'Libre de impurezas', 'Alta calidad'],
+        heroBg: 'linear-gradient(135deg, #1a0800 0%, #3d1a00 50%, #7a3500 100%)',
+        heroOverlay: 'radial-gradient(ellipse at 75% 50%, rgba(223,164,3,0.3) 0%, transparent 65%)',
+        particleColor: 'rgba(255,215,0,',
+        stats: [
+            { num: '99%', label: 'Pureza NaCl' },
+            { num: '0.3%', label: 'Humedad máx.' },
+            { num: 'Húmedo', label: 'Proceso' },
+            { num: '73+', label: 'Años de calidad' }
+        ]
+    },
+    'condor': {
+        eyebrow: 'Sal Marina Gourmet',
+        desc: 'Sal Marina con grano grueso ideal y especial para todo tipo de carnes y pescados, ofreciendo ese toque de sabor auténtico y natural.',
+        pills: ['Sal Marina auténtica', 'Grano grueso', 'Ideal para carnes y pescados'],
+        heroBg: 'linear-gradient(135deg, #1a0000 0%, #4a0000 50%, #8b0000 100%)',
+        heroOverlay: 'radial-gradient(ellipse at 75% 50%, rgba(180,0,0,0.25) 0%, transparent 65%)',
+        particleColor: 'rgba(255,140,0,',
+        stats: [
+            { num: '98%', label: 'Pureza NaCl' },
+            { num: '5%', label: 'Humedad máx.' },
+            { num: 'Marina', label: 'Origen' },
+            { num: '73+', label: 'Años de calidad' }
+        ]
+    }
+};
+
+const info = brandInfo[brandKey] || brandInfo['monte-blanco'];
+
+// Hero
+document.getElementById('heroLogo').src = brand?.logo || '';
+document.getElementById('heroLogo').alt = brand?.label || '';
+document.getElementById('heroEyebrow').textContent = info.eyebrow;
+document.getElementById('heroName').textContent = brand?.label || '';
+document.getElementById('heroDesc').textContent = info.desc;
+document.getElementById('heroBg').style.background = info.heroBg;
+document.getElementById('heroOverlay').style.background = info.heroOverlay;
+document.title = `${brand?.label || 'Marca'} - Indusalca`;
+
+info.pills.forEach(t => {
+    const el = document.createElement('span');
+    el.className = 'm-pill';
+    el.innerHTML = `<i class="fas fa-check-circle" style="color:#dfa403"></i> ${t}`;
+    document.getElementById('heroPills').appendChild(el);
+});
+
+// Canvas partículas hero
+(function() {
+    const canvas = document.getElementById('heroCanvas');
+    const ctx = canvas.getContext('2d');
+    function resize() { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
+    resize(); window.addEventListener('resize', resize);
+    const pc = info.particleColor;
+    const particles = Array.from({length: 35}, () => ({
+        x: Math.random() * canvas.width, y: Math.random() * canvas.height,
+        s: Math.random() * 4 + 2, vx: (Math.random()-.5)*.4, vy: (Math.random()-.5)*.4,
+        a: Math.random()*.4+.15, r: Math.random()*45
+    }));
+    function draw() {
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        particles.forEach(p => {
+            p.x += p.vx; p.y += p.vy;
+            if (p.x<0||p.x>canvas.width) p.vx*=-1;
+            if (p.y<0||p.y>canvas.height) p.vy*=-1;
+            ctx.save();
+            ctx.translate(p.x, p.y);
+            ctx.rotate(p.r * Math.PI/180);
+            ctx.fillStyle = pc + p.a + ')';
+            ctx.strokeStyle = 'rgba(255,255,255,' + (p.a*.6) + ')';
+            ctx.lineWidth = .5;
+            ctx.beginPath();
+            ctx.rect(-p.s/2, -p.s/2, p.s, p.s);
+            ctx.fill(); ctx.stroke();
+            ctx.restore();
+        });
+        requestAnimationFrame(draw);
+    }
+    draw();
+})();
+
+// Stats
+const statsGrid = document.getElementById('statsGrid');
+info.stats.forEach(s => {
+    statsGrid.innerHTML += `<div class="m-stat"><div class="m-stat-num">${s.num}</div><div class="m-stat-label">${s.label}</div></div>`;
+});
+
+// Sectores
+const sectorIcons = {
+    agroindustria:'catalogo/icono/agroindustria.png', hogar:'catalogo/icono/hogar.png',
+    quesera:'catalogo/icono/queso.png', industria:'catalogo/icono/industria.png',
+    textil:'catalogo/icono/textil.png', aguas:'catalogo/icono/aguas.png',
+    petrolera:'catalogo/icono/petroleo.png', agraria:'catalogo/icono/animal.png',
+    piscinas:'catalogo/icono/piscinas.png', farmaceutica:'catalogo/icono/farmacia.png',
+    salmuera:'catalogo/icono/salmura.png'
+};
+const sectorsGrid = document.getElementById('sectorsGrid');
+Object.entries(productCatalogs).forEach(([sector, brands]) => {
+    if (!brands[brandKey]?.length) return;
+    sectorsGrid.innerHTML += `
+    <div class="m-sector-card">
+        <img src="${sectorIcons[sector]||''}" alt="${sectorTitles[sector]||sector}">
+        <span>${sectorTitles[sector]||sector}</span>
+    </div>`;
+});
+
+// Productos (sin duplicados por nombre)
+const seen = new Set(), allProducts = [];
+Object.entries(productCatalogs).forEach(([,brands]) => {
+    (brands[brandKey]||[]).forEach(p => {
+        if (!seen.has(p.name)) { seen.add(p.name); allProducts.push(p); }
+    });
+});
+document.getElementById('productsCount').textContent = `${allProducts.length} producto${allProducts.length!==1?'s':''} disponibles`;
+
+const grid = document.getElementById('productsGrid');
+if (!allProducts.length) {
+    grid.innerHTML = `<div class="m-empty"><i class="fas fa-box-open"></i><p>No hay productos registrados.</p></div>`;
+} else {
+    grid.innerHTML = allProducts.map((p,i) => `
+    <div class="m-card">
+        <div class="m-card-img" onclick="openLightbox('${p.image}','${p.name}')">
+            <img src="${p.image}" alt="${p.name}" loading="lazy">
+            <button class="m-zoom-btn" onclick="event.stopPropagation();openLightbox('${p.image}','${p.name}')"><i class="fas fa-search-plus"></i></button>
+        </div>
+        <div class="m-card-info">
+            <p class="m-card-name">${p.name}</p>
+            <span class="m-card-pres"><i class="fas fa-box"></i> ${p.description}</span>
+            <div class="m-card-divider"></div>
+            <button class="m-btn-ficha" onclick="openFicha(${i})"><i class="fas fa-file-alt"></i> Ver ficha técnica</button>
+        </div>
+    </div>`).join('');
+}
+
+// Modal color por marca
+const modalColors = { 'monte-blanco':'linear-gradient(105deg,#0d2a5e,#2c5aa0)', 'cruz-de-oro':'linear-gradient(105deg,#3d1a00,#7a3500)', 'condor':'linear-gradient(105deg,#1a0000,#8b0000)' };
+document.getElementById('fichaHead').style.background = modalColors[brandKey] || modalColors['monte-blanco'];
+
+function openFicha(i) {
+    const p = allProducts[i]; if (!p) return;
+    const specs = typeof getTechnicalDetails==='function' ? getTechnicalDetails(p) : [];
+    document.getElementById('fichaNombre').textContent = p.name;
+    document.getElementById('fichaDesc').textContent   = p.description;
+    document.getElementById('fichaTable').innerHTML = specs.length
+        ? specs.map(s=>`<tr><td class="sl">${s.label}</td><td class="sv">${s.value}</td></tr>`).join('')
+        : `<tr><td class="sl" colspan="2" style="color:#bbb;font-style:italic">Ficha técnica no disponible.</td></tr>`;
+    document.getElementById('fichaModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+function closeFichaBtn() { document.getElementById('fichaModal').classList.remove('open'); document.body.style.overflow=''; }
+function closeFicha(e) { if (e.target===document.getElementById('fichaModal')) closeFichaBtn(); }
+function openLightbox(src,alt) { document.getElementById('lightboxImg').src=src; document.getElementById('lightboxImg').alt=alt; document.getElementById('lightbox').classList.add('open'); document.body.style.overflow='hidden'; }
+function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow=''; }
+document.addEventListener('keydown', e=>{ if(e.key==='Escape'){closeFichaBtn();closeLightbox();} });
+</script>
+</body>
+</html>
