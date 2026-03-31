@@ -2,7 +2,7 @@
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 
-$destino = 'programadorweb.indusalca@gmail.com';
+$destino = 'ventas@indusalca.com.ve';
 
 $nombre  = htmlspecialchars(strip_tags(trim($_POST['name']    ?? '')));
 $email   = filter_var(trim($_POST['email']   ?? ''), FILTER_SANITIZE_EMAIL);

@@ -2,7 +2,7 @@
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 
-$destino = 'programadorweb.indusalca@gmail.com';
+$destino = 'recursoshumanos@indusalca.com.ve';
 
 $cargo     = htmlspecialchars(strip_tags(trim($_POST['cargo']      ?? 'CV Espontáneo')));
 $nombre    = htmlspecialchars(strip_tags(trim($_POST['nombre']     ?? '')));
