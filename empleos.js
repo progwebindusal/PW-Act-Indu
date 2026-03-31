@@ -195,8 +195,41 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        cerrarFormulario();
-        mostrarNotif('¡Aplicación enviada con éxito! Nos pondremos en contacto contigo pronto.', 'success');
+        const btn = form.querySelector('button[type="submit"]');
+        const txtOriginal = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+        btn.disabled = true;
+
+        const data = new FormData();
+        data.append('cargo',       document.getElementById('campo-cargo-id').value || 'CV Espontáneo');
+        data.append('nombre',      document.getElementById('ap-nombre').value);
+        data.append('cedula',      document.getElementById('ap-cedula').value);
+        data.append('email',       document.getElementById('ap-email').value);
+        data.append('telefono',    document.getElementById('ap-telefono').value);
+        data.append('educacion',   document.getElementById('ap-educacion').value);
+        data.append('experiencia', document.getElementById('ap-experiencia').value);
+        data.append('mensaje',     document.getElementById('ap-mensaje').value);
+        const cvFile = document.getElementById('ap-cv');
+        if (cvFile && cvFile.files[0]) data.append('cv', cvFile.files[0]);
+
+        fetch('empleo.php', { method: 'POST', body: data })
+            .then(r => r.json())
+            .then(res => {
+                cerrarFormulario();
+                if (res.ok) {
+                    mostrarNotif('¡Aplicación enviada con éxito! Nos pondremos en contacto contigo pronto.', 'success');
+                } else {
+                    mostrarNotif('Error al enviar. Por favor intenta de nuevo.', 'error');
+                }
+            })
+            .catch(() => {
+                cerrarFormulario();
+                mostrarNotif('Error de conexión. Por favor intenta de nuevo.', 'error');
+            })
+            .finally(() => {
+                btn.innerHTML = txtOriginal;
+                btn.disabled = false;
+            });
     });
 });
 

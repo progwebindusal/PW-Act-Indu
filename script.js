@@ -319,29 +319,31 @@ function clearFieldError(input) {
 }
 
 function submitForm() {
-    // Show loading state
     const submitBtn = document.querySelector('button[type="submit"]');
-    if (submitBtn) {
-        const originalText = submitBtn.textContent;
-        submitBtn.textContent = 'Enviando...';
-        submitBtn.disabled = true;
+    const form = document.getElementById('contactForm');
+    if (!submitBtn || !form) return;
 
-        // Simulate API call
-        setTimeout(() => {
-            // Show success message
-            showNotification('¡Mensaje enviado exitosamente! Nos pondremos en contacto pronto.', 'success');
-            
-            // Reset form
-            const form = document.getElementById('contactForm');
-            if (form) {
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Enviando...';
+    submitBtn.disabled = true;
+
+    const data = new FormData(form);
+
+    fetch('contacto.php', { method: 'POST', body: data })
+        .then(r => r.json())
+        .then(res => {
+            if (res.ok) {
+                showNotification('¡Mensaje enviado! Nos pondremos en contacto pronto.', 'success');
                 form.reset();
+            } else {
+                showNotification('Error al enviar. Intenta de nuevo.', 'error');
             }
-            
-            // Reset button
+        })
+        .catch(() => showNotification('Error de conexión. Intenta de nuevo.', 'error'))
+        .finally(() => {
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
-        }, 2000);
-    }
+        });
 }
 
 function showNotification(message, type = 'info') {
