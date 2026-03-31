@@ -136,7 +136,7 @@ function abrirFormulario(vacanteId) {
     }
 
     document.getElementById('form-aplicar').reset();
-    document.getElementById('campo-cargo-id').value = vacanteId || '';
+    document.getElementById('campo-cargo-id').value = v ? v.titulo : 'CV Espontáneo';
     // Reset file input label
     const fileText = document.getElementById('file-upload-text');
     const fileLabel = document.querySelector('.file-upload-label');
