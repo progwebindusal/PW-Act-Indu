@@ -1017,8 +1017,8 @@ const productCatalogs = {
         ]
     },
     agraria: {
-        'monte-blanco': [
-            { name: 'SAL INDUSTRIAL MONTE BLANCO', description: 'SACOS 20KG', image: 'catalogo/granos/Mb Industrial.jpeg' }
+        'cruz-de-oro': [
+            { name: 'SAL MOLIDA PARA CONSUMO ANIMAL CRUZ DE ORO', description: 'SACOS 20KG', image: 'catalogo/granos/Mb Industrial.jpeg' }
         ]
     },
     piscinas: {
@@ -1432,6 +1432,25 @@ function getTechnicalDetails(product) {
             { label: 'Turbidez (NTU)', value: 'Máximo 100' },
             { label: 'pH', value: 'Máximo 8.5' },
             { label: 'Aspecto', value: 'Ligeramente turbio' },
+            { label: 'Sabor', value: 'Salado' },
+            { label: 'Olor', value: 'Característico' }
+        );
+        return details;
+    }
+
+    // Especificaciones para SAL MOLIDA PARA CONSUMO ANIMAL
+    if (product.name.includes('CONSUMO ANIMAL') || product.name.includes('MOLIDA PARA CONSUMO')) {
+        details.push(
+            { label: 'Humedad', value: 'Máximo 1%' },
+            { label: 'Cloruro de Sodio (NaCl)', value: 'Mínimo 98%' },
+            { label: 'Sulfatos', value: 'Máximo 0.3%' },
+            { label: 'Calcio', value: 'Máximo 0.1%' },
+            { label: 'Magnesio', value: 'Máximo 0.1%' },
+            { label: 'Carbonatos', value: 'Máximo 0.1%' },
+            { label: 'Carbonatos de Calcio', value: 'Máximo 0.15%' },
+            { label: 'Material Insoluble', value: 'Máximo 0.1%' },
+            { label: 'Aspecto', value: 'Cristalino' },
+            { label: 'Color', value: 'Marrón claro o color rojiza dependiendo de las especificaciones del cliente (adición o no de óxido férrico)' },
             { label: 'Sabor', value: 'Salado' },
             { label: 'Olor', value: 'Característico' }
         );
