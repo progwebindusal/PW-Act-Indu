@@ -1973,11 +1973,11 @@ document.querySelectorAll('a[href^="#value-"]').forEach(link => {
 function scrollToBrand(brandId) {
     const brandCard = document.getElementById(brandId);
     if (!brandCard) return;
-    // En móvil dar tiempo a que el menú se cierre antes de hacer scroll
-    const delay = ('ontouchstart' in window) ? 350 : 0;
+    const delay = ('ontouchstart' in window) ? 400 : 0;
     setTimeout(() => {
-        const offsetTop = brandCard.offsetTop - 100;
-        window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+        const rect = brandCard.getBoundingClientRect();
+        const scrollTop = window.pageYOffset + rect.top - 90;
+        window.scrollTo({ top: scrollTop, behavior: 'smooth' });
         brandCard.classList.add('highlight');
         setTimeout(() => { brandCard.classList.remove('highlight'); }, 2000);
     }, delay);
