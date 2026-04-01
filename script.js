@@ -2059,6 +2059,26 @@ function initBrandInteractions() {
         });
         card.style.cursor = 'pointer';
     });
+
+    // En móvil: activar partículas automáticamente al entrar en viewport
+    if (window.matchMedia('(max-width: 768px)').matches || 'ontouchstart' in window) {
+        const mobileParticleObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const card = entry.target;
+                    let count = 0;
+                    createBrandParticles(card);
+                    const interval = setInterval(() => {
+                        createBrandParticles(card);
+                        count++;
+                        if (count >= 4) clearInterval(interval); // 4 ráfagas y para
+                    }, 600);
+                }
+            });
+        }, { threshold: 0.4 });
+
+        brandCards.forEach(card => mobileParticleObserver.observe(card));
+    }
     
     // Animación de entrada para las tarjetas de marca
     const observer = new IntersectionObserver((entries) => {
