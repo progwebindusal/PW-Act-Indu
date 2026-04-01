@@ -297,26 +297,66 @@ info.pills.forEach(t => {
     const ctx = canvas.getContext('2d');
     function resize() { canvas.width = canvas.offsetWidth; canvas.height = canvas.offsetHeight; }
     resize(); window.addEventListener('resize', resize);
-    const pc = info.particleColor;
-    const particles = Array.from({length: 35}, () => ({
-        x: Math.random() * canvas.width, y: Math.random() * canvas.height,
-        s: Math.random() * 4 + 2, vx: (Math.random()-.5)*.4, vy: (Math.random()-.5)*.4,
-        a: Math.random()*.4+.15, r: Math.random()*45
-    }));
+
+    // Configuración por marca: igual que las brand cards
+    const canvasCfg = {
+        'monte-blanco': { count: 35, sizeMin: 3, sizeMax: 7,  color: 'rgba(255,255,255,', opacity: 0.35 },
+        'cruz-de-oro':  { count: 30, sizeMin: 4, sizeMax: 10, color: 'rgba(255,215,0,',   opacity: 0.4  },
+        'condor':       { count: 22, sizeMin: 8, sizeMax: 18, color: 'rgba(255,140,0,',   opacity: 0.35 }
+    };
+    const cfg = canvasCfg[brandKey] || canvasCfg['monte-blanco'];
+
+    // Genera polígono irregular para Cóndor
+    function makePolygonPoints(s) {
+        const pts = 6;
+        const points = [];
+        for (let i = 0; i < pts; i++) {
+            const angle = (i / pts) * Math.PI * 2;
+            const r = s * (0.5 + Math.random() * 0.35);
+            points.push({ x: r * Math.cos(angle), y: r * Math.sin(angle) });
+        }
+        return points;
+    }
+
+    const particles = Array.from({length: cfg.count}, () => {
+        const s = Math.random() * (cfg.sizeMax - cfg.sizeMin) + cfg.sizeMin;
+        const shape = brandKey === 'condor' ? 'irregular'
+                    : brandKey === 'cruz-de-oro' ? (Math.random() > 0.5 ? 'cube' : 'asym')
+                    : 'cube';
+        // Para asym: calcular radios fijos una sola vez
+        const rx = shape === 'asym' ? s * (0.3 + Math.random() * 0.4) : 0;
+        const ry = shape === 'asym' ? s * (0.3 + Math.random() * 0.4) : 0;
+        // Para irregular: calcular puntos fijos una sola vez
+        const polyPts = shape === 'irregular' ? makePolygonPoints(s) : null;
+        return {
+            x: Math.random() * 1200, y: Math.random() * 500,
+            s, vx: (Math.random() - 0.5) * 0.4, vy: (Math.random() - 0.5) * 0.4,
+            a: Math.random() * cfg.opacity + 0.1,
+            r: Math.random() * 45, shape, rx, ry, polyPts
+        };
+    });
+
     function draw() {
-        ctx.clearRect(0,0,canvas.width,canvas.height);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
         particles.forEach(p => {
             p.x += p.vx; p.y += p.vy;
-            if (p.x<0||p.x>canvas.width) p.vx*=-1;
-            if (p.y<0||p.y>canvas.height) p.vy*=-1;
+            if (p.x < 0 || p.x > canvas.width)  p.vx *= -1;
+            if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
             ctx.save();
             ctx.translate(p.x, p.y);
-            ctx.rotate(p.r * Math.PI/180);
-            ctx.fillStyle = pc + p.a + ')';
-            ctx.strokeStyle = 'rgba(255,255,255,' + (p.a*.6) + ')';
-            ctx.lineWidth = .5;
+            ctx.rotate(p.r * Math.PI / 180);
+            ctx.fillStyle   = cfg.color + p.a + ')';
+            ctx.strokeStyle = 'rgba(255,255,255,' + (p.a * 0.5) + ')';
+            ctx.lineWidth   = 0.5;
             ctx.beginPath();
-            ctx.rect(-p.s/2, -p.s/2, p.s, p.s);
+            if (p.shape === 'cube') {
+                ctx.rect(-p.s / 2, -p.s / 2, p.s, p.s);
+            } else if (p.shape === 'asym') {
+                ctx.ellipse(0, 0, p.rx, p.ry, 0, 0, Math.PI * 2);
+            } else {
+                p.polyPts.forEach((pt, i) => i === 0 ? ctx.moveTo(pt.x, pt.y) : ctx.lineTo(pt.x, pt.y));
+                ctx.closePath();
+            }
             ctx.fill(); ctx.stroke();
             ctx.restore();
         });

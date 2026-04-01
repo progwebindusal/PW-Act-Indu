@@ -55,9 +55,9 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="#marcas">Todas las Marcas</a></li>
-                        <li><a href="#marcas" onclick="scrollToBrand('monte-blanco')">Monte Blanco</a></li>
-                        <li><a href="#marcas" onclick="scrollToBrand('cruz-de-oro')">Cruz de Oro</a></li>
-                        <li><a href="#marcas" onclick="scrollToBrand('condor')">Cóndor</a></li>
+                        <li><a href="#marcas" onclick="event.preventDefault(); scrollToBrand('monte-blanco')">Monte Blanco</a></li>
+                        <li><a href="#marcas" onclick="event.preventDefault(); scrollToBrand('cruz-de-oro')">Cruz de Oro</a></li>
+                        <li><a href="#marcas" onclick="event.preventDefault(); scrollToBrand('condor')">El Cóndor</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -66,16 +66,17 @@
                         <i class="fas fa-chevron-down dropdown-icon"></i>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#industries" onclick="openSectorFromNav('industria')">Industria</a></li>
-                        <li><a href="#industries" onclick="openSectorFromNav('petrolera')">Industria Petrolera</a></li>
                         <li><a href="#industries" onclick="openSectorFromNav('agroindustria')">Agroindustria</a></li>
+                        <li><a href="#industries" onclick="openSectorFromNav('hogar')">Hogar - Consumo Masivo</a></li>
                         <li><a href="#industries" onclick="openSectorFromNav('quesera')">Industria Quesera</a></li>
+                        <li><a href="#industries" onclick="openSectorFromNav('industria')">Industria</a></li>
                         <li><a href="#industries" onclick="openSectorFromNav('textil')">Industria Textil</a></li>
                         <li><a href="#industries" onclick="openSectorFromNav('farmaceutica')">Industria Farmacéutica</a></li>
+                        <li><a href="#industries" onclick="openSectorFromNav('salmuera')">Salmuera</a></li>
+                        <li><a href="#industries" onclick="openSectorFromNav('petrolera')">Industria Petrolera</a></li>
                         <li><a href="#industries" onclick="openSectorFromNav('agraria')">Consumo Animal</a></li>
-                        <li><a href="#industries" onclick="openSectorFromNav('hogar')">Hogar - Consumo Masivo</a></li>
-                        <li><a href="#industries" onclick="openSectorFromNav('aguas')">Tratamiento de Aguas</a></li>
                         <li><a href="#industries" onclick="openSectorFromNav('piscinas')">Poul Salt</a></li>
+                        <li><a href="#industries" onclick="openSectorFromNav('farmaceutica')">Industria Farmacéutica</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -654,7 +655,6 @@
                         <h3>Salmuera</h3>
                         <p>Solución salina de alta concentración para procesos industriales y operaciones petroleras.</p>
                         <ul>
-                            <li>Salmuera para industria alimenticia</li>
                             <li>Salmuera para industria petrolera</li>
                             <li>Despacho en contenedores y cisternas</li>
                         </ul>

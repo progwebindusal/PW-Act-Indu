@@ -1972,22 +1972,12 @@ document.querySelectorAll('a[href^="#value-"]').forEach(link => {
 function scrollToBrand(brandId) {
     const brandCard = document.getElementById(brandId);
     if (brandCard) {
-        // Esperar un momento para que el scroll a la sección se complete
+        const offsetTop = brandCard.offsetTop - 100;
+        window.scrollTo({ top: offsetTop, behavior: 'smooth' });
+        brandCard.classList.add('highlight');
         setTimeout(() => {
-            const offsetTop = brandCard.offsetTop - 100; // Account for fixed navbar
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
-            
-            // Agregar efecto de resaltado
-            brandCard.classList.add('highlight');
-            
-            // Remover el resaltado después de 2 segundos
-            setTimeout(() => {
-                brandCard.classList.remove('highlight');
-            }, 2000);
-        }, 500);
+            brandCard.classList.remove('highlight');
+        }, 2000);
     }
 }
 
@@ -2066,16 +2056,19 @@ function initBrandInteractions() {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const card = entry.target;
-                    let count = 0;
-                    createBrandParticles(card);
+                    // Crear partículas continuamente mientras el card esté visible
                     const interval = setInterval(() => {
                         createBrandParticles(card);
-                        count++;
-                        if (count >= 4) clearInterval(interval); // 4 ráfagas y para
-                    }, 600);
+                    }, 800);
+                    card._mobileInterval = interval;
+                } else {
+                    // Detener cuando sale del viewport
+                    if (entry.target._mobileInterval) {
+                        clearInterval(entry.target._mobileInterval);
+                    }
                 }
             });
-        }, { threshold: 0.4 });
+        }, { threshold: 0.3 });
 
         brandCards.forEach(card => mobileParticleObserver.observe(card));
     }
@@ -2182,11 +2175,13 @@ function createBrandParticles(card) {
             });
         });
 
+        // Remover después de la animación — duración normal en desktop, más larga en móvil
+        const removeDuration = ('ontouchstart' in window) ? duration * 1000 * 2.5 : duration * 1000;
         setTimeout(() => {
             if (particle.parentNode) {
                 particle.style.opacity = '0';
                 setTimeout(() => { if (particle.parentNode) particle.remove(); }, 300);
             }
-        }, duration * 1000);
+        }, removeDuration);
     }
 }
