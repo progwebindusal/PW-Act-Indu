@@ -1972,14 +1972,15 @@ document.querySelectorAll('a[href^="#value-"]').forEach(link => {
 // Función para hacer scroll a una marca específica
 function scrollToBrand(brandId) {
     const brandCard = document.getElementById(brandId);
-    if (brandCard) {
+    if (!brandCard) return;
+    // En móvil dar tiempo a que el menú se cierre antes de hacer scroll
+    const delay = ('ontouchstart' in window) ? 350 : 0;
+    setTimeout(() => {
         const offsetTop = brandCard.offsetTop - 100;
         window.scrollTo({ top: offsetTop, behavior: 'smooth' });
         brandCard.classList.add('highlight');
-        setTimeout(() => {
-            brandCard.classList.remove('highlight');
-        }, 2000);
-    }
+        setTimeout(() => { brandCard.classList.remove('highlight'); }, 2000);
+    }, delay);
 }
 
 // Agregar clase de resaltado cuando se navega a una marca
