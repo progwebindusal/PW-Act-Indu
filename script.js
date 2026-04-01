@@ -1018,7 +1018,8 @@ const productCatalogs = {
     },
     agraria: {
         'cruz-de-oro': [
-            { name: 'SAL MOLIDA PARA CONSUMO ANIMAL CRUZ DE ORO', description: 'SACOS 20KG', image: 'catalogo/granos/Mb Industrial.jpeg' }
+            { name: 'SAL MOLIDA PARA CONSUMO ANIMAL CRUZ DE ORO', description: 'SACOS 20KG', image: 'catalogo/granos/consumo animal.jpeg' },
+            { name: 'SAL MOLIDA GRUESA PARA CONSUMO ANIMAL CRUZ DE ORO', description: 'SACOS 20KG', image: 'catalogo/granos/consumo animal gruesa.jpeg' }
         ]
     },
     piscinas: {
