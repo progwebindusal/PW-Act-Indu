@@ -185,6 +185,8 @@ body {
     left: 0;
     background: white;
     min-width: 220px;
+    max-height: 70vh;
+    overflow-y: auto;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     border-radius: 8px;
     padding: 0.5rem 0;
