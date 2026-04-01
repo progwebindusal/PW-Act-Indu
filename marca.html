@@ -18,7 +18,7 @@
     .m-nav .wrap { display: flex; align-items: center; justify-content: space-between; }
     .m-back { display: inline-flex; align-items: center; gap: 0.5rem; background: none; border: none; color: #2c5aa0; font-family: 'Poppins',sans-serif; font-size: 0.88rem; font-weight: 600; cursor: pointer; transition: color .2s; }
     .m-back:hover { color: #dfa403; }
-    .m-nav-logo img { height: 40px; }
+    .m-nav-logo img { height: 52px; }
     </style>
 </head>
 <body>
@@ -129,12 +129,12 @@
 .m-hero-wave svg { width: 100%; height: 80px; }
 
 /* STATS */
-.m-stats-bar { background: #fff; border-bottom: 1px solid #e8eef7; padding: 28px 0; }
-.m-stats-grid { display: flex; gap: 0; justify-content: center; flex-wrap: wrap; }
-.m-stat { flex: 1; min-width: 160px; text-align: center; padding: 1rem 1.5rem; border-right: 1px solid #e8eef7; }
+.m-stats-bar { background: #fff; border-bottom: 1px solid #e8eef7; padding: 24px 0; }
+.m-stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+.m-stat { text-align: center; padding: 1rem 0.8rem; border-right: 1px solid #e8eef7; }
 .m-stat:last-child { border-right: none; }
-.m-stat-num { font-size: 2rem; font-weight: 800; color: #2c5aa0; line-height: 1; }
-.m-stat-label { font-size: 0.78rem; color: #888; margin-top: 0.3rem; font-weight: 500; }
+.m-stat-num { font-size: 1.4rem; font-weight: 800; color: #2c5aa0; line-height: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.m-stat-label { font-size: 0.7rem; color: #999; margin-top: 0.3rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
 
 /* SECTIONS */
 .m-section { padding: 72px 0; }
@@ -214,8 +214,9 @@
     .m-hero-title { font-size: 2rem; }
     .m-card { grid-template-columns: 1fr; }
     .m-card-img { min-height: 200px; }
-    .m-stats-grid { gap: 0; }
-    .m-stat { min-width: 120px; }
+    .m-stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .m-stat:nth-child(2) { border-right: none; }
+    .m-stat:nth-child(1), .m-stat:nth-child(2) { border-bottom: 1px solid #e8eef7; }
     .m-sectors-grid { grid-template-columns: repeat(auto-fill, minmax(140px,1fr)); }
 }
 </style>
@@ -238,7 +239,7 @@ const brandInfo = {
             { num: '99.5%', label: 'Pureza NaCl' },
             { num: '0.3%', label: 'Humedad máx.' },
             { num: 'Vacío', label: 'Proceso' },
-            { num: '73+', label: 'Años de calidad' }
+            { num: 'Recristalizada', label: 'Tipo de sal' }
         ]
     },
     'cruz-de-oro': {
@@ -252,7 +253,7 @@ const brandInfo = {
             { num: '99%', label: 'Pureza NaCl' },
             { num: '0.3%', label: 'Humedad máx.' },
             { num: 'Húmedo', label: 'Proceso' },
-            { num: '73+', label: 'Años de calidad' }
+            { num: 'Refinada', label: 'Tipo de sal' }
         ]
     },
     'condor': {
@@ -266,7 +267,7 @@ const brandInfo = {
             { num: '98%', label: 'Pureza NaCl' },
             { num: '5%', label: 'Humedad máx.' },
             { num: 'Marina', label: 'Origen' },
-            { num: '73+', label: 'Años de calidad' }
+            { num: 'Gruesa', label: 'Tipo de grano' }
         ]
     }
 };
