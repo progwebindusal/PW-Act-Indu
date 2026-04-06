@@ -1013,7 +1013,8 @@ const productCatalogs = {
     },
     aguas: {
         'monte-blanco': [
-            { name: 'SAL INDUSTRIAL MONTE BLANCO', description: 'SACOS 20KG', image: 'catalogo/granos/Mb Industrial.jpeg' }
+            { name: 'SAL INDUSTRIAL MONTE BLANCO', description: 'SACOS 20KG', image: 'catalogo/granos/Mb Industrial.jpeg' },
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO SIN YODO NI FLUOR', description: 'SACOS 20KG · SACOS 5KG', image: 'catalogo/granos/mb recristalizada.jpeg' }
         ]
     },
     agraria: {
@@ -1024,12 +1025,14 @@ const productCatalogs = {
     },
     piscinas: {
         'monte-blanco': [
-            { name: 'SAL INDUSTRIAL MONTE BLANCO', description: 'SACOS 20KG', image: 'catalogo/granos/Mb Industrial.jpeg' }
+            { name: 'SAL INDUSTRIAL MONTE BLANCO', description: 'SACOS 20KG', image: 'catalogo/granos/Mb Industrial.jpeg' },
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO SIN YODO NI FLUOR', description: 'SACOS 20KG · SACOS 5KG', image: 'catalogo/granos/mb recristalizada.jpeg' }
         ]
     },
     farmaceutica: {
         'monte-blanco': [
-            { name: 'SAL INDUSTRIAL MONTE BLANCO', description: 'SACOS 20KG', image: 'catalogo/granos/Mb Industrial.jpeg' }
+            { name: 'SAL INDUSTRIAL MONTE BLANCO', description: 'SACOS 20KG', image: 'catalogo/granos/Mb Industrial.jpeg' },
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO SIN YODO NI FLUOR', description: 'SACOS 20KG · SACOS 5KG', image: 'catalogo/granos/mb recristalizada.jpeg' }
         ]
     },
     petrolera: {
@@ -1059,7 +1062,7 @@ const sectorTitles = {
     agraria: 'Consumo Animal',
     hogar: 'Hogar - Consumo Masivo',
     aguas: 'Tratamiento de Aguas',
-    piscinas: 'Poul Salt',
+    piscinas: 'Pool Salt',
     salmuera: 'Salmuera'
 };
 
@@ -1435,6 +1438,26 @@ function getTechnicalDetails(product) {
             { label: 'Aspecto', value: 'Ligeramente turbio' },
             { label: 'Sabor', value: 'Salado' },
             { label: 'Olor', value: 'Característico' }
+        );
+        return details;
+    }
+
+    // Especificaciones para SAL RECRISTALIZADA SIN YODO NI FLUOR
+    if (product.name.includes('SIN YODO NI FLUOR')) {
+        details.push(
+            { label: 'Tipo', value: 'Sal Recristalizada' },
+            { label: 'Cloruro de Sodio (NaCl)', value: 'Mínimo 99.5%' },
+            { label: 'Humedad', value: 'Máximo 0.3%' },
+            { label: 'Materia Insoluble', value: 'Máximo 0.1%' },
+            { label: 'Sulfatos', value: 'Máximo 0.6%' },
+            { label: 'Calcio', value: 'Máximo 0.1%' },
+            { label: 'Magnesio', value: 'Máximo 0.1%' },
+            { label: 'Carbonatos', value: 'Máximo 0.1%' },
+            { label: 'Anticompactante', value: 'Máximo 10 mg/Kg' },
+            { label: 'Granulometría', value: 'Tamiz N 20 (841 µ) debe retener Máximo 2%' },
+            { label: 'Granulometría', value: 'Tamiz N 70 (841 µ) debe retener Máximo 19%' },
+            { label: 'Yodato', value: 'NO CONTIENE' },
+            { label: 'Fluoruro', value: 'NO CONTIENE' }
         );
         return details;
     }
