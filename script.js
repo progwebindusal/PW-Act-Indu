@@ -1014,7 +1014,7 @@ const productCatalogs = {
     aguas: {
         'monte-blanco': [
             { name: 'SAL INDUSTRIAL MONTE BLANCO', description: 'SACOS 20KG', image: 'catalogo/granos/Mb Industrial.jpeg' },
-            { name: 'SAL RECRISTALIZADA MONTE BLANCO SIN YODO NI FLUOR', description: 'SACOS 20KG · SACOS 5KG', image: 'catalogo/granos/mb recristalizada.jpeg' }
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO SIN YODO / SIN FLUOR', description: 'SACOS 20KG · SACOS 5KG', image: 'catalogo/granos/mb recristalizada.jpeg' }
         ]
     },
     agraria: {
@@ -1025,14 +1025,12 @@ const productCatalogs = {
     },
     piscinas: {
         'monte-blanco': [
-            { name: 'SAL INDUSTRIAL MONTE BLANCO', description: 'SACOS 20KG', image: 'catalogo/granos/Mb Industrial.jpeg' },
-            { name: 'SAL RECRISTALIZADA MONTE BLANCO SIN YODO NI FLUOR', description: 'SACOS 20KG · SACOS 5KG', image: 'catalogo/granos/mb recristalizada.jpeg' }
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO SIN YODO / SIN FLUOR', description: 'SACOS 20KG · SACOS 5KG', image: 'catalogo/granos/mb recristalizada.jpeg' }
         ]
     },
     farmaceutica: {
         'monte-blanco': [
-            { name: 'SAL INDUSTRIAL MONTE BLANCO', description: 'SACOS 20KG', image: 'catalogo/granos/Mb Industrial.jpeg' },
-            { name: 'SAL RECRISTALIZADA MONTE BLANCO SIN YODO NI FLUOR', description: 'SACOS 20KG · SACOS 5KG', image: 'catalogo/granos/mb recristalizada.jpeg' }
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO SIN YODO / SIN FLUOR', description: 'SACOS 20KG · SACOS 5KG', image: 'catalogo/granos/mb recristalizada.jpeg' }
         ]
     },
     petrolera: {
@@ -1443,7 +1441,7 @@ function getTechnicalDetails(product) {
     }
 
     // Especificaciones para SAL RECRISTALIZADA SIN YODO NI FLUOR
-    if (product.name.includes('SIN YODO NI FLUOR')) {
+    if (product.name.includes('SIN YODO')) {
         details.push(
             { label: 'Tipo', value: 'Sal Recristalizada' },
             { label: 'Cloruro de Sodio (NaCl)', value: 'Mínimo 99.5%' },
