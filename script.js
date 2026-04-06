@@ -1014,7 +1014,7 @@ const productCatalogs = {
     aguas: {
         'monte-blanco': [
             { name: 'SAL INDUSTRIAL MONTE BLANCO', description: 'SACOS 20KG', image: 'catalogo/granos/Mb Industrial.jpeg' },
-            { name: 'SAL RECRISTALIZADA MONTE BLANCO SIN YODO / SIN FLUOR', description: 'SACOS 20KG · SACOS 5KG', image: 'catalogo/granos/mb recristalizada.jpeg' }
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO SIN YODO / SIN FLUOR', description: 'SACOS 20KG · SACOS 5KG', image: 'catalogo/granos/MB Sin Y-F.png' }
         ]
     },
     agraria: {
@@ -1025,12 +1025,12 @@ const productCatalogs = {
     },
     piscinas: {
         'monte-blanco': [
-            { name: 'SAL RECRISTALIZADA MONTE BLANCO SIN YODO / SIN FLUOR', description: 'SACOS 20KG · SACOS 5KG', image: 'catalogo/granos/mb recristalizada.jpeg' }
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO SIN YODO / SIN FLUOR', description: 'SACOS 20KG · SACOS 5KG', image: 'catalogo/granos/MB Sin Y-F.png' }
         ]
     },
     farmaceutica: {
         'monte-blanco': [
-            { name: 'SAL RECRISTALIZADA MONTE BLANCO SIN YODO / SIN FLUOR', description: 'SACOS 20KG · SACOS 5KG', image: 'catalogo/granos/mb recristalizada.jpeg' }
+            { name: 'SAL RECRISTALIZADA MONTE BLANCO SIN YODO / SIN FLUOR', description: 'SACOS 20KG · SACOS 5KG', image: 'catalogo/granos/MB Sin Y-F.png' }
         ]
     },
     petrolera: {
@@ -2208,3 +2208,4 @@ function createBrandParticles(card) {
         }, removeDuration);
     }
 }
+
